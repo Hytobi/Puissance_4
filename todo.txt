@@ -1,0 +1,21 @@
+rage quit a la derniere ligne ??
+
+
+Commentaire des fonctions : jouer/IA.H/C sdlint.H/C 
+
+
+
+probleme dans la fct meilleur_coup : resolut ?
+
+
+dificulté ia :  3-meilleur algo( voir sur internet) ou avec arbre ?
+
+
+Dans l'interface SDL:
+=fenetre de win ou null en sdl dans jouer_fin.c/verifgagné
+=pouvoir quiter quand c'est l'ia qui joue
+
+=Afficher par defaut le choix iaia,joueurIa,JJ, 
+on change le contour de la case
+si on choisi un mode avec ia les bouton de dificulté ia aparaisse 
+(voir si on permet a l'utilisateur de revenir sur son choix de jeu et dans ce cas JJ enleve le choix ia)
