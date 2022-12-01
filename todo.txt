@@ -1,4 +1,4 @@
-rage quit a la derniere ligne ??
+rage quit a la derniere ligne ?? : c'est a cause de la sdl (je pense)
 
 
 Commentaire des fonctions : jouer/IA.H/C sdlint.H/C 
