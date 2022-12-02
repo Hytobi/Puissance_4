@@ -1,10 +1,11 @@
 #include "../src/jouer_fin.h"
 #include "../src/userInterface.h"
+#include "tab.h"
 #include "test_jouer.h"
 
 void test_estColonneValide(void) {
     // On crée un plateau de jeu vide
-    Player p[NB_LIGNES][NB_COLONNES] = {EMPTY};
+    Player p[NB_LIGNES][NB_COLONNES] = VIDE;
     // On regard c<0
     CU_ASSERT_EQUAL(estColonneValide(p, -1), 0);
     // On regarde c>6
@@ -20,12 +21,12 @@ void test_estColonneValide(void) {
 
 void test_estPartiePleine(void) {
     // On crée un plateau de jeu vide
-    Player p[NB_LIGNES][NB_COLONNES] = {EMPTY};
+    Player p[NB_LIGNES][NB_COLONNES] = VIDE;
     // On regard si le plateau est plein
     CU_ASSERT_EQUAL(estPartiePleine(p), 0);
 
     // On crée un plateau de jeu plein
-    Player p2[NB_LIGNES][NB_COLONNES] = {CROIX};
+    Player p2[NB_LIGNES][NB_COLONNES] = CROSS;
     // On regarde si le plateau est plein
     CU_ASSERT_EQUAL(estPartiePleine(p2), 1);
     // On regard si ca fonctionne pour chaque colonne
@@ -48,30 +49,10 @@ void test_estDansTab(void) {
     }
 }
 
-int compteValeur(Player p[][NB_COLONNES], Player val, int lig, int col,
-                 int incL, int incC) {
-    // On commence a 1 car p[lig][col] est déjà égal à val
-    int total = 1, l, c;
-    // On incrémente la ligne et la colonne
-    l = lig + incL;
-    c = col + incC;
-    // Tant qu'on est dans le tableau on continue
-    while (estDansTab(l, c)) {
-        // Si val n'est pas dans p[l][c], on arrête
-        if (p[l][c] != val) return total;
-        // Sinon on incrémente le total
-        total++;
-        // On incrémente la ligne et la colonne
-        l += incL;
-        c += incC;
-    }
-    return total;
-}
-
 void test_compteValeur(void) {
     int l, c;
     // On crée un plateau de jeu vide
-    Player p[NB_LIGNES][NB_COLONNES] = {EMPTY};
+    Player p[NB_LIGNES][NB_COLONNES] = VIDE;
     // On regarde si la fonction compteValeur fonctionne
     p[0][0] = CROIX;
     CU_ASSERT_EQUAL(compteValeur(p, CROIX, 0, 0, 0, 0), 1);
@@ -81,19 +62,19 @@ void test_compteValeur(void) {
         CU_ASSERT_EQUAL(compteValeur(p, CROIX, 0, 0, 0, 1), c + 1);
     }
     // Test compter en colonne
-    Player p2[NB_LIGNES][NB_COLONNES] = {EMPTY};
+    Player p2[NB_LIGNES][NB_COLONNES] = VIDE;
     for (l = 0; l < NB_LIGNES; l++) {
         p2[l][0] = CROIX;
         CU_ASSERT_EQUAL(compteValeur(p2, CROIX, 0, 0, 1, 0), l + 1);
     }
     // Test compter en diagonale
-    Player p3[NB_LIGNES][NB_COLONNES] = {EMPTY};
+    Player p3[NB_LIGNES][NB_COLONNES] = VIDE;
     for (l = 0; l < NB_LIGNES; l++) {
         p3[l][l] = CROIX;
         CU_ASSERT_EQUAL(compteValeur(p3, CROIX, 0, 0, 1, 1), l + 1);
     }
     // Test compter en diagonale inverse
-    Player p4[NB_LIGNES][NB_COLONNES] = {EMPTY};
+    Player p4[NB_LIGNES][NB_COLONNES] = VIDE;
     for (l = 0; l < NB_LIGNES; l++) {
         p4[l][NB_LIGNES - l - 1] = CROIX;
         CU_ASSERT_EQUAL(compteValeur(p4, CROIX, 0, NB_LIGNES - 1, 1, -1),
@@ -155,6 +136,7 @@ static CU_TestInfo test_array[] = {
     {" test_max ", test_max},
     CU_TEST_INFO_NULL};
 
-static CU_SuiteInfo suites[2] = {{"suite", NULL, NULL, NULL, NULL, test_array},
-                                 CU_SUITE_INFO_NULL};
+static CU_SuiteInfo suites[2] = {
+    {"suite_jouer_fin", NULL, NULL, NULL, NULL, test_array},
+    CU_SUITE_INFO_NULL};
 CU_SuiteInfo* getTestJouerFinSuites() { return suites; }

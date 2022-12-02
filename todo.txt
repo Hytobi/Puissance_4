@@ -22,6 +22,12 @@ si on choisi un mode avec ia les bouton de dificulté ia aparaisse
 
 
 
+pb makefile -> target_test je comprend pas ou est le bug
+
+
+Makefile sans le dossier test :
+
+
 CC := gcc
 SRC_DIR ?= src
 OBJ_DIR ?= obj
