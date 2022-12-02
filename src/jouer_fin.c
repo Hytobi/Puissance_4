@@ -27,10 +27,10 @@ int estColonneValide(Player p[][NB_COLONNES], int col) {
  * @return 1 si le plateau est plein, 0 sinon
  */
 int estPartiePleine(Player p[][NB_COLONNES]) {
-    for (int i = 0; i < NB_LIGNES; i++)
-        for (int j = 0; j < NB_COLONNES; j++)
-            // Si on trouve une case vide, la partie n'est pas pleine
-            if (p[i][j] == EMPTY) return 0;
+    // O regard juste la premier ligne comme on empile les jetons
+    for (int c = 0; c < NB_COLONNES; c++)
+        // Si on trouve une case vide, la partie n'est pas pleine
+        if (p[0][c] == EMPTY) return 0;
 
     return 1;
 }
@@ -59,6 +59,7 @@ int estDansTab(int l, int c) {
  */
 int compteValeur(Player p[][NB_COLONNES], Player val, int lig, int col,
                  int incL, int incC) {
+    if (incL == 0 && incC == 0) return 1;
     // On commence a 1 car p[lig][col] est déjà égal à val
     int total = 1, l, c;
     // On incrémente la ligne et la colonne

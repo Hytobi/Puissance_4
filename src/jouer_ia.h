@@ -11,8 +11,19 @@
 #include "jouer_fin.h"
 #include "userInterface.h"
 
+/*
+ ---------------------------
+ Fonction utils pour le main
+ ---------------------------
+*/
 void initRandom();
 int chercheColonne(Puissance* game);
 int cGagne(Player p[][NB_COLONNES], Player val, int lig, int col);
+
+/*
+ -----------------------------
+ Fonction utils pour les tests
+ -----------------------------
+*/
 
 #endif

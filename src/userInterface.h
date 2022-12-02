@@ -12,20 +12,23 @@
 #define NB_LIGNES 6
 
 /**
- * @brief Le joueur est soit un rond soit une croix
- * Si la case est vide, le joueur est EMPTY
+ * @enum Player
+ * @brief représente les joueurs
  */
-typedef enum { CROIX, ROND, EMPTY } Player;
+typedef enum {
+    CROIX,  //!< le joueur est une croix
+    ROND,   //!< le joueur est un rond
+    EMPTY   //!< la case est vide
+} Player;
 
 /**
+ * @struct userInterface
  * @brief La structure userInterface contient les informations
  * nécessaires à l'affichage de l'interface graphique
- * @param window La fenêtre SDL
- * @param renderer Le renderer SDL
  */
 typedef struct ui {
-    SDL_Window *window;
-    SDL_Renderer *renderer;
+    SDL_Window *window;      //!< La fenêtre SDL
+    SDL_Renderer *renderer;  //!< Le renderer SDL
 
 } userInterface;
 

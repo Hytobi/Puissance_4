@@ -11,26 +11,45 @@ else
 CFLAGS ?= -Wall -MMD -O3 -DNDEBUG
 endif
 
-LDFLAGS=
+LDFLAGS = -lcunit
 
-OBJS := $(shell find $(SRC_DIR) -name "*.c" |sed 's/.c$$/.o/g' | sed 's/$(SRC_DIR)/$(OBJ_DIR)/g')
+SRC := $(wildcard $(SRC_DIR)/*.c)
+OBJS := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+
+SRC_TEST := $(wildcard $(TEST_DIR)/*.c)
+OBJS_TEST := $(addprefix $(OBJ_DIR)/,$(SRC_TEST:.c=.o))
+
 DEPS := $(OBJS:.o=.d)
+DEPS_TEST := $(OBJS_TEST:.o=.d)
+
 TARGET ?= exec
+TARGET_TEST ?= runTest
 
-all: $(TARGET)
+.PHONY: clean mrproper
 
-$(TARGET): $(OBJS)	
-	$(CC) -o $(TARGET) $(OBJS) $(LDFLAGS) $(LIB)
+all: createRep $(TARGET) $(TARGET_TEST)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@ $(INCLU)
+createRep:
+	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)
+	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)
+
+$(TARGET): createRep $(OBJS)
+	$(CC) -o $(TARGET) $(OBJS) $(LDFLAGS) $(LIB) 
+
+$(TARGET_TEST): $(OBJS) $(OBJS_TEST)
+	$(CC) -o $(TARGET_TEST) $(filter-out $(OBJ_DIR)/$(SRC_DIR)/main.o ,$(OBJS)) $(OBJS_TEST) $(LDFLAGS) $(LIB)
+	
+
+$(OBJ_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
+	$(CC) $(CFLAGS) $(INCLU) -c $< -o $@
+
+$(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
+	$(CC) $(CFLAGS) $(INCLU) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)
 
 mrproper: clean
-	rm -f $(TARGET)
+	rm -f $(TARGET) $(TARGET_TEST)
 
-
--include $(DEPS)
+-include $(DEPS) $(DEPS_TEST)

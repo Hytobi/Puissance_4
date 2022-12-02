@@ -18,10 +18,28 @@ typedef struct {
     int ia;
 } Puissance;
 
+/*
+ ---------------------------
+ Fonction utils pour le main
+ ---------------------------
+*/
 Puissance* puissance_init(Player player);
 void puissance_playGame(Puissance* game, userInterface ui);
 
-// Pou l'ia
+/*
+ ------------------------
+ Fonction utils pour l'ia
+ ------------------------
+*/
 int chercheLigne(Player p[][NB_COLONNES], int col);
+
+/*
+ -----------------------------
+ Fonction utils pour les tests
+ -----------------------------
+*/
+int joueCoup(Puissance* game, userInterface ui, int x, int y);
+void playSDL(Puissance* game, userInterface ui);
+void playText(Puissance* game, userInterface ui);
 
 #endif

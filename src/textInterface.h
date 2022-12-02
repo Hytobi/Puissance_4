@@ -9,6 +9,11 @@
 
 #include "userInterface.h"
 
+/*
+ ---------------------------
+ Fonction utils pour le main
+ ---------------------------
+*/
 /**
  * @brief: Initialise l'interface en vue texte
  * Les paramètres de l'interface sont initialisés à NULL
@@ -40,4 +45,20 @@ void printBoard(Player p[][NB_COLONNES]);
  * @brief vide le buffer de l'entrée standard
  */
 void videBuffer();
+
+/*
+ -----------------------------
+ Fonction utils pour les tests
+ -----------------------------
+*/
+/**
+ * @brief Affiche la séparation entre 2 lignes du plateau de jeu
+ */
+void afficheLigneInter(int lig);
+
+/**
+ * @brief Affichage de l'index des colonnes
+ */
+void affichePremLigne();
+
 #endif
