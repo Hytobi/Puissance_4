@@ -1,3 +1,5 @@
+#include "test_jouer_fin.h"
+
 #include "../src/jouer_fin.h"
 #include "../src/userInterface.h"
 #include "tab.h"

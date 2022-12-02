@@ -26,4 +26,8 @@ int cGagne(Player p[][NB_COLONNES], Player val, int lig, int col);
  -----------------------------
 */
 
+int prochainCoupGagne(Player p[][NB_COLONNES], Player joueur);
+
+int coupAdversaire(Player p[][NB_COLONNES], Player joueur);
+
 #endif

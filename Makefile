@@ -36,7 +36,7 @@ createRep:
 
 $(TARGET): createRep $(OBJS)
 	$(CC) -o $(TARGET) $(OBJS) $(LDFLAGS) 
-	@echo "Compilation terminée"
+	@echo ""
 
 $(TARGET_TEST):  $(OBJS) $(OBJS_TEST)
 	$(CC) -o $(TARGET_TEST) $(filter-out $(OBJ_DIR)/$(SRC_DIR)/main.o ,$(OBJS)) $(OBJS_TEST) $(LDFLAGS) 
@@ -46,7 +46,6 @@ $(OBJ_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
-	@echo "Compilation des tests"
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
