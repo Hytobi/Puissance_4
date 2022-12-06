@@ -62,8 +62,8 @@ int coupAdversaire(Player p[][NB_COLONNES], Player joueur) {
             // https://www.instagram.com/reel/Ckkq2nCJNq5/?igshid=YmMyMTA2M2Y=
             // p[l - 1][c] = joueur;
             js = cGagne(p, joueur, l - 1, c);
-            printf("js = %d et c=%d\n", js, c);
-            // p[l - 1][c] = EMPTY;
+            // printf("js = %d et c=%d\n", js, c);
+            //  p[l - 1][c] = EMPTY;
 
             // Si il trouve un meilleur coup que le précédent
             // On remet le tableau à 0

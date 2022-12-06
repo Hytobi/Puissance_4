@@ -17,7 +17,8 @@
 Puissance* puissance_init(Player player) {
     Puissance* game = malloc(sizeof(Puissance));
     game->player = player;
-    game->joueur = 3;
+    game->joueur = 2;
+    game->ia = 2;
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
             // On met la grille à vide

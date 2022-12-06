@@ -21,7 +21,6 @@ si on choisi un mode avec ia les bouton de dificulté ia aparaisse
 (voir si on permet a l'utilisateur de revenir sur son choix de jeu et dans ce cas JJ enleve le choix ia)
 
 
-
 Makefile sans le dossier test :
 
 

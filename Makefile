@@ -47,6 +47,7 @@ $(OBJ_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 
 $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
+	@./$(TARGET_TEST)
 
 clean:
 	rm -rf $(OBJ_DIR)
