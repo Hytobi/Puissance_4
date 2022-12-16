@@ -6,6 +6,9 @@ Commentaire des fonctions : jouer/IA.H/C sdlint.H/C
 
 
 
+
+
+
 probleme dans la fct meilleur_coup : resolut ?
 
 

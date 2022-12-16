@@ -58,12 +58,11 @@ void playSDL(Puissance* game, userInterface ui) {
                 SDL_GetMouseState(&y, &x);
                 // coordonnées souris -> coordonnées tableau
                 y /= CASE;
-                x = chercheLigne(game->board, y);
-                // On joue si la case est vide
-                if (game->board[x][y] == EMPTY) {
+                if (estColonneValide(game->board, y)) {
+                    x = chercheLigne(game->board, y);
                     fini = joueCoup(game, ui, x, y);
                 }
-            }
+                        }
         } else {
             SDL_Delay(2000);
             // Sinon on joue un coup aléatoire

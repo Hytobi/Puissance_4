@@ -5,7 +5,7 @@ SRC_JOUER ?= jouer_coup
 OBJ_DIR ?= obj
 TEST_DIR ?= test
 DEBUG ?= 1
-LIB ?= -L./lib/lib -lSDL2
+LIB ?= -L./lib/lib -lSDL2 -lSDL2_image
 INCLU ?= -I./lib/include
 
 ifeq '$(DEBUG)' '1'
