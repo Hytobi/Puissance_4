@@ -9,7 +9,7 @@
 
 #include "jouer.h"
 #include "jouer_fin.h"
-#include "userInterface.h"
+#include "../interfaces/userInterface.h"
 
 /*
  ---------------------------

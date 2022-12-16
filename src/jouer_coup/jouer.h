@@ -7,9 +7,9 @@
 #ifndef JOUER_H
 #define JOUER_H
 
-#include "sldInterface.h"
-#include "textInterface.h"
-#include "userInterface.h"
+#include "../interfaces/sldInterface.h"
+#include "../interfaces/textInterface.h"
+#include "../interfaces/userInterface.h"
 
 typedef struct {
     Player board[NB_LIGNES][NB_COLONNES];

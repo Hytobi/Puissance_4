@@ -8,7 +8,7 @@
 #define JOUER_FIN_H
 
 #include "jouer.h"
-#include "userInterface.h"
+#include "../interfaces/userInterface.h"
 
 // Fonction utils pour le main
 /**

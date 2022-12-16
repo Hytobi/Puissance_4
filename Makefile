@@ -1,5 +1,7 @@
 CC := gcc
 SRC_DIR ?= src
+SRC_INTERFACE ?= interfaces
+SRC_JOUER ?= jouer_coup
 OBJ_DIR ?= obj
 TEST_DIR ?= test
 DEBUG ?= 1
@@ -14,8 +16,8 @@ endif
 
 LDFLAGS = -lcunit $(LIB)
 
-SRC := $(wildcard $(SRC_DIR)/*.c)
-OBJS := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+SRC := $(wildcard $(SRC_DIR)/*.c $(SRC_DIR)/$(SRC_INTERFACE)/*.c $(SRC_DIR)/$(SRC_JOUER)/*.c)
+OBJS := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o) $($(SRC_DIR)/SRC_INTERFACE:.c=.o) $($(SRC_DIR)/SRC_JOUER:.c=.o))
 
 SRC_TEST := $(wildcard $(TEST_DIR)/*.c)
 OBJS_TEST := $(addprefix $(OBJ_DIR)/, $(SRC_TEST:.c=.o))
@@ -32,6 +34,8 @@ all: createRep $(TARGET) $(TARGET_TEST)
 
 createRep:
 	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)
+	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)/$(SRC_INTERFACE)
+	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)/$(SRC_JOUER)
 	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)
 
 $(TARGET): createRep $(OBJS)

@@ -1,4 +1,4 @@
 #include "test_sdlInterface.h"
 
-#include "../src/sldInterface.h"
-#include "../src/userInterface.h"
+#include "../src/interfaces/sldInterface.h"
+#include "../src/interfaces/userInterface.h"

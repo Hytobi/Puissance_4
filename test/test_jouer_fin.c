@@ -1,7 +1,7 @@
 #include "test_jouer_fin.h"
 
-#include "../src/jouer_fin.h"
-#include "../src/userInterface.h"
+#include "../src/jouer_coup/jouer_fin.h"
+#include "../src/interfaces/userInterface.h"
 #include "tab.h"
 #include "test_jouer.h"
 

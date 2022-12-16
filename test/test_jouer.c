@@ -1,7 +1,7 @@
 #include "test_jouer.h"
 
-#include "../src/jouer.h"
-#include "../src/userInterface.h"
+#include "../src/jouer_coup/jouer.h"
+#include "../src/interfaces/userInterface.h"
 #include "tab.h"
 
 void test_chercheLigne(void) {

@@ -1,4 +1,4 @@
 #include "test_textInterface.h"
 
-#include "../src/textInterface.h"
-#include "../src/userInterface.h"
+#include "../src/interfaces/textInterface.h"
+#include "../src/interfaces/userInterface.h"

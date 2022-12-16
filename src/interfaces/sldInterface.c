@@ -6,7 +6,7 @@
 
 #include "sldInterface.h"
 
-#include "rage.h"
+#include "../rage.h"
 
 void sdlInterface_printBoard(userInterface ui) {
     SDL_SetRenderDrawColor(ui.renderer, 255, 255, 255, 255);
