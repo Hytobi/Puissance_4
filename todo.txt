@@ -2,8 +2,8 @@
 convertir matchnul en bpm
 
 
-Commentaire des fonctions : jouer/IA.H/C sdlint.H/C 
-
+probleme quitter dans la premiere fenetre
+sdlinterface.c dans sdlInterface_start l65
 
 
 peut etre restructurer le dossier interfaces :

@@ -145,7 +145,7 @@ int verifFinPartie(Puissance* game, userInterface ui, int x, int y) {
     // Si la partie est pleine
     if (estPartiePleine(game->board)) {
         if (ui.renderer) {
-            sdlInterface_end(ui, 3);
+            sdlInterface_end(ui, 0);
             SDL_Delay(5000);
         } else {
             printf("Partie Nul !\n");
