@@ -18,5 +18,6 @@ userInterface sdlInterface_init();
 void updateBoard(userInterface ui, int x, int y, Player player);
 void sdlInterface_start(userInterface ui);
 void sdlInterface_printBoard(userInterface ui);
+void sdlInterface_end(userInterface ui, char c);
 
 #endif

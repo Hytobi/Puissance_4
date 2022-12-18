@@ -16,8 +16,51 @@ Boutton createButton(userInterface ui, int y, SDL_Color c) {
     return (Boutton){(SDL_Rect){X_BUTTON, y, W_BUTTON, H_BUTTON}, c};
 }
 
+char* nom_boutton(userInterface ui, int i) {
+    char* mot = malloc(sizeof(char) * 8);
+    switch (i) {
+        case 0:
+            mot = "Jouer";
+            break;
+        case 1:
+            mot = "IA vs IA";
+            break;
+        case 2:
+            mot = "J1 vs IA";
+            break;
+        case 3:
+            mot = "J1 vs 1";
+            break;
+        case 4:
+            mot = "Facile";
+            break;
+        case 5:
+            mot = "Moyen";
+            break;
+        case 6:
+            mot = "Dificile";
+            break;
+        case 7:
+            mot = "Regle";
+            break;
+        default:
+            RAGE_QUIT(ui, "Probleme assignation des buttons");
+            break;
+    }
+    return mot;
+}
+
 void affiche_btn(userInterface ui, int i) {
     Boutton btn = ui.buttons[i];
+
+    /*
+    char* nom = nom_boutton(ui,i);
+
+    ici on met le message que va comporter le btn
+    peut etre faire une fonction qui retourn un char*
+    comportant une case qui selon i donne le msg
+
+    */
 
     SDL_SetRenderDrawColor(ui.renderer, btn.c.r, btn.c.g, btn.c.b, btn.c.a);
     SDL_RenderFillRect(ui.renderer, &btn.rect);

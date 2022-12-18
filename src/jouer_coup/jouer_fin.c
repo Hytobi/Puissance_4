@@ -133,9 +133,8 @@ int verifFinPartie(Puissance* game, userInterface ui, int x, int y) {
     // Si le joueur a aligné au moins 4 pions, il a gagné
     if (cGagne(game->board, game->player, x, y) >= 4) {
         if (ui.renderer) {
-            // SDL_Delay(2000);
-            // SDL_RenderClear(ui.renderer);
-            // SDL_RenderPresent(ui.renderer);
+            // bipbipfin();
+            sdlInterface_end(ui, game->player == CROIX ? "X" : "O");
             SDL_Delay(5000);
         } else {
             printf("%s a gagné\n", game->player == CROIX ? "X" : "O");

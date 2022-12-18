@@ -27,6 +27,8 @@
     (SDL_Color) { 255, 0, 0, 255 }
 #define COLOR_BTN_IS_CLICK \
     (SDL_Color) { 0, 0, 0, 255 }
+#define COLOR_BLANK \
+    (SDL_Color) { 255, 255, 255, 255 }
 
 void initButtons(userInterface ui);
 int test_estDansBtn(userInterface ui, int x, int y, int i);

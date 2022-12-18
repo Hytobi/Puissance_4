@@ -22,9 +22,7 @@ void resetBack(userInterface ui) {
 
 void sdlInterface_start(userInterface ui) {
     resetBack(ui);
-
     affiche_btn(ui, 0);
-
     int x, y;
     SDL_Event event;
     // Tant que pas suivant on attend
@@ -38,10 +36,18 @@ void sdlInterface_start(userInterface ui) {
         }
     }
 }
+void sdlInterface_end(userInterface ui, char c) {
+    SDL_Rect rect = (SDL_Rect){2 * CASE + CASE / 2, CASE / 2, 2 * CASE, CASE};
+    // On print un rectangle avec un message du gagnant
+
+    SDL_SetRenderDrawColor(ui.renderer, 255, 255, 255, 255);
+    SDL_RenderFillRect(ui.renderer, &rect);
+    SDL_RenderPresent(ui.renderer);
+}
 
 void sdlInterface_printBoard(userInterface ui) {
     resetBack(ui);
-    for (int i = 1; i <= 8; i++) affiche_btn(ui, i);
+    for (int i = 1; i <= NB_BTN; i++) affiche_btn(ui, i);
     for (int i = 1; i <= NB_COLONNES; i++)
         SDL_RenderDrawLine(ui.renderer, CASE * i, 0, CASE * i, H_WINDOW);
     for (int i = 1; i < NB_LIGNES; i++)
@@ -52,7 +58,7 @@ void sdlInterface_printBoard(userInterface ui) {
 userInterface sdlInterface_init() {
     userInterface ui;
     ui.window = NULL, ui.renderer = NULL;
-    ui.buttons = malloc(sizeof(Boutton) * 8);
+    ui.buttons = malloc(sizeof(Boutton) * NB_BTN);
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         RAGE_QUIT(ui, "SDL_Init");
