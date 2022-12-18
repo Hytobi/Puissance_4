@@ -4,8 +4,8 @@
  * @file: bouttons.h
  */
 
-#ifndef BOUTTONS_H
-#define BOUTTONS_H
+#ifndef BOUTONS_H
+#define BOUTONS_H
 
 #include "SDL2/SDL.h"
 #include "sldInterface.h"
@@ -29,7 +29,7 @@
 #define COLOR_BACK_NOT_CLICK \
     (SDL_Color) { 255, 255, 255, 255 }
 
-void initButtons(userInterface ui);
+void initButons(userInterface ui);
 int test_estDansBtn(userInterface ui, int x, int y, int i);
 void affiche_btn(userInterface ui, int i);
 void setColor(userInterface ui, int i, SDL_Color c);

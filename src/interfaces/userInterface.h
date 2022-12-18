@@ -21,10 +21,15 @@ typedef enum {
     EMPTY   //!< la case est vide
 } Player;
 
+/**
+ * @struct Bouton
+ * @brief La structure Bouton contient les informations
+ * nécessaires à l'affichage d'un bouton
+ */
 typedef struct {
-    SDL_Rect rect;
-    SDL_Color c;
-} Boutton;
+    SDL_Rect rect;  //!< La position et la taille du bouton
+    SDL_Color c;    //!< La couleur du bouton
+} Bouton;
 
 /**
  * @struct userInterface
@@ -34,7 +39,18 @@ typedef struct {
 typedef struct ui {
     SDL_Window *window;      //!< La fenêtre SDL
     SDL_Renderer *renderer;  //!< Le renderer SDL
-    Boutton *buttons;        //!< Les bouttons SDL
+    Bouton *buttons;         //!< Les boutons SDL
 } userInterface;
+
+/**
+ * @struct Puissance
+ * @brief Structure qui représente le jeu
+ */
+typedef struct {
+    Player board[NB_LIGNES][NB_COLONNES];  //!< Le plateau de jeu
+    Player player;                         //!< Le joueur courant
+    int joueur;                            //!< Le mode de jeu
+    int ia;                                //!< Difficulté de l'ia
+} Puissance;
 
 #endif

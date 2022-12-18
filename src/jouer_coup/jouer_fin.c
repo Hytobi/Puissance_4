@@ -132,9 +132,9 @@ int cGagne(Player p[][NB_COLONNES], Player val, int lig, int col) {
 int verifFinPartie(Puissance* game, userInterface ui, int x, int y) {
     // Si le joueur a aligné au moins 4 pions, il a gagné
     if (cGagne(game->board, game->player, x, y) >= 4) {
+        // Si on n'est pas dans la sdl on est dans le terminal
         if (ui.renderer) {
-            // bipbipfin();
-            sdlInterface_end(ui, game->player == CROIX ? "X" : "O");
+            sdlInterface_end(ui, game->player == CROIX ? 1 : 2);
             SDL_Delay(5000);
         } else {
             printf("%s a gagné\n", game->player == CROIX ? "X" : "O");
@@ -144,7 +144,13 @@ int verifFinPartie(Puissance* game, userInterface ui, int x, int y) {
     }
     // Si la partie est pleine
     if (estPartiePleine(game->board)) {
-        printf("Partie Nulle\n");
+        if (ui.renderer) {
+            sdlInterface_end(ui, 3);
+            SDL_Delay(5000);
+        } else {
+            printf("Partie Nul !\n");
+            sleep(5);
+        }
         return 1;
     }
     // Sinon on change de joueur

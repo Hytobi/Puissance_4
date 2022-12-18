@@ -18,6 +18,14 @@ userInterface sdlInterface_init();
 void updateBoard(userInterface ui, int x, int y, Player player);
 void sdlInterface_start(userInterface ui);
 void sdlInterface_printBoard(userInterface ui);
-void sdlInterface_end(userInterface ui, char c);
+void sdlInterface_end(userInterface ui, int fin);
+
+/**
+ * @brief Attend que le mode de jeu et la difficulté de l'ia soit choisi pour la
+ * sdl
+ * @param game Le jeu
+ * @param ui L'interface
+ */
+int choixModeEtIa(Puissance* game, userInterface ui);
 
 #endif

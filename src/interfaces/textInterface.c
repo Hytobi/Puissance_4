@@ -106,7 +106,7 @@ void affichePremLigne() {
  */
 void printBoard(Player p[][NB_COLONNES]) {
     int i, j;
-    // printf("\033[H\033[2J");
+    printf("\033[H\033[2J");
     //  Affichage de l'index des colonnes
     affichePremLigne();
     // Affichage du plateau

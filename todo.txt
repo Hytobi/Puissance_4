@@ -1,33 +1,15 @@
-texte sdl :
--page de demarage en sdl avec les regle de jeu et 
-explication de choix mode de jeu
-//regle sur moodle
-Puissance 4 est un jeu de stratégie classique dont le but est d'aligner une suite de 4 pions de même couleur sur une grille comptant 6 rangées et 7 colonnes.
-Chaque joueur dispose de 21 pions d'une couleur (généralement sang et or).
-Tour à tour, les deux joueurs placent un pion dans une colonne libre de leur choix.
-Le pion "descend" jusqu'à la position la plus basse possible dans la dite colonne à la suite de quoi c'est à l'adversaire de jouer.
-Le vainqueur est le joueur qui réalise le premier un alignement (horizontal, vertical ou diagonal) consécutif d'au moins quatre pions de sa couleur.
-Si toutes les cases de la grille de jeu sont remplies, aucun des deux joueurs n'a réalisé un tel alignement, la partie est déclarée nulle. 
 
-d'habor on choisie le mode de jeu : IAvIA, JvIA, JvJ
-si JvJ : le jeu se lance tout de suite
-sinon il faut choisir une ia, on peut changer de mode de jeu tant qu'on a pas choisi l'ia
-des qu'on a choisi l'ia le jeu se lance
-On peut toujours revenir a cette page tant que le jeu n'est pas lancé
-
-
--sdlInterface_end dans sdlInterface.c ligne39
-"le joueur %s a gagné" (c='X')? 1:2
-
--buttons.c affiche_btn l19
-le nom des 8 btn
+convertir matchnul en bpm
 
 
 Commentaire des fonctions : jouer/IA.H/C sdlint.H/C 
 
 
 
-
+peut etre restructurer le dossier interfaces :
+avec pour int_sdl les fichier : bouton et sdl int et les img
+et le reste pour le texte 
+du coup changer le makefile
 
 
 probleme dans la fct meilleur_coup : resolut ?
@@ -37,91 +19,7 @@ dificulté ia :  3-meilleur algo( voir sur internet) ou avec arbre ?
 
 
 Dans l'interface SDL:
-=fenetre de win ou null en sdl dans jouer_fin.c/verifgagné
 =pouvoir quiter quand c'est l'ia qui joue
-
-=Afficher par defaut le choix iaia,joueurIa,JJ, 
-on change le contour de la case
-si on choisi un mode avec ia les bouton de dificulté ia aparaisse 
-(voir si on permet a l'utilisateur de revenir sur son choix de jeu et dans ce cas JJ enleve le choix ia)
-
-
-dans afficher boutton
-SDL_SetRenderDrawColor(ui.renderer, btn.c.r, btn.c.g, btn.c.b, btn.c.a);
-    SDL_RenderFillRect(ui.renderer, &btn.rect);
-    SDL_RenderPresent(ui.renderer);
-    TTF_Init();
-    TTF_Font *f = TTF_OpenFont("arial.ttf", 40);
-    SDL_Surface *s = TTF_RenderText_Solid(f, "start", (SDL_Color){0, 0, 0});
-    SDL_Texture *t = SDL_CreateTextureFromSurface(ui.renderer, s);
-    SDL_FreeSurface(s);
-    TTF_CloseFont(f);
-    SDL_RenderCopy(ui.renderer, t, NULL, &btn.rect);
-    TTF_Quit();
-
-    /*
-   // fonctionne pas, doit afficher l'image a la place mais le print pas
-   SDL_Surface *surfaceImage = SDL_LoadBMP("img/Suivant.bmp");
-   SDL_Texture *texture, *tmp = NULL;
-   tmp = SDL_CreateTextureFromSurface(ui.renderer, surfaceImage);
-   texture = SDL_CreateTexture(ui.renderer, SDL_PIXELFORMAT_RGBA8888,
-                               SDL_TEXTUREACCESS_TARGET, 100, 50);
-   SDL_SetRenderTarget(ui.renderer, texture);
-   SDL_RenderCopy(ui.renderer, texture, NULL, &rect);
-   SDL_DestroyTexture(tmp);
-   SDL_FreeSurface(surfaceImage);
-   SDL_SetRenderTarget(ui.renderer, NULL);
-   SDL_RenderPresent(ui.renderer);
-   // fin de la fonction qui ne marche pas
-
-
-<- IAvIA
-
-
-<- JvIA
-
-
-<-JvJ
-
-
-
-
-
-
-
-
-<-Facile
-
-
-<-Moyen
-
-
-<-Difinile
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<- jouer/ regle
-
-
-
-
-
-
-
-
-
 
 
 

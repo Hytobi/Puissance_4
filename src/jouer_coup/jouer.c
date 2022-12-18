@@ -10,11 +10,16 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "../interfaces/bouttons.h"
+#include "../interfaces/boutons.h"
 #include "SDL2/SDL.h"
 #include "jouer_fin.h"
 #include "jouer_ia.h"
 
+/**
+ * @brief Initialise le jeu
+ * @param player Le joueur qui commence
+ * @return Le jeu initialisé
+ */
 Puissance* puissance_init(Player player) {
     Puissance* game = malloc(sizeof(Puissance));
     game->player = player;
@@ -29,12 +34,26 @@ Puissance* puissance_init(Player player) {
     return game;
 }
 
+/**
+ * @brief Cherche la ligne où jouer le coup dans la colonne col
+ * @param p Le tableau du jeu
+ * @param col La colonne dans la quelle jouer
+ * @return la ligne où jouer le coup
+ */
 int chercheLigne(Player p[][NB_COLONNES], int col) {
     int l = 0;
     while (l < NB_LIGNES && p[l][col] == EMPTY) l++;
     return --l;
 }
 
+/**
+ * @brief Met a jour le plateau de jeu sdl ou text avec un coup en [x,y]
+ * @param game Le jeu
+ * @param ui L'interface
+ * @param x La colonne
+ * @param y La ligne
+ * @return 1 si le coup met fin a la partie, 0 sinon
+ */
 int joueCoup(Puissance* game, userInterface ui, int x, int y) {
     // On joue le coup
     game->board[x][y] = game->player;
@@ -47,76 +66,53 @@ int joueCoup(Puissance* game, userInterface ui, int x, int y) {
     return verifFinPartie(game, ui, x, y);
 }
 
-int choixModeEtIa(Puissance* game, userInterface ui) {
-    SDL_Event event;
-    int x, y, fini = 0;
-    // On affiche le plateau de jeu
-    sdlInterface_printBoard(ui);
-    while (SDL_WaitEvent(&event) > 0 && !fini) {
-        if (event.type == SDL_QUIT) return 1;
-        if (event.type == SDL_MOUSEBUTTONDOWN) {
-            SDL_GetMouseState(&x, &y);
-            for (int i = 1; i < NB_BTN; i++) {
-                if (test_estDansBtn(ui, x, y, i)) {
-                    if (i == 3) {
-                        if (game->joueur != -1)
-                            setColor(ui, game->joueur, COLOR_BACK_NOT_CLICK);
-                        game->joueur = 3;
-                        setColor(ui, i, COLOR_BACK_IS_CLICK);
-                        return 0;
-                    } else if (i == 1 || i == 2) {
-                        if (game->joueur != -1)
-                            setColor(ui, game->joueur, COLOR_BACK_NOT_CLICK);
-                        game->joueur = i;
-                        setColor(ui, i, COLOR_BACK_IS_CLICK);
-                    } else if ((i == 4 || i == 5 || i == 6) &&
-                               game->joueur >= 0) {
-                        game->ia = i - 3;
-                        setColor(ui, i, COLOR_BACK_IS_CLICK);
-                        return 0;
-                    } else if (i == 7) {
-                        sdlInterface_start(ui);
-                        fini = 1;
-                    }
-                }
-            }
-            // if (fini) break;
-            //  peut etre mettre de sbreack et un fini=0 ??
-            //  changer la couleur si on rechange de choix de mode ia
-        }
-    }
-    choixModeEtIa(game, ui);
-    // return 0;
-}
-
-// On joue
+/**
+ * @brief Traite les evenements du jeu en mode SDL
+ * @param game le jeu
+ * @param ui l'interface
+ */
 void playSDL(Puissance* game, userInterface ui) {
     int x, y, fini = 0;
     SDL_Event event;
+    // On attend que le mode de jeu et la difficulté de l'ia soit choisi
     fini = choixModeEtIa(game, ui);
+    // Si l'utilisateur n'a pas quitté on joue
     while (SDL_WaitEvent(&event) > 0 && !fini) {
         if (event.type == SDL_QUIT) break;
+        // Si c'est le tour d'un joueur humain
         if ((game->joueur == 2 && game->player == CROIX) || game->joueur == 3) {
             if (event.type == SDL_MOUSEBUTTONDOWN) {
                 // On recupere les coordonnées de la souris
                 SDL_GetMouseState(&y, &x);
                 // coordonnées souris -> coordonnées tableau
                 y /= CASE;
+                // Si la colonne est valide on joue le coup
                 if (estColonneValide(game->board, y)) {
+                    // On cherche la ligne où jouer le coup
                     x = chercheLigne(game->board, y);
+                    // On joue le coup
                     fini = joueCoup(game, ui, x, y);
                 }
             }
         } else {
+            // Sinon c'est l'IA qui joue
+            // On attend 2 secondes avant de jouer
             SDL_Delay(2000);
-            // Sinon on joue un coup aléatoire
+            // Elle choisit la colonne où jouer
             y = chercheColonne(game);
+            // On cherche la ligne où jouer le coup
             x = chercheLigne(game->board, y);
+            // On joue le coup
             fini = joueCoup(game, ui, x, y);
         }
     }
 }
 
+/**
+ * @brief Traite les evenements du jeu en mode texte
+ * @param game le jeu
+ * @param ui l'interface
+ */
 void playText(Puissance* game, userInterface ui) {
     int x, y, fini = 0, valide;
     // On affiche le tableau vide
@@ -124,11 +120,11 @@ void playText(Puissance* game, userInterface ui) {
     while (!fini) {
         // Si c'est le tour d'un joueur humain
         if ((game->joueur == 2 && game->player == CROIX) || game->joueur == 3) {
-            // Tant qu'on a pas de coord valide on demande
+            // Tant qu'on a pas de coordonnée valide on demande au joueur
             do {
                 printf("Dans quelle colonne jouez-vous ? : ");
                 if (!scanf("%d", &y)) {
-                    printf("Format attendu : int\n");
+                    printf("Entrez un nombre entre 0 et 6\n");
                     videBuffer();
                     continue;
                 };
@@ -139,28 +135,41 @@ void playText(Puissance* game, userInterface ui) {
                 }
             } while (!valide);
         } else {
+            // Sinon c'est l'IA qui joue
+            // On attend 2 secondes avant de jouer
             sleep(2);
+            // Elle choisit la colonne où jouer
             y = chercheColonne(game);
         }
+        // Dans les 2 cas on cherche la ligne où jouer le coup
         x = chercheLigne(game->board, y);
+        // On joue le coup
         fini = joueCoup(game, ui, x, y);
+        valide = 0;
     }
 }
 
+/**
+ * @brief Lance le jeu avec l'inteface choisie par l'utilisateur
+ * @param game Le jeu
+ * @param ui L'interface
+ */
 void puissance_playGame(Puissance* game, userInterface ui) {
+    // Si le renderer est NULL, on joue en mode texte
     if (ui.renderer == NULL) {
-        // Si y'a pas de renderer, on joue en mode texte
+        // On demmande le mode de jeu et la difficulté de l'ia
         game->joueur = choosePlayer();
         if (game->joueur < 3) game->ia = dificulteIA();
+        // On joue en mode texte
         playText(game, ui);
     } else {
         // Sinon on joue en mode graphique
         playSDL(game, ui);
-    }
 
-    // Bien fermer la fenêtre SDL
-    if (NULL != ui.renderer) SDL_DestroyRenderer(ui.renderer);
-    if (NULL != ui.window) SDL_DestroyWindow(ui.window);
-    SDL_Quit();
+        // Bien fermer la fenêtre SDL
+        if (ui.renderer) SDL_DestroyRenderer(ui.renderer);
+        if (ui.window) SDL_DestroyWindow(ui.window);
+        if (ui.buttons) free(ui.buttons);
+        SDL_Quit();
+    }
 }
-// Fin on joue

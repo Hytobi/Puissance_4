@@ -4,23 +4,21 @@
  * @file: sdlInterface.c
  */
 
-#include "bouttons.h"
+#include "boutons.h"
 
-// a voir plus tard pour ecrire dans le boutton
-// #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 
 #include "../rage.h"
 
-Boutton createButton(userInterface ui, int y, SDL_Color c) {
-    return (Boutton){(SDL_Rect){X_BUTTON, y, W_BUTTON, H_BUTTON}, c};
+Bouton createButon(userInterface ui, int y, SDL_Color c) {
+    return (Bouton){(SDL_Rect){X_BUTTON, y, W_BUTTON, H_BUTTON}, c};
 }
 
-SDL_Surface* img_boutton(userInterface ui, int i) {
+SDL_Surface* img_bouton(userInterface ui, int i) {
     SDL_Surface* image;
     switch (i) {
         case 0:
-            image = IMG_Load("src/interfaces/img/Suivant.bmp");
+            image = IMG_Load("src/interfaces/img/Start.bmp");
             break;
         case 1:
             image = IMG_Load("src/interfaces/img/IAvsIA.bmp");
@@ -38,14 +36,13 @@ SDL_Surface* img_boutton(userInterface ui, int i) {
             image = IMG_Load("src/interfaces/img/ia_moyen.bmp");
             break;
         case 6:
-            image = IMG_Load("src/interfaces/img/ia_dificile.bmp");
+            image = IMG_Load("src/interfaces/img/ia_difficile.bmp");
             break;
         case 7:
-            image = IMG_Load("src/interfaces/img/Suivant.bmp");
+            image = IMG_Load("src/interfaces/img/Regles.bmp");
             break;
         default:
-            printf("%d\n", i);
-            RAGE_QUIT(ui, "Probleme assignation des buttons");
+            RAGE_QUIT(ui, "Probleme assignation des butons");
             break;
     }
 
@@ -56,7 +53,7 @@ SDL_Surface* img_boutton(userInterface ui, int i) {
 }
 
 void affiche_btn(userInterface ui, int i) {
-    Boutton btn = ui.buttons[i];
+    Bouton btn = ui.buttons[i];
     SDL_Rect size_img;
     if (i != 0 && i != 7) {
         size_img = (SDL_Rect){X_BUTTON, btn.rect.y, W_IMG, H_IMG};
@@ -67,7 +64,7 @@ void affiche_btn(userInterface ui, int i) {
         size_img = btn.rect;
     }
 
-    SDL_Surface* image = img_boutton(ui, i);
+    SDL_Surface* image = img_bouton(ui, i);
 
     SDL_Texture* texture2 = SDL_CreateTextureFromSurface(ui.renderer, image);
     SDL_FreeSurface(image);
@@ -90,13 +87,13 @@ void setColor(userInterface ui, int i, SDL_Color c) {
     affiche_btn(ui, i);
 }
 
-void initButtons(userInterface ui) {
-    ui.buttons[0] = createButton(ui, H_WINDOW - 80, COLOR_BTN_UTIL);
-    ui.buttons[7] = createButton(ui, H_WINDOW - 80, COLOR_BTN_UTIL);
+void initButons(userInterface ui) {
+    ui.buttons[0] = createButon(ui, H_WINDOW - 80, COLOR_BTN_UTIL);
+    ui.buttons[7] = createButon(ui, H_WINDOW - 80, COLOR_BTN_UTIL);
     for (int i = 1; i < NB_BTN / 2; i++) {
         ui.buttons[i] =
-            createButton(ui, X_MODE + (i - 1) * ESPACE, COLOR_BACK_NOT_CLICK);
-        ui.buttons[i + 3] = createButton(ui, X_DIFFICULTE + (i - 1) * ESPACE,
-                                         COLOR_BACK_NOT_CLICK);
+            createButon(ui, X_MODE + (i - 1) * ESPACE, COLOR_BACK_NOT_CLICK);
+        ui.buttons[i + 3] = createButon(ui, X_DIFFICULTE + (i - 1) * ESPACE,
+                                        COLOR_BACK_NOT_CLICK);
     }
 }
