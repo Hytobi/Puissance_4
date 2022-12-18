@@ -19,15 +19,14 @@
 #define X_DIFFICULTE 2 * CASE + X_MODE
 #define ESPACE 60
 
-#define COLOR_BTN_JOUEUR \
-    (SDL_Color) { 231, 62, 1, 255 }
-#define COLOR_BTN_IA \
-    (SDL_Color) { 0, 255, 0, 255 }
+#define W_IMG 97
+#define H_IMG 47
+
 #define COLOR_BTN_UTIL \
     (SDL_Color) { 255, 0, 0, 255 }
-#define COLOR_BTN_IS_CLICK \
+#define COLOR_BACK_IS_CLICK \
     (SDL_Color) { 0, 0, 0, 255 }
-#define COLOR_BLANK \
+#define COLOR_BACK_NOT_CLICK \
     (SDL_Color) { 255, 255, 255, 255 }
 
 void initButtons(userInterface ui);

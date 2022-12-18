@@ -47,7 +47,8 @@ void sdlInterface_end(userInterface ui, char c) {
 
 void sdlInterface_printBoard(userInterface ui) {
     resetBack(ui);
-    for (int i = 1; i <= NB_BTN; i++) affiche_btn(ui, i);
+    for (int i = 1; i < NB_BTN; i++) affiche_btn(ui, i);
+    SDL_SetRenderDrawColor(ui.renderer, 0, 0, 0, 255);
     for (int i = 1; i <= NB_COLONNES; i++)
         SDL_RenderDrawLine(ui.renderer, CASE * i, 0, CASE * i, H_WINDOW);
     for (int i = 1; i < NB_LIGNES; i++)

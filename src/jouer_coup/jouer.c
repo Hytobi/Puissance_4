@@ -60,19 +60,19 @@ int choixModeEtIa(Puissance* game, userInterface ui) {
                 if (test_estDansBtn(ui, x, y, i)) {
                     if (i == 3) {
                         if (game->joueur != -1)
-                            setColor(ui, game->joueur, COLOR_BTN_JOUEUR);
+                            setColor(ui, game->joueur, COLOR_BACK_NOT_CLICK);
                         game->joueur = 3;
-                        setColor(ui, i, COLOR_BTN_IS_CLICK);
+                        setColor(ui, i, COLOR_BACK_IS_CLICK);
                         return 0;
                     } else if (i == 1 || i == 2) {
                         if (game->joueur != -1)
-                            setColor(ui, game->joueur, COLOR_BTN_JOUEUR);
+                            setColor(ui, game->joueur, COLOR_BACK_NOT_CLICK);
                         game->joueur = i;
-                        setColor(ui, i, COLOR_BTN_IS_CLICK);
+                        setColor(ui, i, COLOR_BACK_IS_CLICK);
                     } else if ((i == 4 || i == 5 || i == 6) &&
                                game->joueur >= 0) {
                         game->ia = i - 3;
-                        setColor(ui, i, COLOR_BTN_IS_CLICK);
+                        setColor(ui, i, COLOR_BACK_IS_CLICK);
                         return 0;
                     } else if (i == 7) {
                         sdlInterface_start(ui);
