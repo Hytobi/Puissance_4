@@ -1,5 +1,19 @@
-page de demage en sdl avec les regle de jeu et explication de choix mode de jeu
-bouton pour jouer et passer ala page de jeu  : parser un fichier et le print sur la sdl ?
+texte sdl :
+-page de demarage en sdl avec les regle de jeu et 
+explication de choix mode de jeu
+//regle sur moodle
+d'habor on choisie le mode de jeu : IAvIA, JvIA, JvJ
+si JvJ : le jeu se lance tout de suite
+sinon il faut choisir une ia, on peut changer de mode de jeu tant qu'on a pas choisi l'ia
+des qu'on a choisi l'ia le jeu se lance
+On peut toujours revenir a cette page tant que le jeu n'est pas lancé
+
+
+-sdlInterface_end dans sdlInterface.c ligne39
+"le joueur %s a gagné" (c='X')? 1:2
+
+-buttons.c affiche_btn l19
+le nom des 8 btn
 
 
 Commentaire des fonctions : jouer/IA.H/C sdlint.H/C 
@@ -52,3 +66,70 @@ SDL_SetRenderDrawColor(ui.renderer, btn.c.r, btn.c.g, btn.c.b, btn.c.a);
    SDL_SetRenderTarget(ui.renderer, NULL);
    SDL_RenderPresent(ui.renderer);
    // fin de la fonction qui ne marche pas
+
+
+<- IAvIA
+
+
+<- JvIA
+
+
+<-JvJ
+
+
+
+
+
+
+
+
+<-Facile
+
+
+<-Moyen
+
+
+<-Difinile
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<- jouer/ regle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
