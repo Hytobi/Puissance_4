@@ -20,6 +20,23 @@ Dans l'interface SDL:
 
 
 
+Le travail demandé est de :
+•	Rédiger un rapport permettant de décrire votre projet ;
+        -hierarchie des fichier ?
+        - la structure du programme, 
+        - les choix réalisés pour les IA, 
+        - comment compiler, 
+        - ce que vous n'avez pas réussi à faire, ... : ecrire en ttf : faut dl une lib de font
+•	Attacher une vidéo présentant votre projet (i.e. la structure du programme, les choix réalisés pour les IA, comment compiler, ce que vous n'avez pas réussi à faire, ...)
+•	Permettre à l'utilisateur de joueur en mode console ou en mode graphique en utilisant la librairie SDL2 ; ok
+
+•	Implémenter une intelligence artificielle permettant de jouer à votre jeu. Vous devrez proposer 3 modes de jeu : facile, normal et difficile ; // manque la difficile
+•	Implémenter plusieurs modes de jeu : humain vs. humain, humain vs. IA, IA vs. humain, IA vs. IA ;
+        -pour moi jv ia et iav j n'as de l'importance qu'au premier coup je vois pas l'interer
+•	Commenter votre code de manière à pouvoir générer la documentation automatiquement ; a faire avec le dernier chap du cour
+•	S'assurer que valgrind ne détecte pas problème mémoire ; // Pas tester mais normalement tout est free
+•	Coder des tests unitaires ; // la plus part sont fait, regard si tu pense qu'on dois en faire autre part
+•	S'assurer que votre programme compile sur les machines de salle TPs (sans considérer de librairie externe). // a faire a la rentré
 
 
 
