@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
+#include "../interfaces/bouttons.h"
 #include "SDL2/SDL.h"
 #include "jouer_fin.h"
 #include "jouer_ia.h"
@@ -17,8 +18,8 @@
 Puissance* puissance_init(Player player) {
     Puissance* game = malloc(sizeof(Puissance));
     game->player = player;
-    game->joueur = 2;
-    game->ia = 2;
+    game->joueur = -1;
+    game->ia = -1;
     for (int i = 0; i < NB_LIGNES; i++) {
         for (int j = 0; j < NB_COLONNES; j++) {
             // On met la grille à vide
@@ -46,10 +47,53 @@ int joueCoup(Puissance* game, userInterface ui, int x, int y) {
     return verifFinPartie(game, ui, x, y);
 }
 
+int choixModeEtIa(Puissance* game, userInterface ui) {
+    SDL_Event event;
+    int x, y, fini = 0;
+    // On affiche le plateau de jeu
+    sdlInterface_printBoard(ui);
+    while (SDL_WaitEvent(&event) > 0 && !fini) {
+        if (event.type == SDL_QUIT) return 1;
+        if (event.type == SDL_MOUSEBUTTONDOWN) {
+            SDL_GetMouseState(&x, &y);
+            for (int i = 1; i < NB_BTN; i++) {
+                if (test_estDansBtn(ui, x, y, i)) {
+                    if (i == 3) {
+                        if (game->joueur != -1)
+                            setColor(ui, game->joueur, COLOR_BTN_JOUEUR);
+                        game->joueur = 3;
+                        setColor(ui, i, COLOR_BTN_IS_CLICK);
+                        return 0;
+                    } else if (i == 1 || i == 2) {
+                        if (game->joueur != -1)
+                            setColor(ui, game->joueur, COLOR_BTN_JOUEUR);
+                        game->joueur = i;
+                        setColor(ui, i, COLOR_BTN_IS_CLICK);
+                    } else if ((i == 4 || i == 5 || i == 6) &&
+                               game->joueur >= 0) {
+                        game->ia = i - 3;
+                        setColor(ui, i, COLOR_BTN_IS_CLICK);
+                        return 0;
+                    } else if (i == 7) {
+                        sdlInterface_start(ui);
+                        fini = 1;
+                    }
+                }
+            }
+            // if (fini) break;
+            //  peut etre mettre de sbreack et un fini=0 ??
+            //  changer la couleur si on rechange de choix de mode ia
+        }
+    }
+    choixModeEtIa(game, ui);
+    // return 0;
+}
+
 // On joue
 void playSDL(Puissance* game, userInterface ui) {
     int x, y, fini = 0;
     SDL_Event event;
+    fini = choixModeEtIa(game, ui);
     while (SDL_WaitEvent(&event) > 0 && !fini) {
         if (event.type == SDL_QUIT) break;
         if ((game->joueur == 2 && game->player == CROIX) || game->joueur == 3) {
@@ -62,7 +106,7 @@ void playSDL(Puissance* game, userInterface ui) {
                     x = chercheLigne(game->board, y);
                     fini = joueCoup(game, ui, x, y);
                 }
-                        }
+            }
         } else {
             SDL_Delay(2000);
             // Sinon on joue un coup aléatoire

@@ -21,6 +21,11 @@ typedef enum {
     EMPTY   //!< la case est vide
 } Player;
 
+typedef struct {
+    SDL_Rect rect;
+    SDL_Color c;
+} Boutton;
+
 /**
  * @struct userInterface
  * @brief La structure userInterface contient les informations
@@ -29,7 +34,7 @@ typedef enum {
 typedef struct ui {
     SDL_Window *window;      //!< La fenêtre SDL
     SDL_Renderer *renderer;  //!< Le renderer SDL
-
+    Boutton *buttons;        //!< Les bouttons SDL
 } userInterface;
 
 #endif

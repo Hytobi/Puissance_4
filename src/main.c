@@ -7,10 +7,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "jouer_coup/jouer.h"
 #include "interfaces/sldInterface.h"
 #include "interfaces/textInterface.h"
 #include "interfaces/userInterface.h"
+#include "jouer_coup/jouer.h"
 
 /**
  * @brief Première affichage du programme, demande à l'utilisateur de choisir

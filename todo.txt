@@ -25,3 +25,30 @@ si on choisi un mode avec ia les bouton de dificulté ia aparaisse
 (voir si on permet a l'utilisateur de revenir sur son choix de jeu et dans ce cas JJ enleve le choix ia)
 
 
+dans afficher boutton
+SDL_SetRenderDrawColor(ui.renderer, btn.c.r, btn.c.g, btn.c.b, btn.c.a);
+    SDL_RenderFillRect(ui.renderer, &btn.rect);
+    SDL_RenderPresent(ui.renderer);
+    TTF_Init();
+    TTF_Font *f = TTF_OpenFont("arial.ttf", 40);
+    SDL_Surface *s = TTF_RenderText_Solid(f, "start", (SDL_Color){0, 0, 0});
+    SDL_Texture *t = SDL_CreateTextureFromSurface(ui.renderer, s);
+    SDL_FreeSurface(s);
+    TTF_CloseFont(f);
+    SDL_RenderCopy(ui.renderer, t, NULL, &btn.rect);
+    TTF_Quit();
+
+    /*
+   // fonctionne pas, doit afficher l'image a la place mais le print pas
+   SDL_Surface *surfaceImage = SDL_LoadBMP("img/Suivant.bmp");
+   SDL_Texture *texture, *tmp = NULL;
+   tmp = SDL_CreateTextureFromSurface(ui.renderer, surfaceImage);
+   texture = SDL_CreateTexture(ui.renderer, SDL_PIXELFORMAT_RGBA8888,
+                               SDL_TEXTUREACCESS_TARGET, 100, 50);
+   SDL_SetRenderTarget(ui.renderer, texture);
+   SDL_RenderCopy(ui.renderer, texture, NULL, &rect);
+   SDL_DestroyTexture(tmp);
+   SDL_FreeSurface(surfaceImage);
+   SDL_SetRenderTarget(ui.renderer, NULL);
+   SDL_RenderPresent(ui.renderer);
+   // fin de la fonction qui ne marche pas
