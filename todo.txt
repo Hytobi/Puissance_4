@@ -25,7 +25,7 @@ Le travail demandé est de :
         -hierarchie des fichier ?
         - la structure du programme, 
         - les choix réalisés pour les IA, 
-        - comment compiler, 
+        - comment compiler,  : besoin de la lib image en plus : sudo apt install libsdl2-image-dev et juste faire un make puis un ./exec
         - ce que vous n'avez pas réussi à faire, ... : ecrire en ttf : faut dl une lib de font
 •	Attacher une vidéo présentant votre projet (i.e. la structure du programme, les choix réalisés pour les IA, comment compiler, ce que vous n'avez pas réussi à faire, ...)
 •	Permettre à l'utilisateur de joueur en mode console ou en mode graphique en utilisant la librairie SDL2 ; ok
