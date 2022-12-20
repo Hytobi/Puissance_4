@@ -41,8 +41,9 @@ void updateBoard(userInterface ui, int x, int y, Player player);
 /**
  * @brief Page de demarrage de la vue SDL
  * @param ui l'interface
+ * @return 0 si tout s'est bien passé, 1 si l'utilisateur a fermé la fenetre
  */
-void sdlInterface_start(userInterface ui);
+int sdlInterface_start(userInterface ui);
 
 /**
  * @brief Affiche le gagnant de la partie ou un match nul

@@ -53,8 +53,9 @@ void load_regles(userInterface ui) {
 /**
  * @brief Page de demarrage de la vue SDL
  * @param ui l'interface
+ * @return 0 si tout s'est bien passé, 1 si l'utilisateur a fermé la fenetre
  */
-void sdlInterface_start(userInterface ui) {
+int sdlInterface_start(userInterface ui) {
     // Au cas ou on relis les règles on remet le fond blanc
     resetBack(ui);
     // On charge les règles
@@ -66,7 +67,7 @@ void sdlInterface_start(userInterface ui) {
     SDL_Event event;
     while (SDL_WaitEvent(&event) > 0) {
         // On quitte si l'utilisateur ferme la fenetre
-        if (event.type == SDL_QUIT) break;
+        if (event.type == SDL_QUIT) return 1;
         // Si l'utilisateur clique
         if (event.type == SDL_MOUSEBUTTONDOWN) {
             // On récupère les coordonnées de la souris
@@ -77,6 +78,7 @@ void sdlInterface_start(userInterface ui) {
             }
         }
     }
+    return 0;
 }
 
 /**
@@ -165,7 +167,14 @@ userInterface sdlInterface_init() {
     initButons(ui);
 
     // On affiche la page de commencement
-    sdlInterface_start(ui);
+    int exit = sdlInterface_start(ui);
+    if (exit) {
+        if (ui.renderer) SDL_DestroyRenderer(ui.renderer);
+        if (ui.window) SDL_DestroyWindow(ui.window);
+        if (ui.buttons) free(ui.buttons);
+        SDL_Quit();
+        ui.window = NULL;
+    }
 
     return ui;
 }
@@ -213,7 +222,7 @@ void updateBoard(userInterface ui, int x, int y, Player player) {
  */
 int choixModeEtIa(Puissance *game, userInterface ui) {
     SDL_Event event;
-    int x, y, fini = 0;
+    int x, y, fini = 0, exit;
     // On affiche le plateau de jeu et les boutons
     sdlInterface_printBoard(ui);
     // Lecture des évènements sur les boutons
@@ -267,7 +276,9 @@ int choixModeEtIa(Puissance *game, userInterface ui) {
                             game->joueur = -1;
                         }
                         // On ré-affiche les règles
-                        sdlInterface_start(ui);
+                        exit = sdlInterface_start(ui);
+                        // On quitte si on quitte
+                        if (exit) return 1;
                         // Astuce pour ne pas avoir des boucle dans des boucles
                         fini = 1;
                     }

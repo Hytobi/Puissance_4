@@ -1,11 +1,7 @@
 
 
-probleme quitter dans la premiere fenetre
-sdlinterface.c dans sdlInterface_start l65
 
-
-
-restructurer le dossier de test et refaire des test ?
+refaire des test ?
 peut t on vraiment faire des test sur les interface graphique et sdl ? c'est utile ?
 
 

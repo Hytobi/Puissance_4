@@ -58,8 +58,11 @@ int main() {
     userInterface ui;
     if (choice == 1)
         ui = textInterface_init();
-    else if (choice == 2)
+    else if (choice == 2) {
         ui = sdlInterface_init();
+        // Si l'utilisateur quitte sans avoir fait start 1 fois
+        if (!ui.window) return EXIT_SUCCESS;
+    }
 
     // Lancement du jeu
     puissance_playGame(game, ui);
