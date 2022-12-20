@@ -4,12 +4,9 @@ probleme quitter dans la premiere fenetre
 sdlinterface.c dans sdlInterface_start l65
 
 
-peut etre restructurer le dossier interfaces :
-avec pour int_sdl les fichier : bouton et sdl int et les img
-et le reste pour le texte 
-du coup changer le makefile
 
 restructurer le dossier de test et refaire des test ?
+peut t on vraiment faire des test sur les interface graphique et sdl ? c'est utile ?
 
 
 dificulté ia :  3-meilleur algo( voir sur internet) ou avec arbre ?
