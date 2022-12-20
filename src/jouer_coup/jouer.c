@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "../interfaces/boutons.h"
+#include "../interfaces/sdl/boutons.h"
 #include "SDL2/SDL.h"
 #include "jouer_fin.h"
 #include "jouer_ia.h"

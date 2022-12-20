@@ -8,7 +8,7 @@
 
 #include <SDL2/SDL_image.h>
 
-#include "../rage.h"
+#include "../../rage.h"
 #include "boutons.h"
 
 /**
@@ -28,7 +28,7 @@ void resetBack(userInterface ui) {
  */
 void load_regles(userInterface ui) {
     // Les règles du jeu sont dans une image qu'on charge
-    SDL_Surface *image = IMG_Load("src/interfaces/img/Puissance4.bmp");
+    SDL_Surface *image = IMG_Load("src/interfaces/sdl/img/Puissance4.bmp");
     if (NULL == image) {
         RAGE_QUIT(ui, "IMG_Load regle");
     }
@@ -84,11 +84,11 @@ void sdlInterface_end(userInterface ui, int fin) {
     // On print un rectangle avec un message du gagnant
     SDL_Surface *image;
     if (fin == 1)
-        image = IMG_Load("src/interfaces/img/Rouge.bmp");
+        image = IMG_Load("src/interfaces/sdl/img/Rouge.bmp");
     else if (fin == 2)
-        image = IMG_Load("src/interfaces/img/Jaune.bmp");
+        image = IMG_Load("src/interfaces/sdl/img/Jaune.bmp");
     else
-        image = IMG_Load("src/interfaces/img/MatchNul.bmp");
+        image = IMG_Load("src/interfaces/sdl/img/MatchNul.bmp");
     // On quitte si on a pas pu charger l'image
     if (NULL == image) {
         RAGE_QUIT(ui, "IMG_Load end");

@@ -7,8 +7,8 @@
 #ifndef JOUER_H
 #define JOUER_H
 
-#include "../interfaces/sldInterface.h"
-#include "../interfaces/textInterface.h"
+#include "../interfaces/sdl/sldInterface.h"
+#include "../interfaces/text/textInterface.h"
 #include "../interfaces/userInterface.h"
 
 /*

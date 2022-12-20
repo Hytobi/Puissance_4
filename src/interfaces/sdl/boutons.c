@@ -8,7 +8,7 @@
 
 #include <SDL2/SDL_image.h>
 
-#include "../rage.h"
+#include "../../rage.h"
 
 /**
  * @brief Crée un bouton dans une interface SDL
@@ -31,28 +31,28 @@ SDL_Surface* img_bouton(userInterface ui, int i) {
     SDL_Surface* image;
     switch (i) {
         case 0:
-            image = IMG_Load("src/interfaces/img/Start.bmp");
+            image = IMG_Load("src/interfaces/sdl/img/Start.bmp");
             break;
         case 1:
-            image = IMG_Load("src/interfaces/img/IAvsIA.bmp");
+            image = IMG_Load("src/interfaces/sdl/img/IAvsIA.bmp");
             break;
         case 2:
-            image = IMG_Load("src/interfaces/img/J1vsIA.bmp");
+            image = IMG_Load("src/interfaces/sdl/img/J1vsIA.bmp");
             break;
         case 3:
-            image = IMG_Load("src/interfaces/img/J1vsJ2.bmp");
+            image = IMG_Load("src/interfaces/sdl/img/J1vsJ2.bmp");
             break;
         case 4:
-            image = IMG_Load("src/interfaces/img/ia_facile.bmp");
+            image = IMG_Load("src/interfaces/sdl/img/ia_facile.bmp");
             break;
         case 5:
-            image = IMG_Load("src/interfaces/img/ia_moyen.bmp");
+            image = IMG_Load("src/interfaces/sdl/img/ia_moyen.bmp");
             break;
         case 6:
-            image = IMG_Load("src/interfaces/img/ia_difficile.bmp");
+            image = IMG_Load("src/interfaces/sdl/img/ia_difficile.bmp");
             break;
         case 7:
-            image = IMG_Load("src/interfaces/img/Regles.bmp");
+            image = IMG_Load("src/interfaces/sdl/img/Regles.bmp");
             break;
         default:
             RAGE_QUIT(ui, "Probleme assignation des butons");

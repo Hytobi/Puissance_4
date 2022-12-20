@@ -7,8 +7,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "interfaces/sldInterface.h"
-#include "interfaces/textInterface.h"
+#include "interfaces/sdl/sldInterface.h"
+#include "interfaces/text/textInterface.h"
 #include "interfaces/userInterface.h"
 #include "jouer_coup/jouer.h"
 

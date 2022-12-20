@@ -7,9 +7,9 @@
 #ifndef BOUTONS_H
 #define BOUTONS_H
 
+#include "../userInterface.h"
 #include "SDL2/SDL.h"
 #include "sldInterface.h"
-#include "userInterface.h"
 
 // Nombre de boutons
 #define NB_BTN 8

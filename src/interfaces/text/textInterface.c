@@ -6,7 +6,7 @@
 
 #include "textInterface.h"
 
-#include "../rage.h"
+#include "../../rage.h"
 
 /**
  * @brief: Initialise l'interface en vue texte

@@ -7,7 +7,7 @@
 #ifndef TEXTINTERFACE_H
 #define TEXTINTERFACE_H
 
-#include "userInterface.h"
+#include "../userInterface.h"
 
 /*
  ---------------------------

@@ -7,8 +7,8 @@
 #ifndef SLDINTERFACE_H
 #define SLDINTERFACE_H
 
+#include "../userInterface.h"
 #include "SDL2/SDL.h"
-#include "userInterface.h"
 
 // Taille de la fenetre en pixel
 #define CASE 140
