@@ -129,8 +129,7 @@ void sdlInterface_printBoard(userInterface ui) {
 /**
  * @brief Initialise l'inteface utilisateur ui pour la sdl
  * Les parametres de l'interface ne doivent pas etre null à la fin
- * @param ui l'interface
- * @param jeton le jeton à afficher
+ * @return l'interface utilisateur
  */
 userInterface sdlInterface_init() {
     // Initialisation de l'interface
@@ -207,6 +206,7 @@ void updateBoard(userInterface ui, int x, int y, Player player) {
  * sdl
  * @param game Le jeu
  * @param ui L'interface
+ * @return 1 si on quitte, 0 sinon
  */
 int choixModeEtIa(Puissance *game, userInterface ui) {
     SDL_Event event;

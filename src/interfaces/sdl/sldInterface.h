@@ -14,6 +14,7 @@
 #define CASE 140
 #define H_WINDOW CASE* NB_LIGNES
 #define W_WINDOW CASE*(NB_COLONNES + 1)
+
 /*
  ---------------------------
  Fonction utils pour le main
@@ -23,8 +24,7 @@
 /**
  * @brief Initialise l'inteface utilisateur ui pour la sdl
  * Les parametres de l'interface ne doivent pas etre null à la fin
- * @param ui l'interface
- * @param jeton le jeton à afficher
+ * @return l'interface utilisateur
  */
 userInterface sdlInterface_init();
 
@@ -56,6 +56,7 @@ void sdlInterface_end(userInterface ui, int fin);
  * sdl
  * @param game Le jeu
  * @param ui L'interface
+ * @return 1 si on quitte, 0 sinon
  */
 int choixModeEtIa(Puissance* game, userInterface ui);
 

@@ -23,8 +23,8 @@ LDFLAGS = -lcunit $(LIB)
 SRC := $(wildcard $(SRC_DIR)/*.c $(SRC_DIR)/$(SRC_INTERFACE)/$(SRC_INT_SDL)/*.c $(SRC_DIR)/$(SRC_INTERFACE)/$(SRC_INT_TEXT)/*.c $(SRC_DIR)/$(SRC_JOUER)/*.c)
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o) $($(SRC_DIR)/$(SRC_INTERFACE)/SRC_INT_TEXT:.c=.o) $($(SRC_DIR)/$(SRC_INTERFACE)/SRC_INT_SDL:.c=.o) $($(SRC_DIR)/SRC_JOUER:.c=.o))
 
-SRC_TEST := $(wildcard $(TEST_DIR)/*.c)
-OBJS_TEST := $(addprefix $(OBJ_DIR)/, $(SRC_TEST:.c=.o))
+SRC_TEST := $(wildcard $(TEST_DIR)/*.c $(TEST_DIR)/$(SRC_INTERFACE)/$(SRC_INT_SDL)/*.c $(TEST_DIR)/$(SRC_INTERFACE)/$(SRC_INT_TEXT)/*.c $(TEST_DIR)/$(SRC_JOUER)/*.c)
+OBJS_TEST := $(addprefix $(OBJ_DIR)/, $(SRC_TEST:.c=.o) $($(SRC_TEST)/$(SRC_INTERFACE)/SRC_INT_TEXT:.c=.o) $($(SRC_TEST)/$(SRC_INTERFACE)/SRC_INT_SDL:.c=.o) $($(SRC_TEST)/SRC_JOUER:.c=.o))
 
 DEPS := $(OBJS:.o=.d)
 DEPS_TEST := $(OBJS_TEST:.o=.d)
@@ -43,6 +43,10 @@ createRep:
 	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)/$(SRC_INTERFACE)/$(SRC_INT_TEXT)
 	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)/$(SRC_JOUER)
 	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)
+	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)/$(SRC_INTERFACE)
+	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)/$(SRC_INTERFACE)/$(SRC_INT_SDL)
+	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)/$(SRC_INTERFACE)/$(SRC_INT_TEXT)
+	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)/$(SRC_JOUER)
 
 $(TARGET): createRep $(OBJS)
 	$(CC) -o $(TARGET) $(OBJS) $(LDFLAGS) 

@@ -1,10 +1,10 @@
 #include <CUnit/Basic.h>
 
-#include "test_jouer.h"
-#include "test_jouer_fin.h"
-#include "test_jouer_ia.h"
-#include "test_sdlInterface.h"
-#include "test_textInterface.h"
+#include "interfaces/sdl/test_sdlInterface.h"
+#include "interfaces/text/test_textInterface.h"
+#include "jouer_coup/test_jouer.h"
+#include "jouer_coup/test_jouer_fin.h"
+#include "jouer_coup/test_jouer_ia.h"
 
 int main() {
     if (CUE_SUCCESS != CU_initialize_registry()) return CU_get_error();
