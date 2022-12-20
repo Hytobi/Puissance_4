@@ -6,6 +6,7 @@ SRC_INT_TEXT ?= text
 SRC_JOUER ?= jouer_coup
 OBJ_DIR ?= obj
 TEST_DIR ?= test
+BIN_DIR ?= bin
 DEBUG ?= 1
 LIB ?= -L./lib/lib -lSDL2 -lSDL2_image 
 INCLU ?= -I./lib/include
@@ -30,13 +31,14 @@ DEPS := $(OBJS:.o=.d)
 DEPS_TEST := $(OBJS_TEST:.o=.d)
 
 TARGET ?= bin/exec
-TARGET_TEST ?= bin/runTest
+TARGET_TEST ?= bin/execTest
 
 .PHONY: clean mrproper
 
 all: createRep $(TARGET) $(TARGET_TEST)
 
 createRep:
+	@mkdir -p $(BIN_DIR)
 	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)
 	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)/$(SRC_INTERFACE)
 	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)/$(SRC_INTERFACE)/$(SRC_INT_SDL)
@@ -54,7 +56,6 @@ $(TARGET): createRep $(OBJS)
 
 $(TARGET_TEST):  $(OBJS) $(OBJS_TEST)
 	$(CC) -o $(TARGET_TEST) $(filter-out $(OBJ_DIR)/$(SRC_DIR)/main.o ,$(OBJS)) $(OBJS_TEST) $(LDFLAGS) 
-	@./$(TARGET_TEST)
 	
 
 $(OBJ_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
@@ -63,16 +64,27 @@ $(OBJ_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	
+run:
+	make
+	@./$(TARGET)
+
+runtest:
+	make
+	@./$(TARGET_TEST)
+
 install:
 	@./bash/packUtils.sh
 
 arbo:
 	@./bash/arbo.sh
 
+memory:
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(TARGET)
+
 clean:
 	rm -rf $(OBJ_DIR)
 
 mrproper: clean
-	rm -f $(TARGET) $(TARGET_TEST)
+	rm -rf $(BIN_DIR)
 
 -include $(DEPS) $(DEPS_TEST)

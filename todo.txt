@@ -15,6 +15,19 @@ dificulté ia :  3-meilleur algo( voir sur internet) ou avec arbre ?
 Dans l'interface SDL:
 =pouvoir quiter quand c'est l'ia qui joue
 
+dans make memory : faire 2 dif 1 qui chek dans sdl et l'autre dans texte ?
+
+definitely lost: 300 bytes in 3 blocks
+==7944==    indirectly lost: 56 bytes in 1 blocks
+==7944==      possibly lost: 0 bytes in 0 blocks
+==7944==    still reachable: 324,200 bytes in 3,752 blocks
+==7944==         suppressed: 0 bytes in 0 blocks
+==7944== 
+==7944== For lists of detected and suppressed errors, rerun with: -s
+==7944== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
+
+
+
 
 
 Le travail demandé est de :

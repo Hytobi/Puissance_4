@@ -32,15 +32,19 @@ void load_regles(userInterface ui) {
     if (NULL == image) {
         RAGE_QUIT(ui, "IMG_Load regle");
     }
+
     // On crée une texture à partir de l'image
     SDL_Texture *texture = SDL_CreateTextureFromSurface(ui.renderer, image);
     if (NULL == texture) {
+        SDL_FreeSurface(image);
         RAGE_QUIT(ui, "SDL_CreateTextureFromSurface regle");
     }
+
     // On affiche la texture sur la fenetre
     SDL_Rect rect = (SDL_Rect){0, 0, W_WINDOW, H_WINDOW - CASE};
     SDL_RenderCopy(ui.renderer, texture, NULL, &rect);
     SDL_RenderPresent(ui.renderer);
+
     // On libère la mémoire
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(image);
@@ -89,19 +93,23 @@ void sdlInterface_end(userInterface ui, int fin) {
         image = IMG_Load("src/interfaces/sdl/img/Jaune.bmp");
     else
         image = IMG_Load("src/interfaces/sdl/img/MatchNul.bmp");
+
     // On quitte si on a pas pu charger l'image
-    if (NULL == image) {
+    if (!image) {
         RAGE_QUIT(ui, "IMG_Load end");
     }
     // On crée une texture à partir de l'image
     SDL_Texture *texture = SDL_CreateTextureFromSurface(ui.renderer, image);
-    if (NULL == texture) {
+    if (!texture) {
+        SDL_FreeSurface(image);
         RAGE_QUIT(ui, "SDL_CreateTextureFromSurface end");
     }
+
     // On affiche la texture sur la fenetre
     SDL_Rect rect = (SDL_Rect){2 * CASE + CASE / 2, CASE / 2, 2 * CASE, CASE};
     SDL_RenderCopy(ui.renderer, texture, NULL, &rect);
     SDL_RenderPresent(ui.renderer);
+
     // On libère la mémoire
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(image);
@@ -137,23 +145,18 @@ userInterface sdlInterface_init() {
     ui.window = NULL, ui.renderer = NULL;
     ui.buttons = malloc(sizeof(Bouton) * NB_BTN);
 
-    if (SDL_Init(SDL_INIT_VIDEO) != 0) {
-        RAGE_QUIT(ui, "SDL_Init");
-    }
+    if (SDL_Init(SDL_INIT_VIDEO) != 0) RAGE_QUIT(ui, "SDL_Init");
 
     // On crée la fenetre
     ui.window = SDL_CreateWindow("Puissance 4", SDL_WINDOWPOS_UNDEFINED,
                                  SDL_WINDOWPOS_UNDEFINED, W_WINDOW, H_WINDOW,
                                  SDL_WINDOW_SHOWN);
-    if (ui.window == NULL) {
-        RAGE_QUIT(ui, "SDL_CreateWindow");
-    }
+    if (ui.window == NULL) RAGE_QUIT(ui, "SDL_CreateWindow");
 
     // On crée le renderer
     ui.renderer = SDL_CreateRenderer(ui.window, -1, 0);
-    if (ui.renderer == NULL) {
-        RAGE_QUIT(ui, "SDL_CreateRenderer");
-    }
+    if (ui.renderer == NULL) RAGE_QUIT(ui, "SDL_CreateRenderer");
+
     // On met le fond blanc
     resetBack(ui);
     SDL_RenderPresent(ui.renderer);

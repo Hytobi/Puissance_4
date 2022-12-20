@@ -7,7 +7,7 @@
 
 # Verifies if the exploitation system is Ubuntu
 sys=`cut  -f2 <<< $(lsb_release -d)`
-test [ "${sys:0:6}" != "Ubuntu" ] && echo "This is not Ubuntu i can't check the following packages" && exit 1
+[ "${sys:0:6}" != "Ubuntu" ] && echo "This is not Ubuntu i can't check the following packages" && exit 1
 
 # Do this to upgrade the system
 sudo apt update && sudo apt upgrade && echo
@@ -21,7 +21,13 @@ then
     echo "gcc is installed" 
 else
     echo "gcc is not installed"
-    sudo apt-get install gcc
+    read -p 'Do you want to install gcc? (y/n): ' gccdl
+    if [ $gccdl == "y" ]
+    then
+        sudo apt-get install gcc
+    else
+        echo "you don't have gcc, you can't still compile the program" 
+    fi
 fi
 echo
 
@@ -31,8 +37,14 @@ if [ `cut -d' ' -f1 <<< $?` -eq 0 ]
 then
     echo "make is installed" 
 else
-    echo "make is not installed" 
-    sudo apt-get install make
+    echo "make is not installed"
+    read -p 'Do you want to install make? (y/n): ' makedl
+    if [ $makedl == "y" ]
+    then
+        sudo apt-get install make
+    else
+        echo "you don't have make, you can't still compile the program" 
+    fi
 fi
 echo
 
@@ -43,7 +55,13 @@ then
     echo "valgrind is installed" 
 else 
     echo "valgrind is not installed" 
-    sudo apt-get install valgrind
+    read -p 'Do you want to install valgrind? (y/n): ' valgrinddl
+    if [ $valgrinddl == "y" ]
+    then
+        sudo apt-get install valgrind
+    else
+        echo "you don't have valgrind, you can still compile the program but not use the make valgrind command" 
+    fi
 fi
 echo
 
@@ -71,7 +89,13 @@ then
     echo "SDL2 is installed"
 else
     echo "SDL2 is not installed"
-    sudo apt-get install libsdl2-dev 
+    read -p 'Do you want to install SDL? (y/n): ' sdldl
+    if [ $sdldl == "y" ]
+    then
+        sudo apt-get install libsdl2-dev 
+    else
+        echo "you don't have SDL, you can't still compile the program" 
+    fi
 fi
 echo
 

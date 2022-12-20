@@ -89,7 +89,10 @@ void affiche_btn(userInterface ui, int i) {
     if (!image) RAGE_QUIT(ui, "IMG_Load affiche_btn");
     // On crée la texture
     SDL_Texture* texture = SDL_CreateTextureFromSurface(ui.renderer, image);
-    if (!texture) RAGE_QUIT(ui, "SDL_CreateTextureFromSurface affiche btn");
+    if (!texture) {
+        SDL_FreeSurface(image);
+        RAGE_QUIT(ui, "SDL_CreateTextureFromSurface affiche btn");
+    }
     // On affiche l'image
     SDL_RenderCopy(ui.renderer, texture, NULL, &size_img);
     SDL_RenderPresent(ui.renderer);
