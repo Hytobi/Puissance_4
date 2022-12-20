@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# This script is used to download files from the internet.
+# @author: PLOUVIN Patrice, PLOUVIN Patrick
+# @date: 20/12/2022
+# @brief: Download the necessary packages to compile the program
+# @file: packUtils.sh
 
 # Verifies if the exploitation system is Ubuntu
 sys=`cut  -f2 <<< $(lsb_release -d)`

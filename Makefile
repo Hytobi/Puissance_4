@@ -60,7 +60,10 @@ $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 install:
-	@./bin/packUtils.sh
+	@./bash/packUtils.sh
+
+arbo:
+	@./bash/arbo.sh
 
 clean:
 	rm -rf $(OBJ_DIR)
