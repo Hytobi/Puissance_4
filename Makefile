@@ -25,8 +25,8 @@ OBJS_TEST := $(addprefix $(OBJ_DIR)/, $(SRC_TEST:.c=.o))
 DEPS := $(OBJS:.o=.d)
 DEPS_TEST := $(OBJS_TEST:.o=.d)
 
-TARGET ?= exec
-TARGET_TEST ?= runTest
+TARGET ?= bin/exec
+TARGET_TEST ?= bin/runTest
 
 .PHONY: clean mrproper
 
@@ -44,6 +44,7 @@ $(TARGET): createRep $(OBJS)
 
 $(TARGET_TEST):  $(OBJS) $(OBJS_TEST)
 	$(CC) -o $(TARGET_TEST) $(filter-out $(OBJ_DIR)/$(SRC_DIR)/main.o ,$(OBJS)) $(OBJS_TEST) $(LDFLAGS) 
+	@./$(TARGET_TEST)
 	
 
 $(OBJ_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
@@ -51,7 +52,9 @@ $(OBJ_DIR)/$(SRC_DIR)/%.o: $(SRC_DIR)/%.c
 
 $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
-	@./$(TARGET_TEST)
+	
+install:
+	@./bin/packUtils.sh
 
 clean:
 	rm -rf $(OBJ_DIR)
