@@ -1,6 +1,6 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 16/12/2022
- * @brief: Gère les bouttons de la SDL
+ * @brief: Gère les boutons de la SDL
  * @file: bouttons.h
  */
 
