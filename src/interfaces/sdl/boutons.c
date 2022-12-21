@@ -1,6 +1,6 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 16/12/2022
- * @brief: Implémente les bouttons de la SDL
+ * @brief: Implémente les boutons de la SDL
  * @file: sdlInterface.c
  */
 
