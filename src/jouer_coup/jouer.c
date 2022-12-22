@@ -88,16 +88,18 @@ int pause() {
  * @brief Traite les evenements du jeu en mode SDL
  * @param game le jeu
  * @param ui l'interface
+ * @return 1 si l'utilisateur a quitté, 0 sinon
  */
-void playSDL(Puissance* game, userInterface ui) {
+int playSDL(Puissance* game, userInterface ui) {
     int x, y, fini = 0;
     SDL_Event event;
 
     // On attend que le mode de jeu et la difficulté de l'ia soit choisi
     fini = choixModeEtIa(game, ui);
+    if (fini) return 1;
     // Si l'utilisateur n'a pas quitté on joue
     while (SDL_WaitEvent(&event) > 0 && !fini) {
-        if (event.type == SDL_QUIT) break;
+        if (event.type == SDL_QUIT) return 1;
         // Si c'est le tour d'un joueur humain
         if ((game->joueur == 2 && game->player == CROIX) || game->joueur == 3) {
             if (event.type == SDL_MOUSEBUTTONDOWN) {
@@ -128,6 +130,7 @@ void playSDL(Puissance* game, userInterface ui) {
             fini = joueCoup(game, ui, x, y);
         }
     }
+    return 0;
 }
 
 /**
@@ -186,7 +189,12 @@ void puissance_playGame(Puissance* game, userInterface ui) {
         playText(game, ui);
     } else {
         // Sinon on joue en mode graphique
-        playSDL(game, ui);
+        while (1) {
+            if (playSDL(game, ui)) break;
+            resetColor(ui);
+            sdlInterface_printBoard(ui);
+            game = puissance_init(CROIX);
+        }
 
         // Bien fermer la fenêtre SDL
         if (ui.renderer) SDL_DestroyRenderer(ui.renderer);

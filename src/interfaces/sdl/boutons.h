@@ -69,6 +69,12 @@ void affiche_btn(userInterface ui, int i);
  */
 void setColor(userInterface ui, int i, SDL_Color c);
 
+/**
+ * @brief Set la couleur arrière de tous les boutons à la couleur par défaut
+ * @param ui l'interface
+ */
+void resetColor(userInterface ui);
+
 /*
  -----------------------------
  Fonction utils pour les tests

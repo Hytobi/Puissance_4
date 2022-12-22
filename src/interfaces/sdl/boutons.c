@@ -126,6 +126,16 @@ void setColor(userInterface ui, int i, SDL_Color c) {
 }
 
 /**
+ * @brief Set la couleur arrière de tous les boutons à la couleur par défaut
+ * @param ui l'interface
+ */
+void resetColor(userInterface ui) {
+    for (int i = 0; i < NB_BTN; i++) {
+        ui.buttons[i].c = COLOR_BACK_NOT_CLICK;
+    }
+}
+
+/**
  * @brief Initialise les boutons de l'interface
  * @param ui l'interface
  */

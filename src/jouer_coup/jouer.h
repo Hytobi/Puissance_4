@@ -67,8 +67,9 @@ int joueCoup(Puissance* game, userInterface ui, int x, int y);
  * @brief Traite les evenements du jeu en mode SDL
  * @param game le jeu
  * @param ui l'interface
+ * @return 1 si l'utilisateur a quitté, 0 sinon
  */
-void playSDL(Puissance* game, userInterface ui);
+int playSDL(Puissance* game, userInterface ui);
 
 /**
  * @brief Traite les evenements du jeu en mode texte
