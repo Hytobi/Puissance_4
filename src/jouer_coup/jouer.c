@@ -66,24 +66,6 @@ int joueCoup(Puissance* game, userInterface ui, int x, int y) {
     return verifFinPartie(game, ui, x, y);
 }
 
-int pause() {
-    SDL_Event event;
-    int fini = 0, tmp = 0;
-
-    unsigned int current_time;
-
-    current_time = SDL_GetTicks();
-    // while (current_time > SDL_GetTicks() - 2000) {
-    while (tmp < 2000) {
-        tmp++;
-        if (SDL_PollEvent(&event) > 0 && event.type == SDL_QUIT) {
-            fini = 1;
-            break;
-        }
-    }
-    return fini;
-}
-
 /**
  * @brief Traite les evenements du jeu en mode SDL
  * @param game le jeu
@@ -118,9 +100,9 @@ int playSDL(Puissance* game, userInterface ui) {
         } else {
             // Sinon c'est l'IA qui joue
             // On attend 2 secondes avant de jouer
-            SDL_Delay(2000);
-            // fini = pause();
-            if (fini) break;
+            // SDL_Delay(2000);
+            fini = pauseSDL();
+            if (fini) return 1;
 
             //  Elle choisit la colonne où jouer
             y = chercheColonne(game);

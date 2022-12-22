@@ -1,29 +1,12 @@
-....
+
+dificulté ia :  
+3-meilleur algo( voir sur internet) ou avec arbre ?
++test a faire
 
 
-refaire des test ?
-peut t on vraiment faire des test sur les interface graphique et sdl ? c'est utile ?
-
-
-dificulté ia :  3-meilleur algo( voir sur internet) ou avec arbre ?
-
-
-Dans l'interface SDL:
-=pouvoir quiter quand c'est l'ia qui joue
-jouer.c l69 : en cours : fct pause pour continuer a lire les event quand l'ia joue (ne fonctionne pas) l120 pour activer
-a mettre dans le fichier interface sdl a la fin
-
-dans make memory : faire 2 dif 1 qui chek dans sdl et l'autre dans texte ?
-
-definitely lost: 300 bytes in 3 blocks
-==7944==    indirectly lost: 56 bytes in 1 blocks
-==7944==      possibly lost: 0 bytes in 0 blocks
-==7944==    still reachable: 324,200 bytes in 3,752 blocks
-==7944==         suppressed: 0 bytes in 0 blocks
-==7944== 
-==7944== For lists of detected and suppressed errors, rerun with: -s
-==7944== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
-
+Dans la video: 
+insister sur le fait de faire un "make install" avant (au cas ou)
+comment utiliser les boutons de la sdl
 
 
 
@@ -34,14 +17,16 @@ Le travail demandé est de :
         - les choix réalisés pour les IA, 
         - comment compiler,  : besoin de la lib image en plus : sudo apt install libsdl2-image-dev et juste faire un make puis un ./exec
         - ce que vous n'avez pas réussi à faire, ... : ecrire en ttf : faut dl une lib de font
+
 •	Attacher une vidéo présentant votre projet (i.e. la structure du programme, les choix réalisés pour les IA, comment compiler, ce que vous n'avez pas réussi à faire, ...)
 •	Permettre à l'utilisateur de joueur en mode console ou en mode graphique en utilisant la librairie SDL2 ; ok
 
 •	Implémenter une intelligence artificielle permettant de jouer à votre jeu. Vous devrez proposer 3 modes de jeu : facile, normal et difficile ; // manque la difficile
 •	Implémenter plusieurs modes de jeu : humain vs. humain, humain vs. IA, IA vs. humain, IA vs. IA ;
         -pour moi jv ia et iav j n'as de l'importance qu'au premier coup je vois pas l'interer
+
 •	Commenter votre code de manière à pouvoir générer la documentation automatiquement ; a faire avec le dernier chap du cour
-•	S'assurer que valgrind ne détecte pas problème mémoire ; // Pas tester mais normalement tout est free
+•	S'assurer que valgrind ne détecte pas problème mémoire ; // ok
 •	Coder des tests unitaires ; // la plus part sont fait, regard si tu pense qu'on dois en faire autre part
 •	S'assurer que votre programme compile sur les machines de salle TPs (sans considérer de librairie externe). // a faire a la rentré
 

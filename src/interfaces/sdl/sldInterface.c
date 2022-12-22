@@ -29,13 +29,13 @@ void resetBack(userInterface ui) {
 void load_regles(userInterface ui) {
     // Les règles du jeu sont dans une image qu'on charge
     SDL_Surface *image = IMG_Load("src/interfaces/sdl/img/Puissance4.bmp");
-    if (NULL == image) {
+    if (!image) {
         RAGE_QUIT(ui, "IMG_Load regle");
     }
 
     // On crée une texture à partir de l'image
     SDL_Texture *texture = SDL_CreateTextureFromSurface(ui.renderer, image);
-    if (NULL == texture) {
+    if (!texture) {
         SDL_FreeSurface(image);
         RAGE_QUIT(ui, "SDL_CreateTextureFromSurface regle");
     }
@@ -153,11 +153,11 @@ userInterface sdlInterface_init() {
     ui.window = SDL_CreateWindow("Puissance 4", SDL_WINDOWPOS_UNDEFINED,
                                  SDL_WINDOWPOS_UNDEFINED, W_WINDOW, H_WINDOW,
                                  SDL_WINDOW_SHOWN);
-    if (ui.window == NULL) RAGE_QUIT(ui, "SDL_CreateWindow");
+    if (!ui.window) RAGE_QUIT(ui, "SDL_CreateWindow");
 
     // On crée le renderer
     ui.renderer = SDL_CreateRenderer(ui.window, -1, 0);
-    if (ui.renderer == NULL) RAGE_QUIT(ui, "SDL_CreateRenderer");
+    if (!ui.renderer) RAGE_QUIT(ui, "SDL_CreateRenderer");
 
     // On met le fond blanc
     resetBack(ui);
@@ -175,7 +175,6 @@ userInterface sdlInterface_init() {
         SDL_Quit();
         ui.window = NULL;
     }
-
     return ui;
 }
 
@@ -288,4 +287,23 @@ int choixModeEtIa(Puissance *game, userInterface ui) {
     }
     // On le fait seulement si on relis les règles
     return choixModeEtIa(game, ui);
+}
+
+/**
+ * @brief Fait une pause de 2 secondes pour laisser le temps de voir le coup de
+ * l'ia Il y a un bug dans SDL_WaitEventTimeout qui ne retourn pas 0 si le temps
+ * est écoulé On garde cette solution pour pouvoir quitter le jeu quand l'ia
+ * joue; Contrairment à la solution avec SDL_Delay qui ne permet pas de quitter
+ * le jeu
+ * @return int 1 si l'utilisateur a quitté, 0 sinon
+ */
+int pauseSDL() {
+    SDL_Event event;
+    unsigned int current_time = SDL_GetTicks();
+    while (current_time > SDL_GetTicks() - 2000) {
+        if (SDL_WaitEventTimeout(&event, 1) > 0 && event.type == SDL_QUIT) {
+            return 1;
+        }
+    }
+    return 0;
 }

@@ -61,6 +61,16 @@ void sdlInterface_end(userInterface ui, int fin);
  */
 int choixModeEtIa(Puissance* game, userInterface ui);
 
+/**
+ * @brief Fait une pause de 2 secondes pour laisser le temps de voir le coup de
+ * l'ia Il y a un bug dans SDL_WaitEventTimeout qui ne retourn pas 0 si le temps
+ * est écoulé On garde cette solution pour pouvoir quitter le jeu quand l'ia
+ * joue Contrairment à la solution avec SDL_Delay qui ne permet pas de quitter
+ * le jeu
+ * @return int 1 si l'utilisateur a quitté, 0 sinon
+ */
+int pauseSDL();
+
 /*
  -----------------------------
  Fonction utils pour les tests
