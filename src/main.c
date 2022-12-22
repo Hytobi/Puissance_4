@@ -67,5 +67,7 @@ int main() {
     // Lancement du jeu
     puissance_playGame(game, ui);
 
+    free(game);
+
     return EXIT_SUCCESS;
 }  // main
