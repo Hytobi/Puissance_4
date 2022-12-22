@@ -45,9 +45,6 @@ createRep:
 	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)/$(SRC_INTERFACE)/$(SRC_INT_TEXT)
 	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)/$(SRC_JOUER)
 	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)
-	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)/$(SRC_INTERFACE)
-	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)/$(SRC_INTERFACE)/$(SRC_INT_SDL)
-	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)/$(SRC_INTERFACE)/$(SRC_INT_TEXT)
 	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)/$(SRC_JOUER)
 
 $(TARGET): createRep $(OBJS)

@@ -1,10 +1,19 @@
+/** @author: PLOUVIN Patrice, PLOUVIN Patrick
+ * @date: 02/12/2022
+ * @brief: Fait les tests sur les fonctions de src/jouer_coup/jouer_ia.c
+ * @file: test/jouer_coup/test_jouer_ia.c
+ */
+
 #include "test_jouer_ia.h"
 
-#include "../../src/jouer_coup/jouer_ia.h"
 #include "../../src/interfaces/userInterface.h"
+#include "../../src/jouer_coup/jouer_ia.h"
 #include "../tab.h"
 #include "test_jouer.h"
 
+/**
+ * @brief Teste la fonction prochainCoupGagne
+ */
 void test_prochainCoupGagne(void) {
     Player p[NB_LIGNES][NB_COLONNES] = VIDE;
     // Au début, il n'y a pas de coup gagnant
@@ -38,6 +47,9 @@ void test_prochainCoupGagne(void) {
     CU_ASSERT_EQUAL(prochainCoupGagne(p4, CROIX), 3);
 }
 
+/**
+ * @brief Teste la fonction coupAdversaire
+ */
 void test_coupAdversaire(void) {
     Player p[NB_LIGNES][NB_COLONNES] = VIDE;
     // Au debut (size >= 6) -> colonne dans {2,3,4}
@@ -49,11 +61,18 @@ void test_coupAdversaire(void) {
     CU_ASSERT_EQUAL(coupAdversaire(p2, ROND), -1);
 }
 
+// Liste des tests
 static CU_TestInfo test_array[] = {
     {" test_prochainCoupGagne ", test_prochainCoupGagne},
     {" test_coupAdversaire ", test_coupAdversaire},
     CU_TEST_INFO_NULL};
 
+// Liste des suites
 static CU_SuiteInfo suites[2] = {
     {"suite_jouer_ia", NULL, NULL, NULL, NULL, test_array}, CU_SUITE_INFO_NULL};
+
+/**
+ * @brief Récupère les suites de test de src/jouer_coup/jouer_ia.c
+ * @return CU_SuiteInfo*
+ */
 CU_SuiteInfo* getTestJouerIaSuites() { return suites; }
