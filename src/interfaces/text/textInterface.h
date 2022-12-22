@@ -36,6 +36,12 @@ int choosePlayer();
 int dificulteIA();
 
 /**
+ * @brief: Demmande à l'utilisateur s'il veut rejouer
+ * @return le choix du joueur (1 oui ou 2 non)
+ */
+int rejouer();
+
+/**
  * @brief Affiche le plateau de jeu
  * @param p le tableau de jeu de taille NB_LIGNES x NB_COLONNES
  */

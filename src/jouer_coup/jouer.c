@@ -182,11 +182,16 @@ void playText(Puissance* game, userInterface ui) {
 void puissance_playGame(Puissance* game, userInterface ui) {
     // Si le renderer est NULL, on joue en mode texte
     if (ui.renderer == NULL) {
-        // On demmande le mode de jeu et la difficulté de l'ia
-        game->joueur = choosePlayer();
-        if (game->joueur < 3) game->ia = dificulteIA();
-        // On joue en mode texte
-        playText(game, ui);
+        while (1) {
+            // On demmande le mode de jeu et la difficulté de l'ia
+            game->joueur = choosePlayer();
+            if (game->joueur < 3) game->ia = dificulteIA();
+            // On joue en mode texte
+            playText(game, ui);
+            // On demande si l'utilisateur veut rejouer
+            if (rejouer() == 2) break;
+            game = puissance_init(CROIX);
+        }
     } else {
         // Sinon on joue en mode graphique
         while (1) {

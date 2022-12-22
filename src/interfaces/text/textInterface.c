@@ -26,8 +26,8 @@ userInterface textInterface_init() {
  */
 int choosePlayer() {
     int choice;
+    printf("\033[H\033[2J");
     do {
-        printf("\033[H\033[2J");
         printf("Qui va s'affronter ?\n");
         printf("1. IA vs IA\n");
         printf("2. JOUEUR vs IA\n");
@@ -53,8 +53,8 @@ int choosePlayer() {
  */
 int dificulteIA() {
     int choice;
+    printf("\033[H\033[2J");
     do {
-        printf("\033[H\033[2J");
         printf("Difficulté de l'IA ?\n");
         printf("1. Facile\n");
         printf("2. Moyen\n");
@@ -72,6 +72,32 @@ int dificulteIA() {
     } while (choice < 1 || choice > 3);
     return choice;
 }
+
+/**
+ * @brief: Demmande à l'utilisateur s'il veut rejouer
+ * @return le choix du joueur (1 oui ou 2 non)
+ */
+int rejouer() {
+    int choice;
+    printf("\033[H\033[2J");
+    do {
+        printf("Voulez-vous rejouer ?\n");
+        printf("1. Oui\n");
+        printf("2. Non\n\n");
+        printf("Choix: ");
+
+        if (!scanf("%d", &choice)) {
+            videBuffer();
+            printf("\033[H\033[2J");
+            printf("Choix invalide\n\n");
+        } else if (choice < 1 || choice > 2) {
+            printf("\033[H\033[2J");
+            printf("Entrer une valeur entre 1 et 2\n\n");
+        }
+    } while (choice < 1 || choice > 2);
+    return choice;
+}
+
 /**
  * @brief Affiche la séparation entre 2 lignes du plateau de jeu
  */
