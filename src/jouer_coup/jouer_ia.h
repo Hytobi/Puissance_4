@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Jouer le coup de l'ia
- * @file: jouer_ia.h
+ * @file: src/jouer_coup/jouer_ia.h
  */
 
 #ifndef JOUER_IA_H

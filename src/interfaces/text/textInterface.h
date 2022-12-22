@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Gère l'interface du jeu en vue texte
- * @file: textInterface.h
+ * @file: src/interfaces/text/textInterface.h
  */
 
 #ifndef TEXTINTERFACE_H

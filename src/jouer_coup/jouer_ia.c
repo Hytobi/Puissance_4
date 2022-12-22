@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Implémente le coup de l'ia
- * @file: jouer_ia.c
+ * @file: src/jouer_coup/jouer_ia.c
  */
 
 #include "jouer_ia.h"

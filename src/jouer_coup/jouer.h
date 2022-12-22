@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Fichier principale qui gère le back-end du jeu
- * @file: jouer.h
+ * @file: src/jouer_coup/jouer.h
  */
 
 #ifndef JOUER_H

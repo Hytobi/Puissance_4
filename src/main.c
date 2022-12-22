@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Fonction principale du programme
- * @file: main.c
+ * @file: src/main.c
  */
 
 #include <stdio.h>

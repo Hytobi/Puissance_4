@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Gère l'interface utilisateur
- * @file: userInterface.h
+ * @file: src/interfaces/userInterface.h
  */
 
 #ifndef USERINTERFACE_H

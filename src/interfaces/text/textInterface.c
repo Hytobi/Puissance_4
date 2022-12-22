@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Implémente l'interface du jeu en vue texte
- * @file: textInterface.c
+ * @file: src/interfaces/text/textInterface.c
  */
 
 #include "textInterface.h"

@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Implémente le back-end du jeu
- * @file: jouer.c
+ * @file: src/jouer_coup/jouer.c
  */
 
 #include "jouer.h"

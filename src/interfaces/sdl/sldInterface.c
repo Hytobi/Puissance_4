@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Implémente l'interface du jeu en vue graphique SDL
- * @file: sdlInterface.c
+ * @file: src/interfaces/sld/sdlInterface.c
  */
 
 #include "sldInterface.h"

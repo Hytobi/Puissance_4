@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Gère l'interface du jeu en vue graphique SDL
- * @file: sdlInterface.h
+ * @file: src/interfaces/sld/sdlInterface.h
  */
 
 #ifndef SLDINTERFACE_H

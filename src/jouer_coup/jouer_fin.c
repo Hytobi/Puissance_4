@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Implémente les événements de fin de partie
- * @file: jouer_fin.h
+ * @file: src/jouer_coup/jouer_fin.h
  */
 #include "jouer_fin.h"
 

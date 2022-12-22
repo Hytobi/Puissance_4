@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 24/11/2022
  * @brief: Ferme correctement le programme s'il y a une erreur dans la SDL
- * @file: rage.h
+ * @file: src/rage.h
  */
 
 #ifndef RAGE_H
