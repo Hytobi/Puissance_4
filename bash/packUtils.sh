@@ -99,21 +99,4 @@ else
 fi
 echo
 
-# We can't check if SDL2_image is installed, so we ask the user
-read -p 'Do you have the package SDL2_image? (y/n): ' img
-if [ $img == "y" ]
-then
-    echo "SDL2_image is installed" 
-else
-    echo "SDL2_image is not installed" 
-    read -p 'Do you want to install SDL2_image? (y/n)' imgdl
-    if [ $imgdl == "y" ]
-    then
-        sudo apt-get install libsdl2-image-dev
-    else
-        echo "you don't have SDL2_image, you can't still compile the program" 
-    fi
-fi
-echo
-
 exit 0

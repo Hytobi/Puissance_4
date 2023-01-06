@@ -13,13 +13,42 @@
 
 /**
  * @brief Initialise l'interface en vue graphique SDL
- * On met la fenetre en blanc
+ * On met la fenetre en bleu ou blanc
  * @param ui l'interface
+ * @param color 1 pour bleu, 0 pour blanc
  */
-void resetBack(userInterface ui) {
-    SDL_SetRenderDrawColor(ui.renderer, 255, 255, 255, 255);
+void resetBack(userInterface ui, int color) {
+    if (color) {
+        SDL_SetRenderDrawColor(ui.renderer, 0, 0, 255, 255);
+    } else {
+        SDL_SetRenderDrawColor(ui.renderer, 255, 255, 255, 255);
+    }
     SDL_RenderClear(ui.renderer);
-    SDL_SetRenderDrawColor(ui.renderer, 0, 0, 0, 255);
+}
+
+/**
+ * @brief Affiche un cercle  dans la fenetre SDL
+ * @param ui l'interface
+ * @param x la position en x dans le tableau (pas dans la fenetre)
+ * @param y la position en y dans le tableau (pas dans la fenetre)
+ */
+void printCercle(userInterface ui, int x, int y) {
+    // On passe en coordonnées de la fenetre
+    x *= CASE;
+    y *= CASE;
+    // On récupère le rayon du pion et la position du milieu
+    int radus = CASE * 30;
+    int midX = x + CASE / 2;
+    int midY = y + CASE / 2;
+
+    // On dessine le pion en faisant un cercle
+    for (int i = y + 1; i < y + CASE - 1; i++) {
+        for (int j = x + 1; j < x + CASE - 1; j++) {
+            if ((midY - i) * (midY - i) + (midX - j) * (midX - j) < radus) {
+                SDL_RenderDrawLine(ui.renderer, midY, midX, i, j);
+            }
+        }
+    }
 }
 
 /**
@@ -28,9 +57,9 @@ void resetBack(userInterface ui) {
  */
 void load_regles(userInterface ui) {
     // Les règles du jeu sont dans une image qu'on charge
-    SDL_Surface *image = IMG_Load("src/interfaces/sdl/img/Puissance4.bmp");
+    SDL_Surface *image = SDL_LoadBMP("src/interfaces/sdl/img/Puissance4.bmp");
     if (!image) {
-        RAGE_QUIT(ui, "IMG_Load regle");
+        RAGE_QUIT(ui, "IMG_LoadBMP regle");
     }
 
     // On crée une texture à partir de l'image
@@ -51,13 +80,41 @@ void load_regles(userInterface ui) {
 }
 
 /**
+ * @brief Affiche une idication que le jeu est en train de charger
+ * @param ui l'interface
+ */
+void load_loading(userInterface ui) {
+    //  On charge l'image de chargement
+    SDL_Surface *image = SDL_LoadBMP("src/interfaces/sdl/img/Loading.bmp");
+    if (!image) {
+        RAGE_QUIT(ui, "SDL_LoadBMP Loading");
+    }
+
+    // On crée une texture à partir de l'image
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(ui.renderer, image);
+    if (!texture) {
+        SDL_FreeSurface(image);
+        RAGE_QUIT(ui, "SDL_CreateTextureFromSurface load");
+    }
+
+    // On affiche la texture sur la fenetre
+    SDL_Rect rect = (SDL_Rect){3 * CASE, H_WINDOW - 170, 250, 100};
+    SDL_RenderCopy(ui.renderer, texture, NULL, &rect);
+    SDL_RenderPresent(ui.renderer);
+
+    // On libère la mémoire
+    SDL_DestroyTexture(texture);
+    SDL_FreeSurface(image);
+}
+
+/**
  * @brief Page de demarrage de la vue SDL
  * @param ui l'interface
  * @return 0 si tout s'est bien passé, 1 si l'utilisateur a fermé la fenetre
  */
 int sdlInterface_start(userInterface ui) {
     // Au cas ou on relis les règles on remet le fond blanc
-    resetBack(ui);
+    resetBack(ui, 0);
     // On charge les règles
     load_regles(ui);
     // On affiche le bouton Start
@@ -74,6 +131,7 @@ int sdlInterface_start(userInterface ui) {
             SDL_GetMouseState(&x, &y);
             // On regarde si l'utilisateur a cliqué sur le bouton
             if (test_estDansBtn(ui, x, y, 0)) {
+                load_loading(ui);
                 break;
             }
         }
@@ -90,11 +148,11 @@ void sdlInterface_end(userInterface ui, int fin) {
     // On print un rectangle avec un message du gagnant
     SDL_Surface *image;
     if (fin == 1)
-        image = IMG_Load("src/interfaces/sdl/img/Rouge.bmp");
+        image = SDL_LoadBMP("src/interfaces/sdl/img/Rouge.bmp");
     else if (fin == 2)
-        image = IMG_Load("src/interfaces/sdl/img/Jaune.bmp");
+        image = SDL_LoadBMP("src/interfaces/sdl/img/Jaune.bmp");
     else
-        image = IMG_Load("src/interfaces/sdl/img/MatchNul.bmp");
+        image = SDL_LoadBMP("src/interfaces/sdl/img/MatchNul.bmp");
 
     // On quitte si on a pas pu charger l'image
     if (!image) {
@@ -123,16 +181,23 @@ void sdlInterface_end(userInterface ui, int fin) {
  * @param ui l'interface
  */
 void sdlInterface_printBoard(userInterface ui) {
-    // On remet le fond blanc pour tout supprimer
-    resetBack(ui);
+    // On remet le fond bleu pour tout supprimer
+    resetBack(ui, 1);
+    // On met blanc le côté des boutons
+    SDL_SetRenderDrawColor(ui.renderer, 255, 255, 255, 255);
+    SDL_Rect rect = (SDL_Rect){W_WINDOW - CASE, 0, CASE, H_WINDOW};
+    SDL_RenderFillRect(ui.renderer, &rect);
+    // On met des cercles blancs sur les cases du plateau
+    SDL_SetRenderDrawColor(ui.renderer, 255, 255, 255, 255);
+    for (int i = 0; i < NB_LIGNES; i++) {
+        for (int j = 0; j < NB_COLONNES; j++) {
+            printCercle(ui, i, j);
+        }
+    }
+    SDL_RenderPresent(ui.renderer);
     // On affiche les boutons
     for (int i = 1; i < NB_BTN; i++) affiche_btn(ui, i);
-    // On affiche le plateau en noir
-    SDL_SetRenderDrawColor(ui.renderer, 0, 0, 0, 255);
-    for (int i = 1; i <= NB_COLONNES; i++)
-        SDL_RenderDrawLine(ui.renderer, CASE * i, 0, CASE * i, H_WINDOW);
-    for (int i = 1; i < NB_LIGNES; i++)
-        SDL_RenderDrawLine(ui.renderer, 0, CASE * i, W_WINDOW - CASE, i * CASE);
+    // On affiche
     SDL_RenderPresent(ui.renderer);
 }
 
@@ -160,7 +225,7 @@ userInterface sdlInterface_init() {
     if (!ui.renderer) RAGE_QUIT(ui, "SDL_CreateRenderer");
 
     // On met le fond blanc
-    resetBack(ui);
+    resetBack(ui, 0);
     SDL_RenderPresent(ui.renderer);
 
     // On initialise tout les boutons
@@ -193,22 +258,7 @@ void updateBoard(userInterface ui, int x, int y, Player player) {
     } else if (player == ROND) {
         SDL_SetRenderDrawColor(ui.renderer, 255, 255, 0, 255);
     }
-    // On passe en coordonnées de la fenetre
-    x *= CASE;
-    y *= CASE;
-    // On récupère le rayon du pion et la position du milieu
-    int radus = CASE * 30;
-    int midX = x + CASE / 2;
-    int midY = y + CASE / 2;
-
-    // On dessine le pion en faisant un cercle
-    for (int i = y + 1; i < y + CASE - 1; i++) {
-        for (int j = x + 1; j < x + CASE - 1; j++) {
-            if ((midY - i) * (midY - i) + (midX - j) * (midX - j) < radus) {
-                SDL_RenderDrawLine(ui.renderer, midY, midX, i, j);
-            }
-        }
-    }
+    printCercle(ui, x, y);
     SDL_RenderPresent(ui.renderer);
 }
 

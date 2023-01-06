@@ -8,7 +8,7 @@ OBJ_DIR ?= obj
 TEST_DIR ?= test
 BIN_DIR ?= bin
 DEBUG ?= 1
-LIB ?= -L./lib/lib -lSDL2 -lSDL2_image 
+LIB ?= -L./lib/lib -lSDL2
 INCLU ?= -I./lib/include
 
 ifeq '$(DEBUG)' '1'

@@ -79,10 +79,11 @@ int pauseSDL();
 
 /**
  * @brief Initialise l'interface en vue graphique SDL
- * On met la fenetre en blanc
+ * On met la fenetre en bleu ou blanc
  * @param ui l'interface
+ * @param color 1 pour bleu, 0 pour blanc
  */
-void resetBack(userInterface ui);
+void resetBack(userInterface ui, int color);
 
 /**
  * @brief Affiche les règles du jeu pour la sdl
@@ -96,5 +97,11 @@ void load_regles(userInterface ui);
  * @param ui l'interface
  */
 void sdlInterface_printBoard(userInterface ui);
+
+/**
+ * @brief Affiche une idication que le jeu est en train de charger
+ * @param ui l'interface
+ */
+void load_loading(userInterface ui);
 
 #endif

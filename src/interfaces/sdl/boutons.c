@@ -31,34 +31,34 @@ SDL_Surface* img_bouton(userInterface ui, int i) {
     SDL_Surface* image;
     switch (i) {
         case 0:
-            image = IMG_Load("src/interfaces/sdl/img/Start.bmp");
+            image = SDL_LoadBMP("src/interfaces/sdl/img/Start.bmp");
             break;
         case 1:
-            image = IMG_Load("src/interfaces/sdl/img/IAvsIA.bmp");
+            image = SDL_LoadBMP("src/interfaces/sdl/img/IAvsIA.bmp");
             break;
         case 2:
-            image = IMG_Load("src/interfaces/sdl/img/J1vsIA.bmp");
+            image = SDL_LoadBMP("src/interfaces/sdl/img/J1vsIA.bmp");
             break;
         case 3:
-            image = IMG_Load("src/interfaces/sdl/img/J1vsJ2.bmp");
+            image = SDL_LoadBMP("src/interfaces/sdl/img/J1vsJ2.bmp");
             break;
         case 4:
-            image = IMG_Load("src/interfaces/sdl/img/ia_facile.bmp");
+            image = SDL_LoadBMP("src/interfaces/sdl/img/ia_facile.bmp");
             break;
         case 5:
-            image = IMG_Load("src/interfaces/sdl/img/ia_moyen.bmp");
+            image = SDL_LoadBMP("src/interfaces/sdl/img/ia_moyen.bmp");
             break;
         case 6:
-            image = IMG_Load("src/interfaces/sdl/img/ia_difficile.bmp");
+            image = SDL_LoadBMP("src/interfaces/sdl/img/ia_difficile.bmp");
             break;
         case 7:
-            image = IMG_Load("src/interfaces/sdl/img/Regles.bmp");
+            image = SDL_LoadBMP("src/interfaces/sdl/img/Regles.bmp");
             break;
         default:
             RAGE_QUIT(ui, "Probleme assignation des butons");
             break;
     }
-    if (!image) RAGE_QUIT(ui, "IMG_Load img_bouton");
+    if (!image) RAGE_QUIT(ui, "ISDL_LoadBMP img_bouton");
     return image;
 }
 
