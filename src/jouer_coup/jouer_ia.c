@@ -152,7 +152,31 @@ int moyen(Puissance* game) {
  * @param game le jeu
  * @return la colonne ou joue l'IA
  */
-int difficile(Puissance* game) { return 3; }
+int difficile(Puissance* game) {
+    int c;
+    // Si on peut gagner on gagne
+    c = prochainCoupGagne(game->board, game->player);
+    if (c != -1) return c;
+
+    // Si l'adversaire peut gagner on bloque
+    c = prochainCoupGagne(game->board, (game->player == ROND) ? CROIX : ROND);
+    if (c != -1) return c;
+
+    int col[3] = {-1, -1, -1};
+    int lig[2] = {-1, -1};
+    col[0] = coupAdversaire(game->board, game->player);
+    lig[0] = chercheLigne(game->board, col[0]);
+    game->board[lig[0]][col[0]] = game->player;
+    Player inter = (game->player == ROND) ? CROIX : ROND;
+    col[1] = coupAdversaire(game->board, inter);
+    lig[1] = chercheLigne(game->board, col[1]);
+    game->board[lig[1]][col[1]] = inter;
+    col[2] = coupAdversaire(game->board, game->player);
+
+    game->board[lig[0]][col[0]] = EMPTY;
+    game->board[lig[1]][col[1]] = EMPTY;
+    return col[2];
+}
 
 /**
  * @brief Joue le coup de l'IA en fonction de son niveau
