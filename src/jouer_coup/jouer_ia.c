@@ -65,6 +65,9 @@ int prochainCoupGagne(Player p[][NB_COLONNES], Player joueur) {
  * @return la colonne du coup a jouer
  */
 int coupAdversaire(Player p[][NB_COLONNES], Player joueur) {
+    // Petite video explicative :
+    // https://www.instagram.com/reel/Ckkq2nCJNq5/?igshid=YmMyMTA2M2Y=
+
     int l, c, t, js, max = 0, size = 0;
     int tab[NB_COLONNES] = {-1};
 
@@ -81,18 +84,16 @@ int coupAdversaire(Player p[][NB_COLONNES], Player joueur) {
 
         // On joue le coup de l'adversaire
         p[l][c] = joueurSuivant;
+        if (l != 0) p[l - 1][c] = joueurSuivant;
 
         // Si il aligne plus de pions que precedemment
         if ((t = cGagne(p, joueurSuivant, l, c)) >= max) {
-            // Cette partie du code :
-            // https://www.instagram.com/reel/Ckkq2nCJNq5/?igshid=YmMyMTA2M2Y=
-
             // nombre de pions alignés par l'adversaire au coup apres le notre
-            js = cGagne(p, joueur, l - 1, c);
+            if (l != 0) js = cGagne(p, joueurSuivant, l - 1, c);
 
             // Si il trouve un meilleur coup que le précédent
             // On remet le tableau à 0
-            if (t > max && js < 3) {
+            if (t > max && js < 4) {
                 size = 0;
                 tab[size++] = c;
                 max = t;
@@ -106,6 +107,7 @@ int coupAdversaire(Player p[][NB_COLONNES], Player joueur) {
         }
         // On remet la case à vide
         p[l][c] = EMPTY;
+        if (l != 0) p[l - 1][c] = EMPTY;
     }
     // Si on a trop de coup a jouer on joue au centre
     if (size >= 6) {
