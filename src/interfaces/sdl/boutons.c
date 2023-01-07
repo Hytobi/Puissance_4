@@ -29,36 +29,43 @@ Bouton createButon(userInterface ui, int y, SDL_Color c) {
  */
 SDL_Surface* img_bouton(userInterface ui, int i) {
     SDL_Surface* image;
+    char* path;
     switch (i) {
         case 0:
-            image = SDL_LoadBMP("src/interfaces/sdl/img/Start.bmp");
+            path = recupPath(ui, "Start.bmp");
             break;
         case 1:
-            image = SDL_LoadBMP("src/interfaces/sdl/img/IAvsIA.bmp");
+            path = recupPath(ui, "IAvsIA.bmp");
             break;
         case 2:
-            image = SDL_LoadBMP("src/interfaces/sdl/img/J1vsIA.bmp");
+            path = recupPath(ui, "J1vsIA.bmp");
             break;
         case 3:
-            image = SDL_LoadBMP("src/interfaces/sdl/img/J1vsJ2.bmp");
+            path = recupPath(ui, "J1vsJ2.bmp");
             break;
         case 4:
-            image = SDL_LoadBMP("src/interfaces/sdl/img/ia_facile.bmp");
+            path = recupPath(ui, "ia_facile.bmp");
             break;
         case 5:
-            image = SDL_LoadBMP("src/interfaces/sdl/img/ia_moyen.bmp");
+            path = recupPath(ui, "ia_moyen.bmp");
             break;
         case 6:
-            image = SDL_LoadBMP("src/interfaces/sdl/img/ia_difficile.bmp");
+            path = recupPath(ui, "ia_difficile.bmp");
             break;
         case 7:
-            image = SDL_LoadBMP("src/interfaces/sdl/img/Regles.bmp");
+            path = recupPath(ui, "Regles.bmp");
             break;
         default:
             RAGE_QUIT(ui, "Probleme assignation des butons");
             break;
     }
+    // On charge l'image
+    image = SDL_LoadBMP(path);
+    // On libere la memoire avant de check si l'image est bien chargée
+    free(path);
+    // Si l'image n'est pas chargée
     if (!image) RAGE_QUIT(ui, "ISDL_LoadBMP img_bouton");
+    // On retourne l'image
     return image;
 }
 

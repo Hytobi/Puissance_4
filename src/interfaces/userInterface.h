@@ -40,6 +40,7 @@ typedef struct ui {
     SDL_Window *window;      //!< La fenêtre SDL
     SDL_Renderer *renderer;  //!< Le renderer SDL
     Bouton *buttons;         //!< Les boutons SDL
+    char *path;              //!< Le chemin vers les images
 } userInterface;
 
 /**

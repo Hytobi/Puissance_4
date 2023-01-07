@@ -52,12 +52,32 @@ void printCercle(userInterface ui, int x, int y) {
 }
 
 /**
+ * @brief Récupère le chemin vers l'image
+ *
+ * @param ui l'interface
+ * @param path le nom de l'image
+ * @return char* le chemin vers l'image
+ */
+char *recupPath(userInterface ui, char *path) {
+    // On prend la bonne taille de la chaine pour flex
+    char *chemin =
+        malloc(strlen(ui.path) + strlen(PATH_IMG) + strlen(path) + 1);
+    // On concatène les chaines
+    strcpy(chemin, ui.path);
+    strcat(chemin, PATH_IMG);
+    strcat(chemin, path);
+    // On retourne le chemin
+    return chemin;
+}
+
+/**
  * @brief Affiche les règles du jeu pour la sdl
  * @param ui l'interface
  */
 void load_regles(userInterface ui) {
     // Les règles du jeu sont dans une image qu'on charge
-    SDL_Surface *image = SDL_LoadBMP("src/interfaces/sdl/img/Puissance4.bmp");
+    char *path = recupPath(ui, "Puissance4.bmp");
+    SDL_Surface *image = SDL_LoadBMP(path);
     if (!image) {
         RAGE_QUIT(ui, "IMG_LoadBMP regle");
     }
@@ -75,6 +95,7 @@ void load_regles(userInterface ui) {
     SDL_RenderPresent(ui.renderer);
 
     // On libère la mémoire
+    free(path);
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(image);
 }
@@ -84,11 +105,10 @@ void load_regles(userInterface ui) {
  * @param ui l'interface
  */
 void load_loading(userInterface ui) {
-    //  On charge l'image de chargement
-    SDL_Surface *image = SDL_LoadBMP("src/interfaces/sdl/img/Loading.bmp");
-    if (!image) {
-        RAGE_QUIT(ui, "SDL_LoadBMP Loading");
-    }
+    // On charge l'image de chargement
+    char *path = recupPath(ui, "Loading.bmp");
+    SDL_Surface *image = SDL_LoadBMP(path);
+    if (!image) RAGE_QUIT(ui, "SDL_LoadBMP Loading");
 
     // On crée une texture à partir de l'image
     SDL_Texture *texture = SDL_CreateTextureFromSurface(ui.renderer, image);
@@ -103,6 +123,7 @@ void load_loading(userInterface ui) {
     SDL_RenderPresent(ui.renderer);
 
     // On libère la mémoire
+    free(path);
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(image);
 }
@@ -147,17 +168,17 @@ int sdlInterface_start(userInterface ui) {
 void sdlInterface_end(userInterface ui, int fin) {
     // On print un rectangle avec un message du gagnant
     SDL_Surface *image;
+    char *path;
     if (fin == 1)
-        image = SDL_LoadBMP("src/interfaces/sdl/img/Rouge.bmp");
+        path = recupPath(ui, "Rouge.bmp");
     else if (fin == 2)
-        image = SDL_LoadBMP("src/interfaces/sdl/img/Jaune.bmp");
+        path = recupPath(ui, "Jaune.bmp");
     else
-        image = SDL_LoadBMP("src/interfaces/sdl/img/MatchNul.bmp");
-
+        path = recupPath(ui, "MatchNul.bmp");
+    // On charge l'image
+    image = SDL_LoadBMP(path);
     // On quitte si on a pas pu charger l'image
-    if (!image) {
-        RAGE_QUIT(ui, "IMG_Load end");
-    }
+    if (!image) RAGE_QUIT(ui, "IMG_Load end");
     // On crée une texture à partir de l'image
     SDL_Texture *texture = SDL_CreateTextureFromSurface(ui.renderer, image);
     if (!texture) {
@@ -171,6 +192,7 @@ void sdlInterface_end(userInterface ui, int fin) {
     SDL_RenderPresent(ui.renderer);
 
     // On libère la mémoire
+    free(path);
     SDL_DestroyTexture(texture);
     SDL_FreeSurface(image);
 }
@@ -204,13 +226,23 @@ void sdlInterface_printBoard(userInterface ui) {
 /**
  * @brief Initialise l'inteface utilisateur ui pour la sdl
  * Les parametres de l'interface ne doivent pas etre null à la fin
+ * @param path le chemin vers les images
  * @return l'interface utilisateur
  */
-userInterface sdlInterface_init() {
+userInterface sdlInterface_init(char *path) {
     // Initialisation de l'interface
     userInterface ui;
     ui.window = NULL, ui.renderer = NULL;
     ui.buttons = malloc(sizeof(Bouton) * NB_BTN);
+
+    // Si le chemin n'est pas null on le copie
+    if (path != NULL) {
+        ui.path = malloc(sizeof(char) * (strlen(path) + 1));
+        strcpy(ui.path, path);
+        free(path);
+    } else {
+        ui.path = "";
+    }
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0) RAGE_QUIT(ui, "SDL_Init");
 
@@ -237,6 +269,7 @@ userInterface sdlInterface_init() {
         if (ui.renderer) SDL_DestroyRenderer(ui.renderer);
         if (ui.window) SDL_DestroyWindow(ui.window);
         if (ui.buttons) free(ui.buttons);
+        if (strcmp(ui.path, "")) free(ui.path);
         SDL_Quit();
         ui.window = NULL;
     }

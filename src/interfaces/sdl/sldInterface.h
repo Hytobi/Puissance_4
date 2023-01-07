@@ -10,6 +10,9 @@
 #include "../userInterface.h"
 #include "SDL2/SDL.h"
 
+// Chemin vers les images
+#define PATH_IMG "src/interfaces/sdl/img/"
+
 // Taille de la fenetre en pixel
 #define CASE 140
 #define H_WINDOW CASE* NB_LIGNES
@@ -24,9 +27,10 @@
 /**
  * @brief Initialise l'inteface utilisateur ui pour la sdl
  * Les parametres de l'interface ne doivent pas etre null à la fin
+ * @param path le chemin vers les images
  * @return l'interface utilisateur
  */
-userInterface sdlInterface_init();
+userInterface sdlInterface_init(char* path);
 
 /**
  * @brief Met a jour le plateau de jeu en mettant le pion de la couleur du
@@ -70,6 +74,15 @@ int choixModeEtIa(Puissance* game, userInterface ui);
  * @return int 1 si l'utilisateur a quitté, 0 sinon
  */
 int pauseSDL();
+
+/**
+ * @brief Récupère le chemin vers l'image
+ *
+ * @param ui l'interface
+ * @param path le nom de l'image
+ * @return char* le chemin vers l'image
+ */
+char* recupPath(userInterface ui, char* path);
 
 /*
  -----------------------------

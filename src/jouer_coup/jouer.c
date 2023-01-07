@@ -21,7 +21,11 @@
  * @return Le jeu initialisé
  */
 Puissance* puissance_init(Player player) {
-    Puissance* game = malloc(sizeof(Puissance));
+    Puissance* game = (Puissance*)malloc(sizeof(Puissance));
+    if (!game) {
+        fprintf(stderr, "Erreur d'allocation mémoire\n");
+        exit(EXIT_FAILURE);
+    }
     game->player = player;
     game->joueur = -1;
     game->ia = -1;
@@ -187,6 +191,7 @@ void puissance_playGame(Puissance* game, userInterface ui) {
         if (ui.renderer) SDL_DestroyRenderer(ui.renderer);
         if (ui.window) SDL_DestroyWindow(ui.window);
         if (ui.buttons) free(ui.buttons);
+        if (strcmp(ui.path, "")) free(ui.path);
         SDL_Quit();
     }
 }

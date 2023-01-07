@@ -31,7 +31,51 @@ Le travail demandé est de :
 •	S'assurer que votre programme compile sur les machines de salle TPs (sans considérer de librairie externe). // a faire a la rentré
 
 
-
+==3720== HEAP SUMMARY:
+==3720==     in use at exit: 276,441 bytes in 3,755 blocks
+==3720==   total heap usage: 105,227 allocs, 101,473 frees, 169,800,318 bytes allocated
+==3720== 
+==3720== 64 bytes in 1 blocks are definitely lost in loss record 2,237 of 2,575
+==3720==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3720==    by 0x747A5CD: ???
+==3720==    by 0x6D11593: ???
+==3720==    by 0x400647D: call_init.part.0 (dl-init.c:70)
+==3720==    by 0x4006567: call_init (dl-init.c:33)
+==3720==    by 0x4006567: _dl_init (dl-init.c:117)
+==3720==    by 0x4B7FC84: _dl_catch_exception (dl-error-skeleton.c:182)
+==3720==    by 0x400DFF5: dl_open_worker (dl-open.c:808)
+==3720==    by 0x400DFF5: dl_open_worker (dl-open.c:771)
+==3720==    by 0x4B7FC27: _dl_catch_exception (dl-error-skeleton.c:208)
+==3720==    by 0x400E34D: _dl_open (dl-open.c:883)
+==3720==    by 0x4A9B6BB: dlopen_doit (dlopen.c:56)
+==3720==    by 0x4B7FC27: _dl_catch_exception (dl-error-skeleton.c:208)
+==3720==    by 0x4B7FCF2: _dl_catch_error (dl-error-skeleton.c:227)
+==3720== 
+==3720== 112 (56 direct, 56 indirect) bytes in 1 blocks are definitely lost in loss record 2,510 of 2,575
+==3720==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==3720==    by 0x781189E: ???
+==3720==    by 0x730A533: ???
+==3720==    by 0x72F52A0: ???
+==3720==    by 0x72F545C: ???
+==3720==    by 0x72AEF80: ???
+==3720==    by 0x72B1A54: ???
+==3720==    by 0x72AC8EC: ???
+==3720==    by 0x725A697: ???
+==3720==    by 0x729308D: ???
+==3720==    by 0x728F6C6: ???
+==3720==    by 0x722C855: ???
+==3720== 
+==3720== LEAK SUMMARY:
+==3720==    definitely lost: 120 bytes in 2 blocks
+==3720==    indirectly lost: 56 bytes in 1 blocks
+==3720==      possibly lost: 0 bytes in 0 blocks
+==3720==    still reachable: 276,265 bytes in 3,752 blocks
+==3720==         suppressed: 0 bytes in 0 blocks
+==3720== Reachable blocks (those to which a pointer was found) are not shown.
+==3720== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==3720== 
+==3720== For lists of detected and suppressed errors, rerun with: -s
+==3720== ERROR SUMMARY: 5 errors from 5 contexts (suppressed: 0 from 0)
 
 
 
