@@ -1,0 +1,69 @@
+\hypertarget{rage_8h}{}\doxysection{src/rage.h File Reference}
+\label{rage_8h}\index{src/rage.h@{src/rage.h}}
+
+
+\+: Ferme correctement le programme s\textquotesingle{}il y a une erreur dans la SDL  
+
+
+{\ttfamily \#include \char`\"{}SDL2/\+SDL.\+h\char`\"{}}\newline
+Include dependency graph for rage.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=152pt]{rage_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{rage_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{rage_8h_a54ca21913e610233efb0f32c249f0d78}{RAGE\+\_\+\+QUIT}}(ui,  msg)
+\begin{DoxyCompactList}\small\item\em Ferme correctement le programme s\textquotesingle{}il y a une erreur dans la SDL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Ferme correctement le programme s\textquotesingle{}il y a une erreur dans la SDL 
+
+\begin{DoxyAuthor}{Author}
+\+: PLOUVIN Patrice, PLOUVIN Patrick 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: 24/11/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{rage_8h_a54ca21913e610233efb0f32c249f0d78}\label{rage_8h_a54ca21913e610233efb0f32c249f0d78}} 
+\index{rage.h@{rage.h}!RAGE\_QUIT@{RAGE\_QUIT}}
+\index{RAGE\_QUIT@{RAGE\_QUIT}!rage.h@{rage.h}}
+\doxysubsubsection{\texorpdfstring{RAGE\_QUIT}{RAGE\_QUIT}}
+{\footnotesize\ttfamily \#define RAGE\+\_\+\+QUIT(\begin{DoxyParamCaption}\item[{}]{ui,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \{                                                              \(\backslash\)}
+\DoxyCodeLine{        fprintf(stderr, \textcolor{stringliteral}{"{}Erreur \%s : \%s\(\backslash\)n"{}}, msg, SDL\_GetError());  \(\backslash\)}
+\DoxyCodeLine{        if (NULL != ui.renderer) SDL\_DestroyRenderer(ui.renderer); \(\backslash\)}
+\DoxyCodeLine{        if (NULL != ui.window) SDL\_DestroyWindow(ui.window);       \(\backslash\)}
+\DoxyCodeLine{        if (NULL != ui.buttons) free(ui.buttons);                  \(\backslash\)}
+\DoxyCodeLine{        if (!strcmp(ui.path, "{}"{})) free(ui.path);                   \(\backslash\)}
+\DoxyCodeLine{        SDL\_Quit();                                                \(\backslash\)}
+\DoxyCodeLine{        exit(EXIT\_FAILURE);                                        \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Ferme correctement le programme s\textquotesingle{}il y a une erreur dans la SDL. 
+
+
+
+Definition at line 15 of file rage.\+h.
+

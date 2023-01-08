@@ -1,0 +1,208 @@
+\hypertarget{boutons_8c}{}\doxysection{src/interfaces/sdl/boutons.c File Reference}
+\label{boutons_8c}\index{src/interfaces/sdl/boutons.c@{src/interfaces/sdl/boutons.c}}
+
+
+\+: Implémente les boutons de la SDL  
+
+
+{\ttfamily \#include \char`\"{}boutons.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$SDL2/\+SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../../rage.\+h\char`\"{}}\newline
+Include dependency graph for boutons.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{boutons_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_bouton}{Bouton}} \mbox{\hyperlink{boutons_8c_a656bac8abac1c3ac8530940cc0de00bc}{create\+Buton}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, int y, SDL\+\_\+\+Color c)
+\begin{DoxyCompactList}\small\item\em Crée un bouton dans une interface SDL. \end{DoxyCompactList}\item 
+SDL\+\_\+\+Surface $\ast$ \mbox{\hyperlink{boutons_8c_a780f12c88a7ca95918603b6e0428962d}{img\+\_\+bouton}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, int i)
+\begin{DoxyCompactList}\small\item\em Initialise les images sur les boutons. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{boutons_8c_a98e9807828ac1e1699694bea3c0b5f46}{affiche\+\_\+btn}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, int i)
+\begin{DoxyCompactList}\small\item\em Affiche le bouton sur l\textquotesingle{}interface. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{boutons_8c_a18ebf22827a16a35e6e55197f8ea959f}{test\+\_\+est\+Dans\+Btn}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, int x, int y, int i)
+\begin{DoxyCompactList}\small\item\em Test si la souris est dans le bouton i. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{boutons_8c_a06c2f4790646eec64d0e4ccca606c783}{set\+Color}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, int i, SDL\+\_\+\+Color c)
+\begin{DoxyCompactList}\small\item\em Set la couleur arrière du bouton i. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{boutons_8c_a5d5e809d205232006cc85f0c7f776f7d}{reset\+Color}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui)
+\begin{DoxyCompactList}\small\item\em Set la couleur arrière de tous les boutons à la couleur par défaut. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{boutons_8c_aece4549beb636e253eae17bce34c03d8}{init\+Butons}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui)
+\begin{DoxyCompactList}\small\item\em Initialise les boutons de l\textquotesingle{}interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Implémente les boutons de la SDL 
+
+\begin{DoxyAuthor}{Author}
+\+: PLOUVIN Patrice, PLOUVIN Patrick 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: 16/12/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{boutons_8c_a98e9807828ac1e1699694bea3c0b5f46}\label{boutons_8c_a98e9807828ac1e1699694bea3c0b5f46}} 
+\index{boutons.c@{boutons.c}!affiche\_btn@{affiche\_btn}}
+\index{affiche\_btn@{affiche\_btn}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{affiche\_btn()}{affiche\_btn()}}
+{\footnotesize\ttfamily void affiche\+\_\+btn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Affiche le bouton sur l\textquotesingle{}interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+{\em i} & l\textquotesingle{}indice du bouton \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a656bac8abac1c3ac8530940cc0de00bc}\label{boutons_8c_a656bac8abac1c3ac8530940cc0de00bc}} 
+\index{boutons.c@{boutons.c}!createButon@{createButon}}
+\index{createButon@{createButon}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{createButon()}{createButon()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_bouton}{Bouton}} create\+Buton (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{int}]{y,  }\item[{SDL\+\_\+\+Color}]{c }\end{DoxyParamCaption})}
+
+
+
+Crée un bouton dans une interface SDL. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+{\em y} & coordonnée y du bouton \\
+\hline
+{\em c} & La couleur du bouton \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{struct_bouton}{Bouton}} 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a780f12c88a7ca95918603b6e0428962d}\label{boutons_8c_a780f12c88a7ca95918603b6e0428962d}} 
+\index{boutons.c@{boutons.c}!img\_bouton@{img\_bouton}}
+\index{img\_bouton@{img\_bouton}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{img\_bouton()}{img\_bouton()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Surface$\ast$ img\+\_\+bouton (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Initialise les images sur les boutons. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+{\em i} & l\textquotesingle{}indice du bouton \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+SDL\+\_\+\+Surface$\ast$ l\textquotesingle{}image du bouton 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_aece4549beb636e253eae17bce34c03d8}\label{boutons_8c_aece4549beb636e253eae17bce34c03d8}} 
+\index{boutons.c@{boutons.c}!initButons@{initButons}}
+\index{initButons@{initButons}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{initButons()}{initButons()}}
+{\footnotesize\ttfamily void init\+Butons (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui }\end{DoxyParamCaption})}
+
+
+
+Initialise les boutons de l\textquotesingle{}interface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 149 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a5d5e809d205232006cc85f0c7f776f7d}\label{boutons_8c_a5d5e809d205232006cc85f0c7f776f7d}} 
+\index{boutons.c@{boutons.c}!resetColor@{resetColor}}
+\index{resetColor@{resetColor}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{resetColor()}{resetColor()}}
+{\footnotesize\ttfamily void reset\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui }\end{DoxyParamCaption})}
+
+
+
+Set la couleur arrière de tous les boutons à la couleur par défaut. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 139 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a06c2f4790646eec64d0e4ccca606c783}\label{boutons_8c_a06c2f4790646eec64d0e4ccca606c783}} 
+\index{boutons.c@{boutons.c}!setColor@{setColor}}
+\index{setColor@{setColor}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily void set\+Color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{int}]{i,  }\item[{SDL\+\_\+\+Color}]{c }\end{DoxyParamCaption})}
+
+
+
+Set la couleur arrière du bouton i. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}inteface \\
+\hline
+{\em i} & l\textquotesingle{}indice du bouton à modifier \\
+\hline
+{\em c} & La nouvelle couleur \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 130 of file boutons.\+c.
+
+\mbox{\Hypertarget{boutons_8c_a18ebf22827a16a35e6e55197f8ea959f}\label{boutons_8c_a18ebf22827a16a35e6e55197f8ea959f}} 
+\index{boutons.c@{boutons.c}!test\_estDansBtn@{test\_estDansBtn}}
+\index{test\_estDansBtn@{test\_estDansBtn}!boutons.c@{boutons.c}}
+\doxysubsubsection{\texorpdfstring{test\_estDansBtn()}{test\_estDansBtn()}}
+{\footnotesize\ttfamily int test\+\_\+est\+Dans\+Btn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Test si la souris est dans le bouton i. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+{\em x} & coordonnée x de la souris \\
+\hline
+{\em y} & coordonnée y de la souris \\
+\hline
+{\em i} & l\textquotesingle{}indice du bouton à tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si la souris est dans le bouton, 0 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 119 of file boutons.\+c.
+

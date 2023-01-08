@@ -1,0 +1,6 @@
+<map id="src/jouer_coup/jouer_ia.h" name="src/jouer_coup/jouer_ia.h">
+<area shape="rect" id="node1" title=": Jouer le coup de l&#39;ia" alt="" coords="192,5,376,32"/>
+<area shape="rect" id="node2" href="$jouer_8c.html" title=": Implémente le back&#45;end du jeu" alt="" coords="5,87,168,114"/>
+<area shape="rect" id="node3" href="$jouer__ia_8c.html" title=": Implémente le coup de l&#39;ia" alt="" coords="193,87,375,114"/>
+<area shape="rect" id="node4" href="$test__jouer__ia_8c.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer_ia.c" alt="" coords="399,80,550,121"/>
+</map>

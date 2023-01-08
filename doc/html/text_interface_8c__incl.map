@@ -1,0 +1,7 @@
+<map id="src/interfaces/text/textInterface.c" name="src/interfaces/text/textInterface.c">
+<area shape="rect" id="node1" title=": Implémente l&#39;interface du jeu en vue texte" alt="" coords="67,5,207,47"/>
+<area shape="rect" id="node2" href="$text_interface_8h.html" title=": Gère l&#39;interface du jeu en vue texte" alt="" coords="29,95,148,121"/>
+<area shape="rect" id="node5" href="$rage_8h.html" title=": Ferme correctement le programme s&#39;il y a une erreur dans la SDL" alt="" coords="161,169,248,196"/>
+<area shape="rect" id="node3" href="$user_interface_8h.html" title=": Gère l&#39;interface utilisateur" alt="" coords="5,169,137,196"/>
+<area shape="rect" id="node4" title=" " alt="" coords="90,244,186,271"/>
+</map>

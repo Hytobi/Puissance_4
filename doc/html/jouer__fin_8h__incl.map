@@ -1,0 +1,8 @@
+<map id="src/jouer_coup/jouer_fin.h" name="src/jouer_coup/jouer_fin.h">
+<area shape="rect" id="node1" title=": Gère les événements de fin de partie" alt="" coords="5,5,159,47"/>
+<area shape="rect" id="node2" href="$user_interface_8h.html" title=": Gère l&#39;interface utilisateur" alt="" coords="100,259,301,285"/>
+<area shape="rect" id="node4" href="$jouer_8h.html" title=": Fichier principale qui gère le back&#45;end du jeu" alt="" coords="126,95,193,121"/>
+<area shape="rect" id="node3" title=" " alt="" coords="222,333,318,360"/>
+<area shape="rect" id="node5" href="$sld_interface_8h.html" title=": Gère l&#39;interface du jeu en vue graphique SDL" alt="" coords="289,177,504,203"/>
+<area shape="rect" id="node6" href="$text_interface_8h.html" title=": Gère l&#39;interface du jeu en vue texte" alt="" coords="136,169,265,211"/>
+</map>

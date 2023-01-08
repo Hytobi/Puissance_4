@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 16/12/2022
  * @brief: Implémente les boutons de la SDL
- * @file: src/interfaces/sld/boutons.c
+ * @file: src/interfaces/sdl/boutons.c
  */
 
 #include "boutons.h"

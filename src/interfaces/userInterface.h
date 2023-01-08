@@ -36,7 +36,7 @@ typedef struct {
  * @brief La structure userInterface contient les informations
  * nécessaires à l'affichage de l'interface graphique
  */
-typedef struct ui {
+typedef struct {
     SDL_Window *window;      //!< La fenêtre SDL
     SDL_Renderer *renderer;  //!< Le renderer SDL
     Bouton *buttons;         //!< Les boutons SDL

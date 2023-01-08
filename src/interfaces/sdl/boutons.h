@@ -1,7 +1,7 @@
 /** @author: PLOUVIN Patrice, PLOUVIN Patrick
  * @date: 16/12/2022
  * @brief: Gère les boutons de la SDL
- * @file: src/interfaces/sld/boutons.h
+ * @file: src/interfaces/sdl/boutons.h
  */
 
 #ifndef BOUTONS_H

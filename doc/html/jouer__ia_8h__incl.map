@@ -1,0 +1,9 @@
+<map id="src/jouer_coup/jouer_ia.h" name="src/jouer_coup/jouer_ia.h">
+<area shape="rect" id="node1" title=": Jouer le coup de l&#39;ia" alt="" coords="339,5,523,32"/>
+<area shape="rect" id="node2" href="$user_interface_8h.html" title=": Gère l&#39;interface utilisateur" alt="" coords="208,319,409,345"/>
+<area shape="rect" id="node4" href="$jouer_8h.html" title=": Fichier principale qui gère le back&#45;end du jeu" alt="" coords="315,155,382,181"/>
+<area shape="rect" id="node7" href="$jouer__fin_8h.html" title=": Gère les événements de fin de partie" alt="" coords="386,80,477,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="189,393,285,420"/>
+<area shape="rect" id="node5" href="$sld_interface_8h.html" title=": Gère l&#39;interface du jeu en vue graphique SDL" alt="" coords="5,237,220,263"/>
+<area shape="rect" id="node6" href="$text_interface_8h.html" title=": Gère l&#39;interface du jeu en vue texte" alt="" coords="296,229,425,271"/>
+</map>

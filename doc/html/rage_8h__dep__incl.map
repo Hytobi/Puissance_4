@@ -1,0 +1,6 @@
+<map id="src/rage.h" name="src/rage.h">
+<area shape="rect" id="node1" title=": Ferme correctement le programme s&#39;il y a une erreur dans la SDL" alt="" coords="186,5,273,32"/>
+<area shape="rect" id="node2" href="$boutons_8c.html" title=": Implémente les boutons de la SDL" alt="" coords="5,80,139,121"/>
+<area shape="rect" id="node3" href="$sld_interface_8c.html" title=": Implémente l&#39;interface du jeu en vue graphique SDL" alt="" coords="163,80,296,121"/>
+<area shape="rect" id="node4" href="$text_interface_8c.html" title=": Implémente l&#39;interface du jeu en vue texte" alt="" coords="321,80,461,121"/>
+</map>

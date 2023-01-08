@@ -7,6 +7,7 @@ SRC_JOUER ?= jouer_coup
 OBJ_DIR ?= obj
 TEST_DIR ?= test
 BIN_DIR ?= bin
+DOC_DIR ?= doc
 DEBUG ?= 1
 LIB ?= -L./lib/lib -lSDL2
 INCLU ?= -I./lib/include
@@ -46,6 +47,7 @@ createRep:
 	@mkdir -p $(OBJ_DIR)/$(SRC_DIR)/$(SRC_JOUER)
 	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)
 	@mkdir -p $(OBJ_DIR)/$(TEST_DIR)/$(SRC_JOUER)
+	@mkdir -p $(DOC_DIR)
 
 $(TARGET): createRep $(OBJS)
 	$(CC) -o $(TARGET) $(OBJS) $(LDFLAGS) 
@@ -69,6 +71,10 @@ runtest:
 	make
 	@./$(TARGET_TEST)
 
+doc:
+	@doxygen
+	
+
 install:
 	@./bash/packUtils.sh
 
@@ -80,6 +86,9 @@ memory:
 
 clean:
 	rm -rf $(OBJ_DIR)
+
+cleandoc:
+	rm -rf $(DOC_DIR)/*
 
 mrproper: clean
 	rm -rf $(BIN_DIR)

@@ -1,0 +1,234 @@
+\hypertarget{jouer__fin_8c}{}\doxysection{src/jouer\+\_\+coup/jouer\+\_\+fin.c File Reference}
+\label{jouer__fin_8c}\index{src/jouer\_coup/jouer\_fin.c@{src/jouer\_coup/jouer\_fin.c}}
+
+
+\+: Implémente les événements de fin de partie  
+
+
+{\ttfamily \#include \char`\"{}jouer\+\_\+fin.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}SDL2/\+SDL.\+h\char`\"{}}\newline
+Include dependency graph for jouer\+\_\+fin.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jouer__fin_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{jouer__fin_8c_aece174aa18140f45cd288aae735c963a}{est\+Colonne\+Valide}} (\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} p\mbox{[}$\,$\mbox{]}\mbox{[}NB\+\_\+\+COLONNES\mbox{]}, int col)
+\begin{DoxyCompactList}\small\item\em Vérifie si on peut placer un jeton dans la colonne col. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__fin_8c_af5bb925183d88b681128d3049ced513a}{est\+Partie\+Pleine}} (\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} p\mbox{[}$\,$\mbox{]}\mbox{[}NB\+\_\+\+COLONNES\mbox{]})
+\begin{DoxyCompactList}\small\item\em Vérifie si le plateau est plein. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__fin_8c_a355d1fe3ed191dc919dc1c5aa0b19921}{est\+Dans\+Tab}} (int l, int c)
+\begin{DoxyCompactList}\small\item\em Vérifie si (l,c) est une case valide. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__fin_8c_a0097431189ae5501cd48081b671038e6}{compte\+Valeur}} (\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} p\mbox{[}$\,$\mbox{]}\mbox{[}NB\+\_\+\+COLONNES\mbox{]}, \mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} val, int lig, int col, int incL, int incC)
+\begin{DoxyCompactList}\small\item\em Compte l\textquotesingle{}alignement de pions dans une direction donnée. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__fin_8c_adca0f04894ab7ac369f9c92d80bcbd80}{max}} (int a, int b, int c, int d)
+\begin{DoxyCompactList}\small\item\em Maximum entre 4 entiers. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__fin_8c_ad2bef7013a029b2215cd7ceee9661232}{c\+Gagne}} (\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} p\mbox{[}$\,$\mbox{]}\mbox{[}NB\+\_\+\+COLONNES\mbox{]}, \mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} val, int lig, int col)
+\begin{DoxyCompactList}\small\item\em Vérifie si la partie est gagnée par un joueur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__fin_8c_abc2adf4b3f4e9b154de9f7bd91dbb069}{verif\+Fin\+Partie}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game, \mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, int x, int y)
+\begin{DoxyCompactList}\small\item\em Vérifie si quelqu\textquotesingle{}un a gagné ou si le plateau est plein. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Implémente les événements de fin de partie 
+
+\begin{DoxyAuthor}{Author}
+\+: PLOUVIN Patrice, PLOUVIN Patrick 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: 24/11/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{jouer__fin_8c_ad2bef7013a029b2215cd7ceee9661232}\label{jouer__fin_8c_ad2bef7013a029b2215cd7ceee9661232}} 
+\index{jouer\_fin.c@{jouer\_fin.c}!cGagne@{cGagne}}
+\index{cGagne@{cGagne}!jouer\_fin.c@{jouer\_fin.c}}
+\doxysubsubsection{\texorpdfstring{cGagne()}{cGagne()}}
+{\footnotesize\ttfamily int c\+Gagne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{p\mbox{[}$\,$\mbox{]}\mbox{[}\+NB\+\_\+\+COLONNES\mbox{]},  }\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{val,  }\item[{int}]{lig,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Vérifie si la partie est gagnée par un joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & le plateau de jeu \\
+\hline
+{\em val} & le joueur qui a potentiellement gagné \\
+\hline
+{\em lig} & ligne de la dernière case jouée \\
+\hline
+{\em col} & colonne de la dernière case jouée \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le nombre de pions alignés au maximum 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file jouer\+\_\+fin.\+c.
+
+\mbox{\Hypertarget{jouer__fin_8c_a0097431189ae5501cd48081b671038e6}\label{jouer__fin_8c_a0097431189ae5501cd48081b671038e6}} 
+\index{jouer\_fin.c@{jouer\_fin.c}!compteValeur@{compteValeur}}
+\index{compteValeur@{compteValeur}!jouer\_fin.c@{jouer\_fin.c}}
+\doxysubsubsection{\texorpdfstring{compteValeur()}{compteValeur()}}
+{\footnotesize\ttfamily int compte\+Valeur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{p\mbox{[}$\,$\mbox{]}\mbox{[}\+NB\+\_\+\+COLONNES\mbox{]},  }\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{val,  }\item[{int}]{lig,  }\item[{int}]{col,  }\item[{int}]{incL,  }\item[{int}]{incC }\end{DoxyParamCaption})}
+
+
+
+Compte l\textquotesingle{}alignement de pions dans une direction donnée. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & le plateau de jeu \\
+\hline
+{\em val} & la valeur du pion à compter \\
+\hline
+{\em lig} & la ligne du pion de départ \\
+\hline
+{\em col} & la colonne du pion de départ \\
+\hline
+{\em incL} & incrémentation de la ligne \\
+\hline
+{\em incC} & incrémentation de la colonne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le nombre de pions alignés dans la direction donnée 
+\end{DoxyReturn}
+
+
+Definition at line 60 of file jouer\+\_\+fin.\+c.
+
+\mbox{\Hypertarget{jouer__fin_8c_aece174aa18140f45cd288aae735c963a}\label{jouer__fin_8c_aece174aa18140f45cd288aae735c963a}} 
+\index{jouer\_fin.c@{jouer\_fin.c}!estColonneValide@{estColonneValide}}
+\index{estColonneValide@{estColonneValide}!jouer\_fin.c@{jouer\_fin.c}}
+\doxysubsubsection{\texorpdfstring{estColonneValide()}{estColonneValide()}}
+{\footnotesize\ttfamily int est\+Colonne\+Valide (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{p\mbox{[}$\,$\mbox{]}\mbox{[}\+NB\+\_\+\+COLONNES\mbox{]},  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Vérifie si on peut placer un jeton dans la colonne col. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & le tableau de jeu \\
+\hline
+{\em col} & la colonne a tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si la colonne est valide, 0 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 19 of file jouer\+\_\+fin.\+c.
+
+\mbox{\Hypertarget{jouer__fin_8c_a355d1fe3ed191dc919dc1c5aa0b19921}\label{jouer__fin_8c_a355d1fe3ed191dc919dc1c5aa0b19921}} 
+\index{jouer\_fin.c@{jouer\_fin.c}!estDansTab@{estDansTab}}
+\index{estDansTab@{estDansTab}!jouer\_fin.c@{jouer\_fin.c}}
+\doxysubsubsection{\texorpdfstring{estDansTab()}{estDansTab()}}
+{\footnotesize\ttfamily int est\+Dans\+Tab (\begin{DoxyParamCaption}\item[{int}]{l,  }\item[{int}]{c }\end{DoxyParamCaption})}
+
+
+
+Vérifie si (l,c) est une case valide. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & la ligne de la case à tester \\
+\hline
+{\em c} & la colonne de la case à tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si la case est valide, 0 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file jouer\+\_\+fin.\+c.
+
+\mbox{\Hypertarget{jouer__fin_8c_af5bb925183d88b681128d3049ced513a}\label{jouer__fin_8c_af5bb925183d88b681128d3049ced513a}} 
+\index{jouer\_fin.c@{jouer\_fin.c}!estPartiePleine@{estPartiePleine}}
+\index{estPartiePleine@{estPartiePleine}!jouer\_fin.c@{jouer\_fin.c}}
+\doxysubsubsection{\texorpdfstring{estPartiePleine()}{estPartiePleine()}}
+{\footnotesize\ttfamily int est\+Partie\+Pleine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{p\mbox{[}$\,$\mbox{]}\mbox{[}\+NB\+\_\+\+COLONNES\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Vérifie si le plateau est plein. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & le tableau de jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le plateau est plein, 0 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file jouer\+\_\+fin.\+c.
+
+\mbox{\Hypertarget{jouer__fin_8c_adca0f04894ab7ac369f9c92d80bcbd80}\label{jouer__fin_8c_adca0f04894ab7ac369f9c92d80bcbd80}} 
+\index{jouer\_fin.c@{jouer\_fin.c}!max@{max}}
+\index{max@{max}!jouer\_fin.c@{jouer\_fin.c}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily int max (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b,  }\item[{int}]{c,  }\item[{int}]{d }\end{DoxyParamCaption})}
+
+
+
+Maximum entre 4 entiers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & un entier \\
+\hline
+{\em b} & un entier \\
+\hline
+{\em c} & un entier \\
+\hline
+{\em d} & un entier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le plus grand des 4 entiers 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file jouer\+\_\+fin.\+c.
+
+\mbox{\Hypertarget{jouer__fin_8c_abc2adf4b3f4e9b154de9f7bd91dbb069}\label{jouer__fin_8c_abc2adf4b3f4e9b154de9f7bd91dbb069}} 
+\index{jouer\_fin.c@{jouer\_fin.c}!verifFinPartie@{verifFinPartie}}
+\index{verifFinPartie@{verifFinPartie}!jouer\_fin.c@{jouer\_fin.c}}
+\doxysubsubsection{\texorpdfstring{verifFinPartie()}{verifFinPartie()}}
+{\footnotesize\ttfamily int verif\+Fin\+Partie (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Vérifie si quelqu\textquotesingle{}un a gagné ou si le plateau est plein. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & Les données du jeu \mbox{\hyperlink{struct_puissance}{Puissance}} 4 \\
+\hline
+{\em ui} & L\textquotesingle{}interface utilisateur pour savoir comment finir le programme \\
+\hline
+{\em x} & La ligne du dernier coup joué \\
+\hline
+{\em y} & La colonne du dernier coup joué \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si la partie est finie, 0 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 132 of file jouer\+\_\+fin.\+c.
+

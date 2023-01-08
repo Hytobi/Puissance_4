@@ -1,0 +1,324 @@
+\hypertarget{sld_interface_8h}{}\doxysection{src/interfaces/sdl/sld\+Interface.h File Reference}
+\label{sld_interface_8h}\index{src/interfaces/sdl/sldInterface.h@{src/interfaces/sdl/sldInterface.h}}
+
+
+\+: Gère l\textquotesingle{}interface du jeu en vue graphique SDL  
+
+
+{\ttfamily \#include \char`\"{}../user\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}SDL2/\+SDL.\+h\char`\"{}}\newline
+Include dependency graph for sld\+Interface.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{sld_interface_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sld_interface_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{sld_interface_8h_a13e47eb1d312a97bf60c635d4f0a6952}\label{sld_interface_8h_a13e47eb1d312a97bf60c635d4f0a6952}} 
+\#define {\bfseries PATH\+\_\+\+IMG}~\char`\"{}src/interfaces/sdl/img/\char`\"{}
+\item 
+\mbox{\Hypertarget{sld_interface_8h_af2b30344be261ffe1c5aad12ab1f6f07}\label{sld_interface_8h_af2b30344be261ffe1c5aad12ab1f6f07}} 
+\#define {\bfseries CASE}~140
+\item 
+\mbox{\Hypertarget{sld_interface_8h_a528fbef6417e2fd7ef26fc7b856442f2}\label{sld_interface_8h_a528fbef6417e2fd7ef26fc7b856442f2}} 
+\#define {\bfseries H\+\_\+\+WINDOW}~CASE$\ast$ NB\+\_\+\+LIGNES
+\item 
+\mbox{\Hypertarget{sld_interface_8h_a21a3efc226d3f5b1d66af539aafcca98}\label{sld_interface_8h_a21a3efc226d3f5b1d66af539aafcca98}} 
+\#define {\bfseries W\+\_\+\+WINDOW}~CASE$\ast$(NB\+\_\+\+COLONNES + 1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structuser_interface}{user\+Interface}} \mbox{\hyperlink{sld_interface_8h_acca51a33912fa762a87dcfb24238c25f}{sdl\+Interface\+\_\+init}} (char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}inteface utilisateur ui pour la sdl Les parametres de l\textquotesingle{}interface ne doivent pas etre null à la fin. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sld_interface_8h_a241258c914c94ec7569253b863a9be2c}{update\+Board}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, int x, int y, \mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} player)
+\begin{DoxyCompactList}\small\item\em Met a jour le plateau de jeu en mettant le pion de la couleur du joueur en position (x,y) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sld_interface_8h_a864ad1c7df51f4fe9e946575805645db}{sdl\+Interface\+\_\+start}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui)
+\begin{DoxyCompactList}\small\item\em Page de demarrage de la vue SDL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sld_interface_8h_a4df8068f534de96f83814692c0c78526}{sdl\+Interface\+\_\+end}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, int fin)
+\begin{DoxyCompactList}\small\item\em Affiche le gagnant de la partie ou un match nul. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sld_interface_8h_ad112432bb16b560deabe29a9de3f50dd}{choix\+Mode\+Et\+Ia}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game, \mbox{\hyperlink{structuser_interface}{user\+Interface}} ui)
+\begin{DoxyCompactList}\small\item\em Attend que le mode de jeu et la difficulté de l\textquotesingle{}ia soit choisi pour la sdl. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sld_interface_8h_acad1b764ddff3391e48fae2230c28bc4}{pause\+SDL}} ()
+\begin{DoxyCompactList}\small\item\em Fait une pause de 2 secondes pour laisser le temps de voir le coup de l\textquotesingle{}ia Il y a un bug dans SDL\+\_\+\+Wait\+Event\+Timeout qui ne retourn pas 0 si le temps est écoulé On garde cette solution pour pouvoir quitter le jeu quand l\textquotesingle{}ia joue Contrairment à la solution avec SDL\+\_\+\+Delay qui ne permet pas de quitter le jeu. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{sld_interface_8h_ada9cd6e98732abb4c9f10bb8c8e1918b}{recup\+Path}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Récupère le chemin vers l\textquotesingle{}image. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sld_interface_8h_a85360e84200cea7a23e5adedfec9e1da}{reset\+Back}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, int color)
+\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}interface en vue graphique SDL On met la fenetre en bleu ou blanc. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sld_interface_8h_a51a228dd1269dc1773270346ba0dbe01}{load\+\_\+regles}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui)
+\begin{DoxyCompactList}\small\item\em Affiche les règles du jeu pour la sdl. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sld_interface_8h_abc9b34722db2215b6ca97114aa2950a7}{sdl\+Interface\+\_\+print\+Board}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui)
+\begin{DoxyCompactList}\small\item\em Affiche le plateau de jeu dans la vue SDL Ainsi que les boutons pour les modes de jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sld_interface_8h_adb44d61957939f460fc0f4f3a74e692c}{load\+\_\+loading}} (\mbox{\hyperlink{structuser_interface}{user\+Interface}} ui)
+\begin{DoxyCompactList}\small\item\em Affiche une idication que le jeu est en train de charger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Gère l\textquotesingle{}interface du jeu en vue graphique SDL 
+
+\begin{DoxyAuthor}{Author}
+\+: PLOUVIN Patrice, PLOUVIN Patrick 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: 24/11/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{sld_interface_8h_ad112432bb16b560deabe29a9de3f50dd}\label{sld_interface_8h_ad112432bb16b560deabe29a9de3f50dd}} 
+\index{sldInterface.h@{sldInterface.h}!choixModeEtIa@{choixModeEtIa}}
+\index{choixModeEtIa@{choixModeEtIa}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{choixModeEtIa()}{choixModeEtIa()}}
+{\footnotesize\ttfamily int choix\+Mode\+Et\+Ia (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui }\end{DoxyParamCaption})}
+
+
+
+Attend que le mode de jeu et la difficulté de l\textquotesingle{}ia soit choisi pour la sdl. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & Le jeu \\
+\hline
+{\em ui} & L\textquotesingle{}interface \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si on quitte, 0 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 305 of file sld\+Interface.\+c.
+
+\mbox{\Hypertarget{sld_interface_8h_adb44d61957939f460fc0f4f3a74e692c}\label{sld_interface_8h_adb44d61957939f460fc0f4f3a74e692c}} 
+\index{sldInterface.h@{sldInterface.h}!load\_loading@{load\_loading}}
+\index{load\_loading@{load\_loading}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{load\_loading()}{load\_loading()}}
+{\footnotesize\ttfamily void load\+\_\+loading (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui }\end{DoxyParamCaption})}
+
+
+
+Affiche une idication que le jeu est en train de charger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 107 of file sld\+Interface.\+c.
+
+\mbox{\Hypertarget{sld_interface_8h_a51a228dd1269dc1773270346ba0dbe01}\label{sld_interface_8h_a51a228dd1269dc1773270346ba0dbe01}} 
+\index{sldInterface.h@{sldInterface.h}!load\_regles@{load\_regles}}
+\index{load\_regles@{load\_regles}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{load\_regles()}{load\_regles()}}
+{\footnotesize\ttfamily void load\+\_\+regles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui }\end{DoxyParamCaption})}
+
+
+
+Affiche les règles du jeu pour la sdl. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file sld\+Interface.\+c.
+
+\mbox{\Hypertarget{sld_interface_8h_acad1b764ddff3391e48fae2230c28bc4}\label{sld_interface_8h_acad1b764ddff3391e48fae2230c28bc4}} 
+\index{sldInterface.h@{sldInterface.h}!pauseSDL@{pauseSDL}}
+\index{pauseSDL@{pauseSDL}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{pauseSDL()}{pauseSDL()}}
+{\footnotesize\ttfamily int pause\+SDL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Fait une pause de 2 secondes pour laisser le temps de voir le coup de l\textquotesingle{}ia Il y a un bug dans SDL\+\_\+\+Wait\+Event\+Timeout qui ne retourn pas 0 si le temps est écoulé On garde cette solution pour pouvoir quitter le jeu quand l\textquotesingle{}ia joue Contrairment à la solution avec SDL\+\_\+\+Delay qui ne permet pas de quitter le jeu. 
+
+\begin{DoxyReturn}{Returns}
+int 1 si l\textquotesingle{}utilisateur a quitté, 0 sinon
+\end{DoxyReturn}
+Fait une pause de 2 secondes pour laisser le temps de voir le coup de l\textquotesingle{}ia Il y a un bug dans SDL\+\_\+\+Wait\+Event\+Timeout qui ne retourn pas 0 si le temps est écoulé On garde cette solution pour pouvoir quitter le jeu quand l\textquotesingle{}ia joue Contrairment à la solution avec SDL\+\_\+\+Delay qui ne permet pas de quitter le jeu.
+
+\begin{DoxyReturn}{Returns}
+int 1 si l\textquotesingle{}utilisateur a quitté, 0 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 383 of file sld\+Interface.\+c.
+
+\mbox{\Hypertarget{sld_interface_8h_ada9cd6e98732abb4c9f10bb8c8e1918b}\label{sld_interface_8h_ada9cd6e98732abb4c9f10bb8c8e1918b}} 
+\index{sldInterface.h@{sldInterface.h}!recupPath@{recupPath}}
+\index{recupPath@{recupPath}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{recupPath()}{recupPath()}}
+{\footnotesize\ttfamily char$\ast$ recup\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Récupère le chemin vers l\textquotesingle{}image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+{\em path} & le nom de l\textquotesingle{}image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+char$\ast$ le chemin vers l\textquotesingle{}image 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file sld\+Interface.\+c.
+
+\mbox{\Hypertarget{sld_interface_8h_a85360e84200cea7a23e5adedfec9e1da}\label{sld_interface_8h_a85360e84200cea7a23e5adedfec9e1da}} 
+\index{sldInterface.h@{sldInterface.h}!resetBack@{resetBack}}
+\index{resetBack@{resetBack}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{resetBack()}{resetBack()}}
+{\footnotesize\ttfamily void reset\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{int}]{color }\end{DoxyParamCaption})}
+
+
+
+Initialise l\textquotesingle{}interface en vue graphique SDL On met la fenetre en bleu ou blanc. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+{\em color} & 1 pour bleu, 0 pour blanc \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file sld\+Interface.\+c.
+
+\mbox{\Hypertarget{sld_interface_8h_a4df8068f534de96f83814692c0c78526}\label{sld_interface_8h_a4df8068f534de96f83814692c0c78526}} 
+\index{sldInterface.h@{sldInterface.h}!sdlInterface\_end@{sdlInterface\_end}}
+\index{sdlInterface\_end@{sdlInterface\_end}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{sdlInterface\_end()}{sdlInterface\_end()}}
+{\footnotesize\ttfamily void sdl\+Interface\+\_\+end (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{int}]{fin }\end{DoxyParamCaption})}
+
+
+
+Affiche le gagnant de la partie ou un match nul. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+{\em fin} & entier qui indique le gagnant 1 pour rouge 2 pour jaune 0 pour nul \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 168 of file sld\+Interface.\+c.
+
+\mbox{\Hypertarget{sld_interface_8h_acca51a33912fa762a87dcfb24238c25f}\label{sld_interface_8h_acca51a33912fa762a87dcfb24238c25f}} 
+\index{sldInterface.h@{sldInterface.h}!sdlInterface\_init@{sdlInterface\_init}}
+\index{sdlInterface\_init@{sdlInterface\_init}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{sdlInterface\_init()}{sdlInterface\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structuser_interface}{user\+Interface}} sdl\+Interface\+\_\+init (\begin{DoxyParamCaption}\item[{char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Initialise l\textquotesingle{}inteface utilisateur ui pour la sdl Les parametres de l\textquotesingle{}interface ne doivent pas etre null à la fin. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & le chemin vers les images \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+l\textquotesingle{}interface utilisateur 
+\end{DoxyReturn}
+
+
+Definition at line 232 of file sld\+Interface.\+c.
+
+\mbox{\Hypertarget{sld_interface_8h_abc9b34722db2215b6ca97114aa2950a7}\label{sld_interface_8h_abc9b34722db2215b6ca97114aa2950a7}} 
+\index{sldInterface.h@{sldInterface.h}!sdlInterface\_printBoard@{sdlInterface\_printBoard}}
+\index{sdlInterface\_printBoard@{sdlInterface\_printBoard}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{sdlInterface\_printBoard()}{sdlInterface\_printBoard()}}
+{\footnotesize\ttfamily void sdl\+Interface\+\_\+print\+Board (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui }\end{DoxyParamCaption})}
+
+
+
+Affiche le plateau de jeu dans la vue SDL Ainsi que les boutons pour les modes de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 205 of file sld\+Interface.\+c.
+
+\mbox{\Hypertarget{sld_interface_8h_a864ad1c7df51f4fe9e946575805645db}\label{sld_interface_8h_a864ad1c7df51f4fe9e946575805645db}} 
+\index{sldInterface.h@{sldInterface.h}!sdlInterface\_start@{sdlInterface\_start}}
+\index{sdlInterface\_start@{sdlInterface\_start}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{sdlInterface\_start()}{sdlInterface\_start()}}
+{\footnotesize\ttfamily int sdl\+Interface\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui }\end{DoxyParamCaption})}
+
+
+
+Page de demarrage de la vue SDL. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si tout s\textquotesingle{}est bien passé, 1 si l\textquotesingle{}utilisateur a fermé la fenetre 
+\end{DoxyReturn}
+
+
+Definition at line 136 of file sld\+Interface.\+c.
+
+\mbox{\Hypertarget{sld_interface_8h_a241258c914c94ec7569253b863a9be2c}\label{sld_interface_8h_a241258c914c94ec7569253b863a9be2c}} 
+\index{sldInterface.h@{sldInterface.h}!updateBoard@{updateBoard}}
+\index{updateBoard@{updateBoard}!sldInterface.h@{sldInterface.h}}
+\doxysubsubsection{\texorpdfstring{updateBoard()}{updateBoard()}}
+{\footnotesize\ttfamily void update\+Board (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{player }\end{DoxyParamCaption})}
+
+
+
+Met a jour le plateau de jeu en mettant le pion de la couleur du joueur en position (x,y) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+{\em x} & la position en x \\
+\hline
+{\em y} & la position en y \\
+\hline
+{\em player} & le joueur (X ou O)\\
+\hline
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+{\em x} & la position en x dans le tableau (pas dans la fenetre) \\
+\hline
+{\em y} & la position en y dans le tableau (pas dans la fenetre) \\
+\hline
+{\em player} & le joueur (X ou O) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 287 of file sld\+Interface.\+c.
+

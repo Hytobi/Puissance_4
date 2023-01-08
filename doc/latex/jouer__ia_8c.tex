@@ -1,0 +1,206 @@
+\hypertarget{jouer__ia_8c}{}\doxysection{src/jouer\+\_\+coup/jouer\+\_\+ia.c File Reference}
+\label{jouer__ia_8c}\index{src/jouer\_coup/jouer\_ia.c@{src/jouer\_coup/jouer\_ia.c}}
+
+
+\+: Implémente le coup de l\textquotesingle{}ia  
+
+
+{\ttfamily \#include \char`\"{}jouer\+\_\+ia.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+Include dependency graph for jouer\+\_\+ia.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jouer__ia_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{jouer__ia_8c_aa50df2782b6a441d9a15ff78dbca0933}\label{jouer__ia_8c_aa50df2782b6a441d9a15ff78dbca0933}} 
+void \mbox{\hyperlink{jouer__ia_8c_aa50df2782b6a441d9a15ff78dbca0933}{init\+Random}} ()
+\begin{DoxyCompactList}\small\item\em Initialise le générateur de nombre aléatoire. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__ia_8c_a34b7e1ac654c41b1fc648d6a9cb92463}{prochain\+Coup\+Gagne}} (\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} p\mbox{[}$\,$\mbox{]}\mbox{[}NB\+\_\+\+COLONNES\mbox{]}, \mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} joueur)
+\begin{DoxyCompactList}\small\item\em Test chaque colonne pour voir si le coup permet de gagner. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__ia_8c_a48c470c2a3f52d0ea8469c90e8afa39c}{block\+Ou\+Gagne}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Joue un coup gagnant a 100\% si possible, ou bloque le coup cagant de l\textquotesingle{}adversaire. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__ia_8c_a5e13eb5f797e1efe9c661f5f0ba75c10}{facile}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Joue le coup de l\textquotesingle{}IA en mode facile. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__ia_8c_ad2f904eb30213aa5e0ff3018537b8d3e}{coup\+Adversaire}} (\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} p\mbox{[}$\,$\mbox{]}\mbox{[}NB\+\_\+\+COLONNES\mbox{]}, \mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} joueur)
+\begin{DoxyCompactList}\small\item\em pour l\textquotesingle{}IA moyen on joue le coup que l\textquotesingle{}adversaire devrait jouer \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__ia_8c_a1b66325f94d97483fcde65e27b420b37}{moyen}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Joue le coup de l\textquotesingle{}IA en mode moyen. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__ia_8c_ac86c5babc947f4559d3653fce5dccfd8}{difficile}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Joue le coup de l\textquotesingle{}IA en mode difficile. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer__ia_8c_a37b5b45d1eef6f9908bff8d3eb4e168b}{cherche\+Colonne}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game)
+\begin{DoxyCompactList}\small\item\em Joue le coup de l\textquotesingle{}IA en fonction de son niveau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Implémente le coup de l\textquotesingle{}ia 
+
+\begin{DoxyAuthor}{Author}
+\+: PLOUVIN Patrice, PLOUVIN Patrick 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: 24/11/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{jouer__ia_8c_a48c470c2a3f52d0ea8469c90e8afa39c}\label{jouer__ia_8c_a48c470c2a3f52d0ea8469c90e8afa39c}} 
+\index{jouer\_ia.c@{jouer\_ia.c}!blockOuGagne@{blockOuGagne}}
+\index{blockOuGagne@{blockOuGagne}!jouer\_ia.c@{jouer\_ia.c}}
+\doxysubsubsection{\texorpdfstring{blockOuGagne()}{blockOuGagne()}}
+{\footnotesize\ttfamily int block\+Ou\+Gagne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Joue un coup gagnant a 100\% si possible, ou bloque le coup cagant de l\textquotesingle{}adversaire. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & le jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int la colonne ou jouer 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file jouer\+\_\+ia.\+c.
+
+\mbox{\Hypertarget{jouer__ia_8c_a37b5b45d1eef6f9908bff8d3eb4e168b}\label{jouer__ia_8c_a37b5b45d1eef6f9908bff8d3eb4e168b}} 
+\index{jouer\_ia.c@{jouer\_ia.c}!chercheColonne@{chercheColonne}}
+\index{chercheColonne@{chercheColonne}!jouer\_ia.c@{jouer\_ia.c}}
+\doxysubsubsection{\texorpdfstring{chercheColonne()}{chercheColonne()}}
+{\footnotesize\ttfamily int cherche\+Colonne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Joue le coup de l\textquotesingle{}IA en fonction de son niveau. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & le jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la colonne ou joue l\textquotesingle{}IA 
+\end{DoxyReturn}
+
+
+Definition at line 215 of file jouer\+\_\+ia.\+c.
+
+\mbox{\Hypertarget{jouer__ia_8c_ad2f904eb30213aa5e0ff3018537b8d3e}\label{jouer__ia_8c_ad2f904eb30213aa5e0ff3018537b8d3e}} 
+\index{jouer\_ia.c@{jouer\_ia.c}!coupAdversaire@{coupAdversaire}}
+\index{coupAdversaire@{coupAdversaire}!jouer\_ia.c@{jouer\_ia.c}}
+\doxysubsubsection{\texorpdfstring{coupAdversaire()}{coupAdversaire()}}
+{\footnotesize\ttfamily int coup\+Adversaire (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{p\mbox{[}$\,$\mbox{]}\mbox{[}\+NB\+\_\+\+COLONNES\mbox{]},  }\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{joueur }\end{DoxyParamCaption})}
+
+
+
+pour l\textquotesingle{}IA moyen on joue le coup que l\textquotesingle{}adversaire devrait jouer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & le tableau de jeu \\
+\hline
+{\em joueur} & le joueur courant (X ou O) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la colonne du coup a jouer 
+\end{DoxyReturn}
+
+
+Definition at line 87 of file jouer\+\_\+ia.\+c.
+
+\mbox{\Hypertarget{jouer__ia_8c_ac86c5babc947f4559d3653fce5dccfd8}\label{jouer__ia_8c_ac86c5babc947f4559d3653fce5dccfd8}} 
+\index{jouer\_ia.c@{jouer\_ia.c}!difficile@{difficile}}
+\index{difficile@{difficile}!jouer\_ia.c@{jouer\_ia.c}}
+\doxysubsubsection{\texorpdfstring{difficile()}{difficile()}}
+{\footnotesize\ttfamily int difficile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Joue le coup de l\textquotesingle{}IA en mode difficile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & le jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la colonne ou joue l\textquotesingle{}IA 
+\end{DoxyReturn}
+
+
+Definition at line 171 of file jouer\+\_\+ia.\+c.
+
+\mbox{\Hypertarget{jouer__ia_8c_a5e13eb5f797e1efe9c661f5f0ba75c10}\label{jouer__ia_8c_a5e13eb5f797e1efe9c661f5f0ba75c10}} 
+\index{jouer\_ia.c@{jouer\_ia.c}!facile@{facile}}
+\index{facile@{facile}!jouer\_ia.c@{jouer\_ia.c}}
+\doxysubsubsection{\texorpdfstring{facile()}{facile()}}
+{\footnotesize\ttfamily int facile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Joue le coup de l\textquotesingle{}IA en mode facile. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la colonne ou joue l\textquotesingle{}IA 
+\end{DoxyReturn}
+
+
+Definition at line 72 of file jouer\+\_\+ia.\+c.
+
+\mbox{\Hypertarget{jouer__ia_8c_a1b66325f94d97483fcde65e27b420b37}\label{jouer__ia_8c_a1b66325f94d97483fcde65e27b420b37}} 
+\index{jouer\_ia.c@{jouer\_ia.c}!moyen@{moyen}}
+\index{moyen@{moyen}!jouer\_ia.c@{jouer\_ia.c}}
+\doxysubsubsection{\texorpdfstring{moyen()}{moyen()}}
+{\footnotesize\ttfamily int moyen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game }\end{DoxyParamCaption})}
+
+
+
+Joue le coup de l\textquotesingle{}IA en mode moyen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & le jeu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la colonne ou joue l\textquotesingle{}IA 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file jouer\+\_\+ia.\+c.
+
+\mbox{\Hypertarget{jouer__ia_8c_a34b7e1ac654c41b1fc648d6a9cb92463}\label{jouer__ia_8c_a34b7e1ac654c41b1fc648d6a9cb92463}} 
+\index{jouer\_ia.c@{jouer\_ia.c}!prochainCoupGagne@{prochainCoupGagne}}
+\index{prochainCoupGagne@{prochainCoupGagne}!jouer\_ia.c@{jouer\_ia.c}}
+\doxysubsubsection{\texorpdfstring{prochainCoupGagne()}{prochainCoupGagne()}}
+{\footnotesize\ttfamily int prochain\+Coup\+Gagne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{p\mbox{[}$\,$\mbox{]}\mbox{[}\+NB\+\_\+\+COLONNES\mbox{]},  }\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{joueur }\end{DoxyParamCaption})}
+
+
+
+Test chaque colonne pour voir si le coup permet de gagner. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la colonne ou peut gagner l\textquotesingle{}IA,-\/1 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file jouer\+\_\+ia.\+c.
+

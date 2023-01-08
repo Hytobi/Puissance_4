@@ -1,0 +1,91 @@
+\hypertarget{user_interface_8h}{}\doxysection{src/interfaces/user\+Interface.h File Reference}
+\label{user_interface_8h}\index{src/interfaces/userInterface.h@{src/interfaces/userInterface.h}}
+
+
+\+: Gère l\textquotesingle{}interface utilisateur  
+
+
+{\ttfamily \#include \char`\"{}SDL2/\+SDL.\+h\char`\"{}}\newline
+Include dependency graph for user\+Interface.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{user_interface_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{user_interface_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_bouton}{Bouton}}
+\begin{DoxyCompactList}\small\item\em La structure \mbox{\hyperlink{struct_bouton}{Bouton}} contient les informations nécessaires à l\textquotesingle{}affichage d\textquotesingle{}un bouton. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structuser_interface}{user\+Interface}}
+\begin{DoxyCompactList}\small\item\em La structure \mbox{\hyperlink{structuser_interface}{user\+Interface}} contient les informations nécessaires à l\textquotesingle{}affichage de l\textquotesingle{}interface graphique. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_puissance}{Puissance}}
+\begin{DoxyCompactList}\small\item\em Structure qui représente le jeu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{user_interface_8h_abfa179ca04bf5c427a56beb8b26c0272}\label{user_interface_8h_abfa179ca04bf5c427a56beb8b26c0272}} 
+\#define {\bfseries NB\+\_\+\+COLONNES}~7
+\item 
+\mbox{\Hypertarget{user_interface_8h_ad8edf09d2d914fdd5eae545ee2bd6ce9}\label{user_interface_8h_ad8edf09d2d914fdd5eae545ee2bd6ce9}} 
+\#define {\bfseries NB\+\_\+\+LIGNES}~6
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} \{ \mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9adc514eb010522b2ad800b8fca05add81}{CROIX}}
+, \mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9af8430342cfb80a5d2fbbd78ffed82ffe}{ROND}}
+, \mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9a2f0d18fc0d0fa4a6cd92dc328501874d}{EMPTY}}
+ \}
+\begin{DoxyCompactList}\small\item\em représente les joueurs \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Gère l\textquotesingle{}interface utilisateur 
+
+\begin{DoxyAuthor}{Author}
+\+: PLOUVIN Patrice, PLOUVIN Patrick 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: 24/11/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}\label{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}} 
+\index{userInterface.h@{userInterface.h}!Player@{Player}}
+\index{Player@{Player}!userInterface.h@{userInterface.h}}
+\doxysubsubsection{\texorpdfstring{Player}{Player}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}
+
+
+
+représente les joueurs 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CROIX@{CROIX}!userInterface.h@{userInterface.h}}\index{userInterface.h@{userInterface.h}!CROIX@{CROIX}}}\mbox{\Hypertarget{user_interface_8h_a9c8780378078e51e7c9041cbac392db9adc514eb010522b2ad800b8fca05add81}\label{user_interface_8h_a9c8780378078e51e7c9041cbac392db9adc514eb010522b2ad800b8fca05add81}} 
+CROIX&le joueur est une croix \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROND@{ROND}!userInterface.h@{userInterface.h}}\index{userInterface.h@{userInterface.h}!ROND@{ROND}}}\mbox{\Hypertarget{user_interface_8h_a9c8780378078e51e7c9041cbac392db9af8430342cfb80a5d2fbbd78ffed82ffe}\label{user_interface_8h_a9c8780378078e51e7c9041cbac392db9af8430342cfb80a5d2fbbd78ffed82ffe}} 
+ROND&le joueur est un rond \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!userInterface.h@{userInterface.h}}\index{userInterface.h@{userInterface.h}!EMPTY@{EMPTY}}}\mbox{\Hypertarget{user_interface_8h_a9c8780378078e51e7c9041cbac392db9a2f0d18fc0d0fa4a6cd92dc328501874d}\label{user_interface_8h_a9c8780378078e51e7c9041cbac392db9a2f0d18fc0d0fa4a6cd92dc328501874d}} 
+EMPTY&la case est vide \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 18 of file user\+Interface.\+h.
+

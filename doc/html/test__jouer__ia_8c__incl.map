@@ -1,0 +1,14 @@
+<map id="test/jouer_coup/test_jouer_ia.c" name="test/jouer_coup/test_jouer_ia.c">
+<area shape="rect" id="node1" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer_ia.c" alt="" coords="381,5,532,47"/>
+<area shape="rect" id="node2" href="$test__jouer__ia_8h.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer_ia.c" alt="" coords="120,102,239,129"/>
+<area shape="rect" id="node4" href="$user_interface_8h.html" title=": Gère l&#39;interface utilisateur" alt="" coords="344,423,479,464"/>
+<area shape="rect" id="node6" href="$jouer__ia_8h.html" title=": Jouer le coup de l&#39;ia" alt="" coords="387,95,527,136"/>
+<area shape="rect" id="node11" href="$tab_8h.html" title=": Initialise les tableaux remplis de Player" alt="" coords="602,259,669,285"/>
+<area shape="rect" id="node12" href="$test__jouer_8h.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer.c" alt="" coords="263,102,362,129"/>
+<area shape="rect" id="node3" title=" " alt="" coords="163,184,273,211"/>
+<area shape="rect" id="node5" title=" " alt="" coords="239,512,335,539"/>
+<area shape="rect" id="node7" href="$jouer_8h.html" title=": Fichier principale qui gère le back&#45;end du jeu" alt="" coords="315,259,382,285"/>
+<area shape="rect" id="node10" href="$jouer__fin_8h.html" title=": Gère les événements de fin de partie" alt="" coords="386,184,477,211"/>
+<area shape="rect" id="node8" href="$sld_interface_8h.html" title=": Gère l&#39;interface du jeu en vue graphique SDL" alt="" coords="5,341,220,367"/>
+<area shape="rect" id="node9" href="$text_interface_8h.html" title=": Gère l&#39;interface du jeu en vue texte" alt="" coords="296,333,425,375"/>
+</map>

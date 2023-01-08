@@ -1,0 +1,141 @@
+\hypertarget{text_interface_8c}{}\doxysection{src/interfaces/text/text\+Interface.c File Reference}
+\label{text_interface_8c}\index{src/interfaces/text/textInterface.c@{src/interfaces/text/textInterface.c}}
+
+
+\+: Implémente l\textquotesingle{}interface du jeu en vue texte  
+
+
+{\ttfamily \#include \char`\"{}text\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../rage.\+h\char`\"{}}\newline
+Include dependency graph for text\+Interface.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{text_interface_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structuser_interface}{user\+Interface}} \mbox{\hyperlink{text_interface_8c_afbe9f04338a8ee8fa95e9f1bff3f2fc2}{text\+Interface\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em \+: Initialise l\textquotesingle{}interface en vue texte Les paramètres de l\textquotesingle{}interface sont initialisés à NULL \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{text_interface_8c_a4e2e0d85b282ed541e4766e78580f87b}{choose\+Player}} ()
+\begin{DoxyCompactList}\small\item\em \+: Affiche le menu de choix du mode de jeu IA vs IA, JOUEUR vs IA, JOUEUR vs JOUEUR \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{text_interface_8c_a81fba52fa2f68da5bcfa47f4666ac1f8}{dificulte\+IA}} ()
+\begin{DoxyCompactList}\small\item\em \+: Affiche le menu de choix de la difficulté de l\textquotesingle{}IA facile, moyen, difficile \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{text_interface_8c_a8b27027af6e295af5edc3c415321d583}{rejouer}} ()
+\begin{DoxyCompactList}\small\item\em \+: Demmande à l\textquotesingle{}utilisateur s\textquotesingle{}il veut rejouer \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{text_interface_8c_a9c522e162b8d38cec34ac8abdd167ae0}\label{text_interface_8c_a9c522e162b8d38cec34ac8abdd167ae0}} 
+void \mbox{\hyperlink{text_interface_8c_a9c522e162b8d38cec34ac8abdd167ae0}{affiche\+Ligne\+Inter}} (int lig)
+\begin{DoxyCompactList}\small\item\em Affiche la séparation entre 2 lignes du plateau de jeu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{text_interface_8c_ae2d9509639896910cb738c152d22e0e1}\label{text_interface_8c_ae2d9509639896910cb738c152d22e0e1}} 
+void \mbox{\hyperlink{text_interface_8c_ae2d9509639896910cb738c152d22e0e1}{affiche\+Prem\+Ligne}} ()
+\begin{DoxyCompactList}\small\item\em Affichage de l\textquotesingle{}index des colonnes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{text_interface_8c_a33ce6b583d86ebd729e6b28533e89f70}{print\+Board}} (\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} p\mbox{[}$\,$\mbox{]}\mbox{[}NB\+\_\+\+COLONNES\mbox{]})
+\begin{DoxyCompactList}\small\item\em Affiche le plateau de jeu. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{text_interface_8c_a5b66841b3d598f5644e3d8c8f715dd90}\label{text_interface_8c_a5b66841b3d598f5644e3d8c8f715dd90}} 
+void \mbox{\hyperlink{text_interface_8c_a5b66841b3d598f5644e3d8c8f715dd90}{vide\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em vide le buffer de l\textquotesingle{}entrée standard \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Implémente l\textquotesingle{}interface du jeu en vue texte 
+
+\begin{DoxyAuthor}{Author}
+\+: PLOUVIN Patrice, PLOUVIN Patrick 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: 24/11/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{text_interface_8c_a4e2e0d85b282ed541e4766e78580f87b}\label{text_interface_8c_a4e2e0d85b282ed541e4766e78580f87b}} 
+\index{textInterface.c@{textInterface.c}!choosePlayer@{choosePlayer}}
+\index{choosePlayer@{choosePlayer}!textInterface.c@{textInterface.c}}
+\doxysubsubsection{\texorpdfstring{choosePlayer()}{choosePlayer()}}
+{\footnotesize\ttfamily int choose\+Player (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\+: Affiche le menu de choix du mode de jeu IA vs IA, JOUEUR vs IA, JOUEUR vs JOUEUR 
+
+\begin{DoxyReturn}{Returns}
+le choix de mode de jeu 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file text\+Interface.\+c.
+
+\mbox{\Hypertarget{text_interface_8c_a81fba52fa2f68da5bcfa47f4666ac1f8}\label{text_interface_8c_a81fba52fa2f68da5bcfa47f4666ac1f8}} 
+\index{textInterface.c@{textInterface.c}!dificulteIA@{dificulteIA}}
+\index{dificulteIA@{dificulteIA}!textInterface.c@{textInterface.c}}
+\doxysubsubsection{\texorpdfstring{dificulteIA()}{dificulteIA()}}
+{\footnotesize\ttfamily int dificulte\+IA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\+: Affiche le menu de choix de la difficulté de l\textquotesingle{}IA facile, moyen, difficile 
+
+\+: Affiche le menu de choix de la dificulté de l\textquotesingle{}IA facile, moyen, difficile
+
+\begin{DoxyReturn}{Returns}
+la difficulté de l\textquotesingle{}IA 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file text\+Interface.\+c.
+
+\mbox{\Hypertarget{text_interface_8c_a33ce6b583d86ebd729e6b28533e89f70}\label{text_interface_8c_a33ce6b583d86ebd729e6b28533e89f70}} 
+\index{textInterface.c@{textInterface.c}!printBoard@{printBoard}}
+\index{printBoard@{printBoard}!textInterface.c@{textInterface.c}}
+\doxysubsubsection{\texorpdfstring{printBoard()}{printBoard()}}
+{\footnotesize\ttfamily void print\+Board (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{p\mbox{[}$\,$\mbox{]}\mbox{[}\+NB\+\_\+\+COLONNES\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Affiche le plateau de jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & le tableau de jeu de taille NB\+\_\+\+LIGNES x NB\+\_\+\+COLONNES \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 133 of file text\+Interface.\+c.
+
+\mbox{\Hypertarget{text_interface_8c_a8b27027af6e295af5edc3c415321d583}\label{text_interface_8c_a8b27027af6e295af5edc3c415321d583}} 
+\index{textInterface.c@{textInterface.c}!rejouer@{rejouer}}
+\index{rejouer@{rejouer}!textInterface.c@{textInterface.c}}
+\doxysubsubsection{\texorpdfstring{rejouer()}{rejouer()}}
+{\footnotesize\ttfamily int rejouer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\+: Demmande à l\textquotesingle{}utilisateur s\textquotesingle{}il veut rejouer 
+
+\begin{DoxyReturn}{Returns}
+le choix du joueur (1 oui ou 2 non) 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file text\+Interface.\+c.
+
+\mbox{\Hypertarget{text_interface_8c_afbe9f04338a8ee8fa95e9f1bff3f2fc2}\label{text_interface_8c_afbe9f04338a8ee8fa95e9f1bff3f2fc2}} 
+\index{textInterface.c@{textInterface.c}!textInterface\_init@{textInterface\_init}}
+\index{textInterface\_init@{textInterface\_init}!textInterface.c@{textInterface.c}}
+\doxysubsubsection{\texorpdfstring{textInterface\_init()}{textInterface\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structuser_interface}{user\+Interface}} text\+Interface\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\+: Initialise l\textquotesingle{}interface en vue texte Les paramètres de l\textquotesingle{}interface sont initialisés à NULL 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{structuser_interface}{user\+Interface}} 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file text\+Interface.\+c.
+

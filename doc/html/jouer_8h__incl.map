@@ -1,0 +1,7 @@
+<map id="src/jouer_coup/jouer.h" name="src/jouer_coup/jouer.h">
+<area shape="rect" id="node1" title=": Fichier principale qui gère le back&#45;end du jeu" alt="" coords="8,5,172,32"/>
+<area shape="rect" id="node2" href="$sld_interface_8h.html" title=": Gère l&#39;interface du jeu en vue graphique SDL" alt="" coords="178,87,393,114"/>
+<area shape="rect" id="node3" href="$user_interface_8h.html" title=": Gère l&#39;interface utilisateur" alt="" coords="69,169,201,196"/>
+<area shape="rect" id="node5" href="$text_interface_8h.html" title=": Gère l&#39;interface du jeu en vue texte" alt="" coords="25,80,154,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="139,244,235,271"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="userInterface" name="userInterface">
+<area shape="rect" id="node1" title="La structure userInterface contient les informations nécessaires à l&#39;affichage de l&#39;interface graphiq..." alt="" coords="5,95,113,121"/>
+<area shape="rect" id="node2" href="$struct_bouton.html" title="La structure Bouton contient les informations nécessaires à l&#39;affichage d&#39;un bouton." alt="" coords="25,5,93,32"/>
+</map>

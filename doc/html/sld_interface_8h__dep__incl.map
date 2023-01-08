@@ -1,0 +1,16 @@
+<map id="src/interfaces/sdl/sldInterface.h" name="src/interfaces/sdl/sldInterface.h">
+<area shape="rect" id="node1" title=": Gère l&#39;interface du jeu en vue graphique SDL" alt="" coords="375,5,508,47"/>
+<area shape="rect" id="node2" href="$boutons_8h.html" title=": Gère les boutons de la SDL" alt="" coords="161,95,295,136"/>
+<area shape="rect" id="node4" href="$sld_interface_8c.html" title=": Implémente l&#39;interface du jeu en vue graphique SDL" alt="" coords="213,184,347,225"/>
+<area shape="rect" id="node6" href="$jouer_8h.html" title=": Fichier principale qui gère le back&#45;end du jeu" alt="" coords="499,102,663,129"/>
+<area shape="rect" id="node13" href="$src_2main_8c.html" title=": Fonction principale du programme" alt="" coords="851,191,941,218"/>
+<area shape="rect" id="node3" href="$boutons_8c.html" title=": Implémente les boutons de la SDL" alt="" coords="5,184,139,225"/>
+<area shape="rect" id="node5" href="$jouer_8c.html" title=": Implémente le back&#45;end du jeu" alt="" coords="315,370,477,397"/>
+<area shape="rect" id="node7" href="$jouer__fin_8h.html" title=": Gère les événements de fin de partie" alt="" coords="447,184,601,225"/>
+<area shape="rect" id="node9" href="$jouer__ia_8h.html" title=": Jouer le coup de l&#39;ia" alt="" coords="812,281,996,307"/>
+<area shape="rect" id="node14" href="$test__jouer_8c.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer.c" alt="" coords="677,184,827,225"/>
+<area shape="rect" id="node8" href="$jouer__fin_8c.html" title=": Implémente les événements de fin de partie" alt="" coords="459,273,613,315"/>
+<area shape="rect" id="node12" href="$test__jouer__fin_8c.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer_fin.c" alt="" coords="637,273,787,315"/>
+<area shape="rect" id="node10" href="$jouer__ia_8c.html" title=": Implémente le coup de l&#39;ia" alt="" coords="717,370,899,397"/>
+<area shape="rect" id="node11" href="$test__jouer__ia_8c.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer_ia.c" alt="" coords="923,363,1074,404"/>
+</map>

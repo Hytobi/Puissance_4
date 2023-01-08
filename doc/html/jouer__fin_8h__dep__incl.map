@@ -1,0 +1,9 @@
+<map id="src/jouer_coup/jouer_fin.h" name="src/jouer_coup/jouer_fin.h">
+<area shape="rect" id="node1" title=": Gère les événements de fin de partie" alt="" coords="166,5,319,47"/>
+<area shape="rect" id="node2" href="$jouer_8c.html" title=": Implémente le back&#45;end du jeu" alt="" coords="5,191,168,218"/>
+<area shape="rect" id="node3" href="$jouer__fin_8c.html" title=": Implémente les événements de fin de partie" alt="" coords="70,95,223,136"/>
+<area shape="rect" id="node4" href="$jouer__ia_8h.html" title=": Jouer le coup de l&#39;ia" alt="" coords="248,102,432,129"/>
+<area shape="rect" id="node7" href="$test__jouer__fin_8c.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer_fin.c" alt="" coords="457,95,607,136"/>
+<area shape="rect" id="node5" href="$jouer__ia_8c.html" title=": Implémente le coup de l&#39;ia" alt="" coords="221,191,403,218"/>
+<area shape="rect" id="node6" href="$test__jouer__ia_8c.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer_ia.c" alt="" coords="427,184,578,225"/>
+</map>

@@ -19,7 +19,7 @@ void test_chercheLigne(void) {
 
     // On commence par remplir la ligne du bas
     // On teste jusqu'a ce que les colonnes soient pleines et au dela
-    for (int l = NB_LIGNES - 1; l >= -1; l--) {
+    for (int l = NB_LIGNES - 1; l > -1; l--) {
         // Pour chaque colonne
         for (int c = 0; c < NB_COLONNES; c++) {
             // on teste si la ligne est bien l

@@ -1,0 +1,12 @@
+<map id="src/jouer_coup/jouer.h" name="src/jouer_coup/jouer.h">
+<area shape="rect" id="node1" title=": Fichier principale qui gère le back&#45;end du jeu" alt="" coords="322,5,486,32"/>
+<area shape="rect" id="node2" href="$jouer_8c.html" title=": Implémente le back&#45;end du jeu" alt="" coords="5,266,168,293"/>
+<area shape="rect" id="node3" href="$jouer__fin_8h.html" title=": Gère les événements de fin de partie" alt="" coords="213,80,366,121"/>
+<area shape="rect" id="node5" href="$jouer__ia_8h.html" title=": Jouer le coup de l&#39;ia" alt="" coords="477,177,661,203"/>
+<area shape="rect" id="node9" href="$src_2main_8c.html" title=": Fonction principale du programme" alt="" coords="442,87,531,114"/>
+<area shape="rect" id="node10" href="$test__jouer_8c.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer.c" alt="" coords="555,80,706,121"/>
+<area shape="rect" id="node4" href="$jouer__fin_8c.html" title=": Implémente les événements de fin de partie" alt="" coords="125,169,278,211"/>
+<area shape="rect" id="node8" href="$test__jouer__fin_8c.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer_fin.c" alt="" coords="302,169,453,211"/>
+<area shape="rect" id="node6" href="$jouer__ia_8c.html" title=": Implémente le coup de l&#39;ia" alt="" coords="382,266,565,293"/>
+<area shape="rect" id="node7" href="$test__jouer__ia_8c.html" title=": Fait les tests sur les fonctions de src/jouer_coup/jouer_ia.c" alt="" coords="589,259,739,300"/>
+</map>

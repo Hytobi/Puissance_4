@@ -1,0 +1,6 @@
+<map id="src/interfaces/sdl/boutons.h" name="src/interfaces/sdl/boutons.h">
+<area shape="rect" id="node1" title=": Gère les boutons de la SDL" alt="" coords="5,5,139,47"/>
+<area shape="rect" id="node2" href="$user_interface_8h.html" title=": Gère l&#39;interface utilisateur" alt="" coords="33,169,165,196"/>
+<area shape="rect" id="node3" title=" " alt="" coords="51,244,147,271"/>
+<area shape="rect" id="node4" href="$sld_interface_8h.html" title=": Gère l&#39;interface du jeu en vue graphique SDL" alt="" coords="110,95,221,121"/>
+</map>

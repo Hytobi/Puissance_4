@@ -1,0 +1,207 @@
+\hypertarget{jouer_8h}{}\doxysection{src/jouer\+\_\+coup/jouer.h File Reference}
+\label{jouer_8h}\index{src/jouer\_coup/jouer.h@{src/jouer\_coup/jouer.h}}
+
+
+\+: Fichier principale qui gère le back-\/end du jeu  
+
+
+{\ttfamily \#include \char`\"{}../interfaces/sdl/sld\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../interfaces/text/text\+Interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../interfaces/user\+Interface.\+h\char`\"{}}\newline
+Include dependency graph for jouer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jouer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jouer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$ \mbox{\hyperlink{jouer_8h_a386ae84f91982304b5cbeaf964ef306f}{puissance\+\_\+init}} (\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} player)
+\begin{DoxyCompactList}\small\item\em Initialise le jeu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{jouer_8h_a2297a353bec81f7aaab75f18fa325266}{puissance\+\_\+play\+Game}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game, \mbox{\hyperlink{structuser_interface}{user\+Interface}} ui)
+\begin{DoxyCompactList}\small\item\em Joue le coup du joueur. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer_8h_af648ac04c4a7768d36678eb0eb869734}{cherche\+Ligne}} (\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}} p\mbox{[}$\,$\mbox{]}\mbox{[}NB\+\_\+\+COLONNES\mbox{]}, int col)
+\begin{DoxyCompactList}\small\item\em Cherche la ligne où jouer le coup dans la colonne col. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer_8h_aaf70c5b13a6ee3f6c2c50771396fc313}{joue\+Coup}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game, \mbox{\hyperlink{structuser_interface}{user\+Interface}} ui, int x, int y)
+\begin{DoxyCompactList}\small\item\em Met a jour le plateau de jeu sdl ou text avec un coup en \mbox{[}x,y\mbox{]}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{jouer_8h_a1ef790a8ac2070a1eb79fe2ff8d35b98}{play\+SDL}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game, \mbox{\hyperlink{structuser_interface}{user\+Interface}} ui)
+\begin{DoxyCompactList}\small\item\em Traite les evenements du jeu en mode SDL. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{jouer_8h_addecd7bff2dcb0b8461f549b51676209}{play\+Text}} (\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$game, \mbox{\hyperlink{structuser_interface}{user\+Interface}} ui)
+\begin{DoxyCompactList}\small\item\em Traite les evenements du jeu en mode texte. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Fichier principale qui gère le back-\/end du jeu 
+
+\begin{DoxyAuthor}{Author}
+\+: PLOUVIN Patrice, PLOUVIN Patrick 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+\+: 24/11/2022 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{jouer_8h_af648ac04c4a7768d36678eb0eb869734}\label{jouer_8h_af648ac04c4a7768d36678eb0eb869734}} 
+\index{jouer.h@{jouer.h}!chercheLigne@{chercheLigne}}
+\index{chercheLigne@{chercheLigne}!jouer.h@{jouer.h}}
+\doxysubsubsection{\texorpdfstring{chercheLigne()}{chercheLigne()}}
+{\footnotesize\ttfamily int cherche\+Ligne (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{p\mbox{[}$\,$\mbox{]}\mbox{[}\+NB\+\_\+\+COLONNES\mbox{]},  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Cherche la ligne où jouer le coup dans la colonne col. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Le tableau du jeu \\
+\hline
+{\em col} & La colonne dans la quelle jouer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la ligne où jouer le coup 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file jouer.\+c.
+
+\mbox{\Hypertarget{jouer_8h_aaf70c5b13a6ee3f6c2c50771396fc313}\label{jouer_8h_aaf70c5b13a6ee3f6c2c50771396fc313}} 
+\index{jouer.h@{jouer.h}!joueCoup@{joueCoup}}
+\index{joueCoup@{joueCoup}!jouer.h@{jouer.h}}
+\doxysubsubsection{\texorpdfstring{joueCoup()}{joueCoup()}}
+{\footnotesize\ttfamily int joue\+Coup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Met a jour le plateau de jeu sdl ou text avec un coup en \mbox{[}x,y\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & Le jeu \\
+\hline
+{\em ui} & L\textquotesingle{}interface \\
+\hline
+{\em x} & La colonne \\
+\hline
+{\em y} & La ligne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le coup met fin a la partie, 0 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file jouer.\+c.
+
+\mbox{\Hypertarget{jouer_8h_a1ef790a8ac2070a1eb79fe2ff8d35b98}\label{jouer_8h_a1ef790a8ac2070a1eb79fe2ff8d35b98}} 
+\index{jouer.h@{jouer.h}!playSDL@{playSDL}}
+\index{playSDL@{playSDL}!jouer.h@{jouer.h}}
+\doxysubsubsection{\texorpdfstring{playSDL()}{playSDL()}}
+{\footnotesize\ttfamily int play\+SDL (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui }\end{DoxyParamCaption})}
+
+
+
+Traite les evenements du jeu en mode SDL. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & le jeu \\
+\hline
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si l\textquotesingle{}utilisateur a quitté, 0 sinon 
+\end{DoxyReturn}
+
+
+Definition at line 79 of file jouer.\+c.
+
+\mbox{\Hypertarget{jouer_8h_addecd7bff2dcb0b8461f549b51676209}\label{jouer_8h_addecd7bff2dcb0b8461f549b51676209}} 
+\index{jouer.h@{jouer.h}!playText@{playText}}
+\index{playText@{playText}!jouer.h@{jouer.h}}
+\doxysubsubsection{\texorpdfstring{playText()}{playText()}}
+{\footnotesize\ttfamily void play\+Text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui }\end{DoxyParamCaption})}
+
+
+
+Traite les evenements du jeu en mode texte. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & le jeu \\
+\hline
+{\em ui} & l\textquotesingle{}interface \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 127 of file jouer.\+c.
+
+\mbox{\Hypertarget{jouer_8h_a386ae84f91982304b5cbeaf964ef306f}\label{jouer_8h_a386ae84f91982304b5cbeaf964ef306f}} 
+\index{jouer.h@{jouer.h}!puissance\_init@{puissance\_init}}
+\index{puissance\_init@{puissance\_init}!jouer.h@{jouer.h}}
+\doxysubsubsection{\texorpdfstring{puissance\_init()}{puissance\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_puissance}{Puissance}}$\ast$ puissance\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{user_interface_8h_a9c8780378078e51e7c9041cbac392db9}{Player}}}]{player }\end{DoxyParamCaption})}
+
+
+
+Initialise le jeu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & Le joueur qui commence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Le jeu initialisé 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file jouer.\+c.
+
+\mbox{\Hypertarget{jouer_8h_a2297a353bec81f7aaab75f18fa325266}\label{jouer_8h_a2297a353bec81f7aaab75f18fa325266}} 
+\index{jouer.h@{jouer.h}!puissance\_playGame@{puissance\_playGame}}
+\index{puissance\_playGame@{puissance\_playGame}!jouer.h@{jouer.h}}
+\doxysubsubsection{\texorpdfstring{puissance\_playGame()}{puissance\_playGame()}}
+{\footnotesize\ttfamily void puissance\+\_\+play\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_puissance}{Puissance}} $\ast$}]{game,  }\item[{\mbox{\hyperlink{structuser_interface}{user\+Interface}}}]{ui }\end{DoxyParamCaption})}
+
+
+
+Joue le coup du joueur. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & Le jeu \\
+\hline
+{\em x} & La colonne \\
+\hline
+{\em y} & La ligne \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si le coup est valide, 1 sinon
+\end{DoxyReturn}
+Joue le coup du joueur.
+
+
+\begin{DoxyParams}{Parameters}
+{\em game} & Le jeu \\
+\hline
+{\em ui} & L\textquotesingle{}interface \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 168 of file jouer.\+c.
+
