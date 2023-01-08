@@ -72,8 +72,7 @@ runtest:
 	@./$(TARGET_TEST)
 
 doc:
-	@doxygen
-	
+	@doxygen Doxyfile
 
 install:
 	@./bash/packUtils.sh
