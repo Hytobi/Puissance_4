@@ -14,20 +14,6 @@
 void initRandom() { srand(time(NULL)); }
 
 /**
- * @brief Joue le coup de l'IA en mode facile
- * @param game
- * @return la colonne ou joue l'IA
- */
-int facile(Puissance* game) {
-    int c;
-    // On cherche une colonne valide
-    do {
-        c = rand() % NB_COLONNES;
-    } while (!estColonneValide(game->board, c));
-    return c;
-}
-
-/**
  * @brief Test chaque colonne pour voir si le coup permet de gagner
  * @param game
  * @return la colonne ou peut gagner l'IA,-1 sinon
@@ -56,6 +42,40 @@ int prochainCoupGagne(Player p[][NB_COLONNES], Player joueur) {
     }
     // Si aucun coup ne permet de gagner on retourne -1
     return -1;
+}
+
+/**
+ * @brief Joue un coup gagnant a 100% si possible,
+ * ou bloque le coup cagant de l'adversaire
+ *
+ * @param game le jeu
+ * @return int la colonne ou jouer
+ */
+int blockOuGagne(Puissance* game) {
+    int c;
+    // Si on peut gagner on gagne
+    c = prochainCoupGagne(game->board, game->player);
+    if (c != -1) return c;
+
+    // Si l'adversaire peut gagner on bloque
+    c = prochainCoupGagne(game->board, (game->player == ROND) ? CROIX : ROND);
+    if (c != -1) return c;
+    // Sinon on retourne -1
+    return -1;
+}
+
+/**
+ * @brief Joue le coup de l'IA en mode facile
+ * @param game
+ * @return la colonne ou joue l'IA
+ */
+int facile(Puissance* game) {
+    int c;
+    // On cherche une colonne valide
+    do {
+        c = rand() % NB_COLONNES;
+    } while (!estColonneValide(game->board, c));
+    return c;
 }
 
 /**
@@ -127,12 +147,8 @@ int coupAdversaire(Player p[][NB_COLONNES], Player joueur) {
  */
 int moyen(Puissance* game) {
     int c;
-    // Si on peut gagner on gagne
-    c = prochainCoupGagne(game->board, game->player);
-    if (c != -1) return c;
-
-    // Si l'adversaire peut gagner on bloque
-    c = prochainCoupGagne(game->board, (game->player == ROND) ? CROIX : ROND);
+    // On regarde si on peut gagner ou bloquer
+    c = blockOuGagne(game);
     if (c != -1) return c;
 
     // Sinon on joue le coup de l'adversaire
@@ -154,27 +170,40 @@ int moyen(Puissance* game) {
  */
 int difficile(Puissance* game) {
     int c;
-    // Si on peut gagner on gagne
-    c = prochainCoupGagne(game->board, game->player);
+    // On regarde si on peut gagner ou bloquer
+    c = blockOuGagne(game);
     if (c != -1) return c;
 
-    // Si l'adversaire peut gagner on bloque
-    c = prochainCoupGagne(game->board, (game->player == ROND) ? CROIX : ROND);
-    if (c != -1) return c;
+    int col[3] = {-1};
+    int lig[2] = {-1};
 
-    int col[3] = {-1, -1, -1};
-    int lig[2] = {-1, -1};
-    col[0] = coupAdversaire(game->board, game->player);
-    lig[0] = chercheLigne(game->board, col[0]);
-    game->board[lig[0]][col[0]] = game->player;
-    Player inter = (game->player == ROND) ? CROIX : ROND;
-    col[1] = coupAdversaire(game->board, inter);
-    lig[1] = chercheLigne(game->board, col[1]);
-    game->board[lig[1]][col[1]] = inter;
+    // On regard 2 coup dans le futur
+    for (int i = 0; i < 2; i++) {
+        // On joue le coup de l'adversaire
+        col[i] = coupAdversaire(game->board, game->player);
+        // Si vraiment ca se passe mal on joue au hasard
+        if (col[i] == -1) {
+            col[i] = rand() % NB_COLONNES;
+        }
+        lig[i] = chercheLigne(game->board, col[i]);
+        if (i % 2 == 0)
+            game->board[lig[i]][col[i]] = game->player;
+        else
+            game->board[lig[i]][col[i]] = (game->player == ROND) ? CROIX : ROND;
+    }
+
+    // On joue le 3eme coup dans le futur
     col[2] = coupAdversaire(game->board, game->player);
 
-    game->board[lig[0]][col[0]] = EMPTY;
-    game->board[lig[1]][col[1]] = EMPTY;
+    // On remet le jeu a l'etat initial
+    for (int i = 0; i < 2; i++) {
+        game->board[lig[i]][col[i]] = EMPTY;
+    }
+    // Si on a pas de coup a jouer on joue au hasard
+    if (col[2] == -1) {
+        return facile(game);
+    }
+    // Sinon on joue le coup
     return col[2];
 }
 

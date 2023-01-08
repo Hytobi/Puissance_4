@@ -50,6 +50,15 @@ int facile(Puissance* game);
 int prochainCoupGagne(Player p[][NB_COLONNES], Player joueur);
 
 /**
+ * @brief Joue un coup gagnant a 100% si possible,
+ * ou bloque le coup cagant de l'adversaire
+ *
+ * @param game le jeu
+ * @return int la colonne ou jouer
+ */
+int blockOuGagne(Puissance* game);
+
+/**
  * @brief pour l'IA moyen on joue le coup que l'adversaire devrait jouer
  * @param p le tableau de jeu
  * @param joueur le joueur courant (X ou O)
