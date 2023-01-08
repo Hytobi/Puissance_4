@@ -176,20 +176,22 @@ int difficile(Puissance* game) {
 
     int col[3] = {-1};
     int lig[2] = {-1};
+    Player p;
 
     // On regard 2 coup dans le futur
     for (int i = 0; i < 2; i++) {
+        if (i % 2 == 0)
+            p = game->player;
+        else
+            p = (game->player == ROND) ? CROIX : ROND;
         // On joue le coup de l'adversaire
-        col[i] = coupAdversaire(game->board, game->player);
+        col[i] = coupAdversaire(game->board, p);
         // Si vraiment ca se passe mal on joue au hasard
         if (col[i] == -1) {
             col[i] = rand() % NB_COLONNES;
         }
         lig[i] = chercheLigne(game->board, col[i]);
-        if (i % 2 == 0)
-            game->board[lig[i]][col[i]] = game->player;
-        else
-            game->board[lig[i]][col[i]] = (game->player == ROND) ? CROIX : ROND;
+        game->board[lig[i]][col[i]] = p;
     }
 
     // On joue le 3eme coup dans le futur
